@@ -14,8 +14,9 @@ set autoindent
 set expandtab
 set hlsearch
 set number
+set visualbell
 "colorscheme vividchalk
-colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night
 highlight Normal ctermbg=NONE
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
