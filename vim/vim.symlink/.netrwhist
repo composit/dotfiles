@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/var/www/resourc/app/views/admin/order_pick_lists'
-let g:netrw_dirhist_2='/var/www/resourc/config/deploy'
-let g:netrw_dirhist_3='/var/www/resourc_single_product/config/deploy'
-let g:netrw_dirhist_4='/var/www/resourc_single_product/app/views/notifier'
-let g:netrw_dirhist_5='/var/www/resourc_single_product/app/assets/javascripts/backbone/routers'
-let g:netrw_dirhist_6='/var/www/resourc_single_product/config/deploy'
