@@ -25,6 +25,9 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 
+" Hide search highlighting
+map <Leader>h :set invhls <CR>
+
 " xnoremap . :norm.<CR>
 
 " Open files with <leader>f
