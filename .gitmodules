@@ -4,3 +4,6 @@
 [submodule "vim/vim.symlink/bundle/command-t"]
 	path = vim/vim.symlink/bundle/command-t
 	url = https://github.com/wincent/Command-T.git
+[submodule "vim/vim.symlink/bundle/vim-align"]
+	path = vim/vim.symlink/bundle/vim-align
+	url = https://github.com/tsaleh/vim-align.git
