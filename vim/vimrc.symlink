@@ -20,6 +20,7 @@ set number " show the numbers
 set visualbell " quiet down
 
 colorscheme Tomorrow-Night-Eighties
+"colorscheme vividchalk
 
 " dark line numbers
 highlight Normal ctermbg=NONE
