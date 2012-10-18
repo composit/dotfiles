@@ -17,7 +17,12 @@ set autoindent
 set expandtab
 set hlsearch
 set number " show the numbers
-set visualbell " quiet down
+
+" quiet down
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
 
 colorscheme Tomorrow-Night-Eighties
 "colorscheme vividchalk
