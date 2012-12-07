@@ -31,10 +31,16 @@ colorscheme Tomorrow-Night-Eighties
 highlight Normal ctermbg=NONE
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
-set foldmethod=indent
-set foldnestmax=10
+set foldmethod=syntax
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent foldnestmax=2
+"set foldmethod=indent
+set foldnestmax=2
 set nofoldenable
-set foldlevel=1
+set foldlevel=2
+
+" Open and close folds with space
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
