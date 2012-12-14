@@ -24,7 +24,7 @@ set novisualbell
 set t_vb=
 set tm=500
 
-colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow
 "colorscheme vividchalk
 
 " dark line numbers
@@ -53,8 +53,8 @@ xnoremap . :norm.<CR>
 " Open files with <leader>f
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 
-" Open backbone files
-map <leader>b :CommandTFlush<cr>\|:CommandT app/assets/javascripts/backbone<cr>
+" Open javascript files
+map <leader>j :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
