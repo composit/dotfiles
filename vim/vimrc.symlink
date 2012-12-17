@@ -28,7 +28,7 @@ colorscheme Tomorrow
 "colorscheme vividchalk
 
 " dark line numbers
-highlight Normal ctermbg=NONE
+highlight Normal ctermbg=none
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 set foldmethod=syntax
@@ -104,7 +104,11 @@ endfunction
 
 function! SetTestFile()
     " Set the spec file that tests will be run for.
-    let t:grb_test_file=@%
+    if match(expand("%"), '.js.coffee$') != -1
+      let t:grb_test_file=@%
+    else
+      let t:grb_test_file=@% . ":" . line('.')
+    end
 endfunction
 
 function! RunTests(filename)
@@ -116,14 +120,13 @@ function! RunTests(filename)
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    if match(a:filename, '\.js.coffee$') != -1
+    if match(expand("%"), '.js.coffee$') != -1
         exec ":!jasmine-headless-webkit --color --no-full-run --runner-out runner.html " . a:filename
     else
-        let spec_line_number = line('.')
         if filereadable("Gemfile")
-            exec ":!bundle exec rspec --color --drb -b " . a:filename . ":" . spec_line_number
+            exec ":!bundle exec rspec --color --drb " . a:filename
         else
-            exec ":!rspec --color --drb -b " . a:filename . ":" . spec_line_number
+            exec ":!rspec --color --drb " . a:filename
         end
     end
 endfunction
