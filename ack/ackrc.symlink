@@ -2,3 +2,4 @@
 --type-set=scss=.scss
 --type-set=template=.ejs
 --type-set=rabl=.rabl
+--ignore-dir=.jhw-cache
