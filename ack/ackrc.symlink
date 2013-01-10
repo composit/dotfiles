@@ -3,3 +3,4 @@
 --type-set=template=.ejs
 --type-set=rabl=.rabl
 --ignore-dir=.jhw-cache
+--ignore-dir=tmp
