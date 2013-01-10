@@ -25,3 +25,6 @@
 [submodule "vim/vim.symlink/bundle/vim-vividchalk"]
 	path = vim/vim.symlink/bundle/vim-vividchalk
 	url = https://github.com/tpope/vim-vividchalk.git
+[submodule "vim/vim.symlink/bundle/syntastic"]
+	path = vim/vim.symlink/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
