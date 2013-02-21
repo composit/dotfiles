@@ -141,32 +141,26 @@ endfunction
 function! AlternateForCurrentFile()
   let current_file = expand("%")
   let new_file = current_file
-  let in_spec = match(current_file, '^spec/') != -1 || match(current_file, '^api_spec/') != -1
+  let in_spec = match(current_file, '^spec/') != -1
   let going_to_spec = !in_spec
   let in_js = match(current_file, '\<javascripts\>') != -1
-  let in_api = match(current_file, '\<api\>') != -1
-  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<mailers\>') != -1
+  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1 || match(current_file, '\<mailers\>') != -1 || match(current_file, '\<api\>') != -1
   if going_to_spec
     if in_js
       let new_file = substitute(new_file, '^app/assets/', '', '')
-    elseif in_app || in_api
+    elseif in_app
       let new_file = substitute(new_file, '^app/', '', '')
     end
     let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
     let new_file = substitute(new_file, '\.js\.coffee$', '_spec.js.coffee', '')
-    if in_api
-      let new_file = 'api_spec/' . new_file
-    else
-      let new_file = 'spec/' . new_file
-    end
+    let new_file = 'spec/' . new_file
   else
     let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
     let new_file = substitute(new_file, '_spec\.js\.coffee$', '.js.coffee', '')
-    let new_file = substitute(new_file, '^api_spec/', '', '')
     let new_file = substitute(new_file, '^spec/', '', '')
     if in_js
       let new_file = 'app/assets/' . new_file
-    elseif in_app || in_api
+    elseif in_app
       let new_file = 'app/' . new_file
     end
   endif
