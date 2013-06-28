@@ -31,12 +31,12 @@ colorscheme Tomorrow
 highlight Normal ctermbg=none
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
-set foldmethod=syntax
-au BufNewFile,BufReadPost *.coffee setl foldmethod=indent foldnestmax=2
+"set foldmethod=syntax
+"au BufNewFile,BufReadPost *.coffee setl foldmethod=indent foldnestmax=2
 "set foldmethod=indent
-set foldnestmax=2
-set nofoldenable
-set foldlevel=2
+"set foldnestmax=2
+"set nofoldenable
+"set foldlevel=2
 
 let mapleader=","
 
