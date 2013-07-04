@@ -1,9 +1,21 @@
 " 256 color
 set t_Co=256
 
+set nocompatible
 filetype off
 
-call pathogen#runtime_append_all_bundles()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'wincent/Command-T'
+Bundle 'mattn/gist-vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-rails'
+Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'mattn/webapi-vim'
 
 syntax on
 filetype plugin indent on
