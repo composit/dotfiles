@@ -95,7 +95,7 @@ bind - split-window -v
 bind h split-window -v
  
 # History
-set -g history-limit 1000
+set -g history-limit 5000
  
 # Pane
 #unbind o
@@ -132,3 +132,8 @@ setw -g clock-mode-style 24
 # " windowlist -b
 unbind '"'
 bind '"' choose-window
+
+# vim copy mode
+setw -g mode-keys vi
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
