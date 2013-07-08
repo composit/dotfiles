@@ -16,6 +16,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-rails'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'mattn/webapi-vim'
+Bundle 'airblade/vim-gitgutter'
 
 syntax on
 filetype plugin indent on
