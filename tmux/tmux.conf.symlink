@@ -102,8 +102,8 @@ set -g history-limit 5000
 #bind C-s down-pane
  
 # Terminal emulator window title
-set -g set-titles on
-set -g set-titles-string '#S:#I.#P #W'
+#set -g set-titles on
+#set -g set-titles-string '#S:#I.#P #W'
  
 # Status Bar
 set -g status-bg black
