@@ -1,0 +1,8 @@
+class CreateMobileRequestNotificationAddresses < ActiveRecord::Migration
+  def change
+    create_table :mobile_request_notification_addresses do |t|
+
+      t.timestamps
+    end
+  end
+end

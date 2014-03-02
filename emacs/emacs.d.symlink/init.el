@@ -1,0 +1,36 @@
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  )
+
+(add-to-list 'load-path "(path-to)/Enhanced-Ruby-Mode") ; must be added after any path containing old ruby-mode
+(autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
+(add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
+
+(unless (package-installed-p 'inf-ruby)
+  (package-install 'inf-ruby))
+
+(unless (package-installed-p 'smartparens)
+  (package-install 'smartparens))
+
+(defun ruby-insert-end ()
+  "Insert \"end\" at point and reindent current line."
+  (interactive)
+  (insert "end")
+  (ruby-indent-line t)
+  (end-of-line))
+
+(eval-after-load "enh-ruby-mode"
+  '(add-hook 'enh-ruby-mode-hook 'ruby-electric-mode))
+
+(eval-after-load "enh-ruby-mode"
+  '(add-hook 'enh-ruby-mode-hook 'ruby-test-mode))
+
+(define-key global-map (kbd "RET") 'newline-and-indent)
+
+(setq backup-directory-alist
+            `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+            `((".*" ,temporary-file-directory t)))
