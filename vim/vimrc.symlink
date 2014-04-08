@@ -15,6 +15,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-rails'
 Bundle 'chriskempson/vim-tomorrow-theme'
+"Bundle 'chriskempson/base16-vim'
 Bundle 'mattn/webapi-vim'
 "Bundle 'airblade/vim-gitgutter'
 "Bundle 'tpope/vim-dispatch'
@@ -39,7 +40,11 @@ set novisualbell
 set t_vb=
 set tm=500
 
-colorscheme Tomorrow
+set background=dark
+"colorscheme Tomorrow
+colorscheme Tomorrow-Night
+"colorscheme base16-default
+"colorscheme base16-tomorrow
 "colorscheme vividchalk
 
 " dark line numbers
