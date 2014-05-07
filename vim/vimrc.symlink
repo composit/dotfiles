@@ -75,7 +75,10 @@ xnoremap . :norm.<CR>
 map <leader>f :CtrlP<cr>
 
 " Open javascript files
-map <leader>j :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
+" map <leader>j :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
+map <leader>j :CtrlP app/assets/javascripts/angular<cr>
+
+let g:ctrlp_by_filename = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
