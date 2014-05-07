@@ -111,7 +111,7 @@ set -g status-fg white
 set -g status-interval 1
 set -g status-left '#[fg=green]#H#[default]'
 set -g status-right-length 150
-set -g status-right '#[fg=red,bg=white]#(~/.tmux/butane_status_check.sh)#[default] #[fg=green,bg=white]#(~/.tmux/pomodoro_timer.sh)#[default] #[fg=yellow]#(cut -d " " -f 1-4 /proc/loadavg)#[default] #[fg=cyan,bold]%Y-%m-%d %H:%M:%S#[default]'
+set -g status-right '#[fg=green,bg=white]#(~/.tmux/pomodoro_timer.sh)#[default] #[fg=yellow]#(cut -d " " -f 1-4 /proc/loadavg)#[default] #[fg=cyan,bold]%Y-%m-%d %H:%M:%S#[default]'
  
 # Notifying if other windows has activities
 setw -g monitor-activity on
