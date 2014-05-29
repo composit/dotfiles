@@ -20,6 +20,7 @@ Bundle 'mattn/webapi-vim'
 "Bundle 'airblade/vim-gitgutter'
 "Bundle 'tpope/vim-dispatch'
 Bundle 'kien/ctrlp.vim'
+Bundle 'fatih/vim-go'
 
 syntax on
 filetype plugin indent on
