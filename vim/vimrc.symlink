@@ -4,26 +4,28 @@ set t_Co=256
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-"Bundle 'wincent/Command-T'
-Bundle 'mattn/gist-vim'
-"Bundle 'scrooloose/syntastic'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-rails'
-Bundle 'chriskempson/vim-tomorrow-theme'
-"Bundle 'chriskempson/base16-vim'
-Bundle 'mattn/webapi-vim'
-"Bundle 'airblade/vim-gitgutter'
-"Bundle 'tpope/vim-dispatch'
-Bundle 'kien/ctrlp.vim'
-Bundle 'fatih/vim-go'
+Plugin 'gmarik/vundle'
+"Plugin 'wincent/Command-T'
+Plugin 'mattn/gist-vim'
+"Plugin 'scrooloose/syntastic'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-rails'
+Plugin 'chriskempson/vim-tomorrow-theme'
+"Plugin 'chriskempson/base16-vim'
+Plugin 'mattn/webapi-vim'
+"Plugin 'airblade/vim-gitgutter'
+"Plugin 'tpope/vim-dispatch'
+Plugin 'kien/ctrlp.vim'
+"Plugin 'fatih/vim-go'
+
+call vundle#end()
+filetype plugin indent on
 
 syntax on
-filetype plugin indent on
 set showmatch
 set smartcase
 set incsearch
