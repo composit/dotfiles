@@ -5,7 +5,11 @@ task :install do
   linkables = Dir.glob('*/**{.symlink}')
 
   skip_all = false
-  overwrite_all = false
+  if ENV['OVERWRITER']
+    overwrite_all = true
+  else
+    overwrite_all = false
+  end
   backup_all = false
 
   linkables.each do |linkable|
