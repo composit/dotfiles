@@ -8,7 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/vundle'
-"Plugin 'wincent/Command-T'
+Plugin 'wincent/Command-T'
 Plugin 'mattn/gist-vim'
 "Plugin 'scrooloose/syntastic'
 Plugin 'kchmck/vim-coffee-script'
@@ -19,8 +19,8 @@ Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'mattn/webapi-vim'
 "Plugin 'airblade/vim-gitgutter'
 "Plugin 'tpope/vim-dispatch'
-Plugin 'kien/ctrlp.vim'
-"Plugin 'fatih/vim-go'
+"Plugin 'kien/ctrlp.vim'
+Plugin 'fatih/vim-go'
 Plugin 'rking/ag.vim'
 
 call vundle#end()
@@ -75,12 +75,12 @@ map <Leader>h :set invhls <CR>
 xnoremap . :norm.<CR>
 
 " Open files with <leader>f
-" map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>f :CtrlP<cr>
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+" map <leader>f :CtrlP<cr>
 
 " Open javascript files
-" map <leader>j :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
-map <leader>j :CtrlP app/assets/javascripts/angular<cr>
+map <leader>j :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
+" map <leader>j :CtrlP app/assets/javascripts/angular<cr>
 
 " let g:ctrlp_by_filename = 1
 
