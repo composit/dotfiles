@@ -1,0 +1,133 @@
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="gallifrey"
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
+
+# Comment this out to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment to change how often before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want to disable command autocorrection
+# DISABLE_CORRECTION="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment following line if you want to disable marking untracked files under
+# VCS as dirty. This makes repository status check for large repositories much,
+# much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git bundler rails)
+#plugins=(git rails)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...
+#export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+
+export JRUBY_OPTS=--1.9
+
+# 256 color tmux
+alias tmux="tmux -2"
+
+alias rspec='nocorrect rspec'
+
+  
+# production
+alias sa1='ssh rails@app1.new.scout.managedmachine.com'
+alias sa2='ssh rails@app2.new.scout.managedmachine.com'
+alias sa3='ssh rails@app3.new.scout.managedmachine.com'
+alias sa4='ssh rails@app4.new.scout.managedmachine.com'
+alias sa5='ssh rails@app5.new.scout.managedmachine.com'
+alias sa6='ssh rails@app6.new.scout.managedmachine.com'
+alias sa7='ssh rails@app7.new.scout.managedmachine.com'
+alias sw1='ssh rails@web1.scout.managedmachine.com'
+alias sw2='ssh rails@web2.scout.managedmachine.com'
+alias sd1='ssh rails@db1.scout.managedmachine.com'
+alias sd2='ssh rails@db2.scout.managedmachine.com'
+alias sr1='ssh rails@rrd1.scout.managedmachine.com'
+alias sr5='ssh rails@rrd5.scout.managedmachine.com'
+alias sr6='ssh rails@rrd6.scout.managedmachine.com'
+alias sr7='ssh rails@rrd7.scout.managedmachine.com'
+alias sr8='ssh rails@rrd8.scout.managedmachine.com'
+alias sr9='ssh rails@rrd9.scout.managedmachine.com'
+alias su1='ssh rails@util1.new.scout.managedmachine.com'
+alias ss1='ssh rails@sinatra.new.scout.managedmachine.com'
+
+# staging
+
+alias ssa1='ssh rails@app1.new.staging.scout.managedmachine.com'
+alias ssa2='ssh rails@app2.new.staging.scout.managedmachine.com'
+alias ssw1='ssh rails@web1.staging.scout.managedmachine.com'
+alias ssw2='ssh rails@web2.staging.scout.managedmachine.com'
+alias ssd1='ssh rails@db1.staging.scout.managedmachine.com'
+alias ssd2='ssh rails@db2.staging.scout.managedmachine.com'
+alias ssr1='ssh rails@rrd1.staging.scout.managedmachine.com'
+alias ssr2='ssh rails@rrd2.staging.scout.managedmachine.com'
+alias ssu1='ssh rails@util1.new.staging.scout.managedmachine.com'
+alias sss1='ssh rails@sinatra.new.staging.scout.managedmachine.com'
+
+alias sd='ssh-add && ssh matt@52.8.113.166 -p2222'
+alias gophercon='cd /srv/projects/gophercon/bootcamp'
+
+# Jasmine tests need to point to Chromium
+#export CHROME_BIN="/usr/bin/chromium-browser"
+
+# path to Go
+#export PATH=$PATH:/usr/local/go/bin
+#export GOPATH=$HOME/dev/scout/go_test
+#export PATH=$PATH:$GOPATH/bin
+
+alias smc='cd /srv/projects/composit/slowmonster_cli/src/github.com/composit/slowmonster_cli'
+
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+#[ -s "/home/matt/.nvm/nvm.sh" ] && . "/home/matt/.nvm/nvm.sh" # This loads nvm
+
+### Added by the Heroku Toolbelt
+#export PATH="/usr/local/heroku/bin:$PATH"
+
+#export EDITOR='emacs -nw'
+export EDITOR='vim'
+alias e=$EDITOR
+
+# navigate to scout dir
+alias s='cd /srv/projects/scout/scout'
+alias sgc='cd /srv/projects/scout/scout-go-collector/code/src/github.com/scoutapp/scout-go-collector'
+
+# tmuxinator autocomplete
+source ~/.bin/tmuxinator.zsh
+
+# Vi mode
+bindkey -v
+
+# The next line updates PATH for the Google Cloud SDK.
+# source '/home/matt/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables bash completion for gcloud.
+# source '/home/matt/google-cloud-sdk/completion.zsh.inc'
