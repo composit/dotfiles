@@ -22,6 +22,7 @@ Plugin 'chriskempson/vim-tomorrow-theme'
 "Plugin 'kien/ctrlp.vim'
 Plugin 'fatih/vim-go'
 Plugin 'rking/ag.vim'
+Plugin 'slim-template/vim-slim.git'
 
 call vundle#end()
 filetype plugin indent on
