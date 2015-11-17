@@ -23,6 +23,7 @@ Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'fatih/vim-go'
 Plugin 'rking/ag.vim'
 Plugin 'slim-template/vim-slim.git'
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()
 filetype plugin indent on
