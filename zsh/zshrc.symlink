@@ -40,7 +40,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler rails)
+plugins=(git bundler rails command-not-found docker npm tmuxinator vi-mode)
 #plugins=(git rails)
 
 source $ZSH/oh-my-zsh.sh
@@ -52,6 +52,8 @@ export JRUBY_OPTS=--1.9
 
 # 256 color tmux
 alias tmux="tmux -2"
+# to enable the tmuxinator zsh plugin - autocompletes
+alias mux="tmuxinator"
 
 alias rspec='nocorrect rspec'
 
