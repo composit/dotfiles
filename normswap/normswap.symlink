@@ -1,7 +1,7 @@
 # norman keyboard layout
 # To switch back to QWERTY type: setxkbmap us
 setxkbmap us
-xmodmap /srv/projects/norman/xmodmap/xmodmap.norman
+xmodmap /home/matt/.norman/xmodmap/xmodmap.norman
 
 # switch Caps Lock to Escape
 xmodmap -e "keycode 66 = Caps_Lock"
