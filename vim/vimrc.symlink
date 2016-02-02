@@ -47,8 +47,8 @@ set t_vb=
 set tm=500
 
 set background=light
-colorscheme Tomorrow
-"colorscheme Tomorrow-Night
+"colorscheme Tomorrow
+colorscheme Tomorrow-Night
 "colorscheme base16-default
 "colorscheme base16-tomorrow
 "colorscheme vividchalk
