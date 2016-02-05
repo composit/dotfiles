@@ -87,6 +87,18 @@ map <leader>j :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
 " let g:ctrlp_by_filename = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colemak navigation
+" Change the navigation keys for the Colemak layout
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+noremap K J
+noremap J K
+
+noremap h k
+noremap j h
+noremap k j
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
