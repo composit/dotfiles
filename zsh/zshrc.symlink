@@ -57,24 +57,6 @@ alias mux="tmuxinator"
 
 alias rspec='nocorrect rspec'
 
-# Jasmine tests need to point to Chromium
-#export CHROME_BIN="/usr/bin/chromium-browser"
-
-# path to Go
-#export PATH=$PATH:/usr/local/go/bin
-#export GOPATH=$HOME/dev/scout/go_test
-#export PATH=$PATH:$GOPATH/bin
-
-
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-#[ -s "/home/matt/.nvm/nvm.sh" ] && . "/home/matt/.nvm/nvm.sh" # This loads nvm
-
-### Added by the Heroku Toolbelt
-#export PATH="/usr/local/heroku/bin:$PATH"
-
 #export EDITOR='emacs -nw'
 export EDITOR='vim'
 alias e=$EDITOR
@@ -95,10 +77,10 @@ bindkey -v
 plugins+=(zsh-completions)
 autoload -U compinit && compinit
 
+[[ -r ~/.zshrc.local ]] && . ~/.zshrc.local
+
 # The next line updates PATH for the Google Cloud SDK.
 source '/home/matt/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
 source '/home/matt/google-cloud-sdk/completion.zsh.inc'
-
-[[ -r ~/.zshrc.local ]] && . ~/.zshrc.local
