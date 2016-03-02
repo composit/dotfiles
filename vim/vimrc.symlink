@@ -235,3 +235,5 @@ function! AlternateForCurrentFile()
   return new_file
 endfunction
 nnoremap <leader>. :call OpenTestAlternate()<cr>
+
+cnoreabbrev ag Ag!
