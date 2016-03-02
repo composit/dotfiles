@@ -67,9 +67,6 @@ source ~/.bin/tmuxinator.zsh
 # Vi mode
 bindkey -v
 
-# switch caps lock and escape
-/usr/bin/setxkbmap -option "caps:swapescape"
-
 # The next line enables bash completion for gcloud.
 # source '/home/matt/google-cloud-sdk/completion.zsh.inc'
 
