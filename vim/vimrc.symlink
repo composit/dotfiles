@@ -43,6 +43,10 @@ set novisualbell
 set t_vb=
 set tm=500
 
+" show tabs and trailing spaces
+set listchars=tab:>·,trail:·
+set invlist
+
 set background=dark
 "colorscheme Tomorrow
 colorscheme Tomorrow-Night
@@ -117,3 +121,10 @@ let g:gist_post_private = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 cnoreabbrev ag Ag!
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" YouCompleteMe
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set completeopt-=preview
+let g:ycm_add_preview_to_completeopt = 0
