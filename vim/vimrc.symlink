@@ -44,7 +44,7 @@ set t_vb=
 set tm=500
 
 " show tabs and trailing spaces
-set listchars=tab:··,trail:·
+set listchars=tab:\|\ ,trail:·
 set invlist
 
 set background=dark
