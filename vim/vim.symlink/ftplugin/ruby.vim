@@ -1,9 +1,4 @@
 
-set tabstop=2
-set smarttab
-set shiftwidth=2
-set expandtab
-
 " Open javascript files
 map <leader>j :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
 " map <leader>j :CtrlP app/assets/javascripts/angular<cr>
