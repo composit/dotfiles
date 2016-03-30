@@ -43,12 +43,18 @@ set novisualbell
 set t_vb=
 set tm=500
 
+<<<<<<< HEAD
 " tabs
 
 set tabstop=2
 set smarttab
 set shiftwidth=2
 set expandtab
+=======
+" show tabs and trailing spaces
+set listchars=tab:\|\ ,trail:·
+set invlist
+>>>>>>> 8f3f103048c4ed7c3244616a4d8b4a3e291f5214
 
 set background=dark
 "colorscheme Tomorrow
@@ -124,3 +130,10 @@ let g:gist_post_private = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 cnoreabbrev ag Ag!
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" YouCompleteMe
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set completeopt-=preview
+let g:ycm_add_preview_to_completeopt = 0
