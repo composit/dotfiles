@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 set tabstop=8
 set nosmarttab
 set shiftwidth=8
 set noexpandtab
-=======
+
 let g:go_fmt_command = "goimports"
 
 " Run commands such as go run for the current file with <leader>r or go build and go test for the current package with <leader>b and <leader>t respectively. Display beautifully annotated source code to see which functions are covered with <leader>c.
@@ -32,4 +31,3 @@ nmap <Leader>i <Plug>(go-info)
 
 " Rename the identifier under the cursor to a new name
 nmap <Leader>e <Plug>(go-rename)
->>>>>>> 8f3f103048c4ed7c3244616a4d8b4a3e291f5214
