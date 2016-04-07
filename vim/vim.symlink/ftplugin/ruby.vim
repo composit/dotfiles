@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-=======
-set tabstop=2
-set smarttab
-set shiftwidth=2
-set expandtab
->>>>>>> 8f3f103048c4ed7c3244616a4d8b4a3e291f5214
-
 " Open javascript files
 map <leader>j :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
 " map <leader>j :CtrlP app/assets/javascripts/angular<cr>
