@@ -57,9 +57,13 @@ alias mux="tmuxinator"
 
 alias rspec='nocorrect rspec'
 
+alias sz='source ~/.zshrc && source ~/.zshrc.local'
+
 #export EDITOR='emacs -nw'
 export EDITOR='vim'
 alias e=$EDITOR
+
+alias ll='ls -lath'
 
 # tmuxinator autocomplete
 source ~/.bin/tmuxinator.zsh
