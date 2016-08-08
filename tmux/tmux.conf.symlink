@@ -111,7 +111,7 @@ set -g status-fg white
 set -g status-interval 1
 set -g status-left '#[fg=green]#H#[default]'
 set -g status-right-length 150
-set -g status-right '#[fg=yellow]#(cut -d " " -f 1-4 /proc/loadavg)#[default] #[fg=cyan,bold]%Y-%m-%d %H:%M:%S#[default]'
+set -g status-right '#(cat ~/.thyme-tmux) #[fg=yellow]#(cut -d " " -f 1-4 /proc/loadavg)#[default] #[fg=cyan,bold]%Y-%m-%d %H:%M:%S#[default]'
  
 # Notifying if other windows has activities
 setw -g monitor-activity on
@@ -168,3 +168,6 @@ set -g @tpm_plugins "              \
 
 # initializes TMUX plugin manager
 run-shell ~/.tmux/plugins/tpm/tpm
+
+# Thyme
+set-option -g status-interval 1
