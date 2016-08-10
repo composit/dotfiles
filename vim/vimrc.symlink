@@ -15,9 +15,8 @@ Plugin 'mattn/gist-vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-rails'
-Plugin 'chriskempson/vim-tomorrow-theme'
-"Plugin 'chriskempson/base16-vim'
-"Plugin 'airblade/vim-gitgutter'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'airblade/vim-gitgutter'
 "Plugin 'tpope/vim-dispatch'
 "Plugin 'kien/ctrlp.vim'
 Plugin 'fatih/vim-go'
@@ -25,6 +24,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'rking/ag.vim'
 Plugin 'slim-template/vim-slim.git'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'tpope/vim-fugitive'
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 filetype plugin indent on
@@ -50,19 +51,16 @@ set shiftwidth=2
 set expandtab
 
 " show tabs and trailing spaces
-set listchars=tab:\|\ ,trail:·
-set invlist
+"set listchars=tab:\|\ ,trail:·
+"set invlist
 
-set background=dark
-"colorscheme Tomorrow
-colorscheme Tomorrow-Night
-"colorscheme base16-default
-"colorscheme base16-tomorrow
-"colorscheme vividchalk
 
 " dark line numbers
-highlight Normal ctermbg=none
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+"highlight Normal ctermbg=none
+"highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+"set background=dark
+colorscheme Tomorrow-Night-Eighties
 
 "set foldmethod=syntax
 "au BufNewFile,BufReadPost *.coffee setl foldmethod=indent foldnestmax=2
