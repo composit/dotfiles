@@ -62,6 +62,7 @@ alias sz='source ~/.zshrc && source ~/.zshrc.local'
 #export EDITOR='emacs -nw'
 export EDITOR='vim'
 alias e=$EDITOR
+alias vi=vim
 
 alias ll='ls -lath'
 
