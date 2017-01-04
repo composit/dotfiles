@@ -69,6 +69,9 @@ colorscheme Tomorrow-Night-Eighties
 "set nofoldenable
 "set foldlevel=2
 
+" Pressing Ctrl-L leaves insert mode in evim, so why not in regular vim, too.
+:imap <C-L> <Esc>
+
 let mapleader=","
 
 " Open and close folds with space
