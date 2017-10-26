@@ -66,6 +66,9 @@ alias vi=vim
 
 alias ll='ls -lath'
 
+# go test without vendor (assuming code is in cmd and pkg)
+alias gt='go test -v ./cmd/... ./pkg/...'
+
 # tmuxinator autocomplete
 source ~/.bin/tmuxinator.zsh
 
@@ -80,9 +83,3 @@ plugins+=(zsh-completions)
 autoload -U compinit && compinit
 
 [[ -r ~/.zshrc.local ]] && . ~/.zshrc.local
-
-# The next line updates PATH for the Google Cloud SDK.
-#source '/home/matt/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables shell command completion for gcloud.
-#source '/home/matt/google-cloud-sdk/completion.zsh.inc'
