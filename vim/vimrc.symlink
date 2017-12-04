@@ -2,33 +2,23 @@
 set t_Co=256
 
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/vundle'
-Plugin 'wincent/Command-T'
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
-"Plugin 'scrooloose/syntastic'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-rails'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'airblade/vim-gitgutter'
-"Plugin 'tpope/vim-dispatch'
-"Plugin 'kien/ctrlp.vim'
-Plugin 'fatih/vim-go'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'rking/ag.vim'
-Plugin 'slim-template/vim-slim.git'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'tpope/vim-fugitive'
-Plugin 'jiangmiao/auto-pairs'
-
-call vundle#end()
-filetype plugin indent on
+call plug#begin('~/.vim/plugged')
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-rails'
+Plug 'flazz/vim-colorschemes'
+Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
+Plug 'rking/ag.vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
+call plug#end()
 
 syntax on
 set showmatch
@@ -60,7 +50,10 @@ set expandtab
 "highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 "set background=dark
-colorscheme Tomorrow-Night-Eighties
+"colorscheme Tomorrow-Night-Eighties
+"colorscheme 256_noir
+colorscheme slate
+"colorscheme sierra
 
 "set foldmethod=syntax
 "au BufNewFile,BufReadPost *.coffee setl foldmethod=indent foldnestmax=2

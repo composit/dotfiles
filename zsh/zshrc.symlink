@@ -83,3 +83,5 @@ plugins+=(zsh-completions)
 autoload -U compinit && compinit
 
 [[ -r ~/.zshrc.local ]] && . ~/.zshrc.local
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
