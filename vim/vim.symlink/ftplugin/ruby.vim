@@ -39,7 +39,7 @@ function! RunTests(filename)
     if match(expand("%"), '.js.coffee$') != -1
         exec ":!jasmine-headless-webkit --color --no-full-run --runner-out runner.html " . a:filename
     else
-        call system("tmux send-keys -t tests C-z 'zeus test " . a:filename ."' C-m")
+        call system("tmux send-keys -t 'tests' 'bin/rspec " . a:filename ."' C-m")
         call system("tmux select-window -t tests")
     end
 endfunction
@@ -112,7 +112,9 @@ function! AlternateForCurrentFile()
       let new_file = substitute(new_file, '\.rb$', '_test.rb', '')
     elseif in_ruby
       let new_file = substitute(new_file, '^app/', '', '')
+      let new_file = substitute(new_file, '_controller.rb', '.rb', '')
       let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
+      let new_file = substitute(new_file, '^controllers', 'requests', '')
       let new_file = 'spec/' . new_file
     end
   endif

@@ -8,7 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/vundle'
-Plugin 'wincent/Command-T'
+"Plugin 'wincent/Command-T'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 "Plugin 'scrooloose/syntastic'
@@ -26,6 +26,8 @@ Plugin 'slim-template/vim-slim.git'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'tpope/vim-fugitive'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -59,8 +61,12 @@ set expandtab
 "highlight Normal ctermbg=none
 "highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
-"set background=dark
-colorscheme Tomorrow-Night-Eighties
+set background=dark
+"colorscheme Tomorrow-Night-Eighties
+"colorscheme apprentice
+"colorscheme molokai
+"colorscheme 256_noir
+colorscheme slate
 
 "set foldmethod=syntax
 "au BufNewFile,BufReadPost *.coffee setl foldmethod=indent foldnestmax=2
@@ -85,8 +91,9 @@ map <Leader>h :set invhls <CR>
 xnoremap . :norm.<CR>
 
 " Open files with <leader>f
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+" map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 " map <leader>f :CtrlP<cr>
+map <leader>f :Files<cr>
 
 " let g:ctrlp_by_filename = 1
 
