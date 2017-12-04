@@ -52,6 +52,7 @@ set expandtab
 "set background=dark
 "colorscheme Tomorrow-Night-Eighties
 "colorscheme 256_noir
+"colorscheme apprentice
 colorscheme slate
 "colorscheme sierra
 
@@ -78,8 +79,9 @@ map <Leader>h :set invhls <CR>
 xnoremap . :norm.<CR>
 
 " Open files with <leader>f
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+" map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 " map <leader>f :CtrlP<cr>
+map <leader>f :Files<cr>
 
 " let g:ctrlp_by_filename = 1
 
@@ -119,3 +121,10 @@ cnoreabbrev ag Ag!
 
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VimWiki
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+" helppage -> :h vimwiki-syntax
