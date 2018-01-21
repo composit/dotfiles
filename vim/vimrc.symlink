@@ -50,10 +50,10 @@ set expandtab
 "highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 "set background=dark
-colorscheme Tomorrow-Night-Eighties
+"colorscheme Tomorrow-Night-Eighties
 "colorscheme 256_noir
 "colorscheme apprentice
-"colorscheme slate
+colorscheme slate
 "colorscheme sierra
 
 "set foldmethod=syntax
