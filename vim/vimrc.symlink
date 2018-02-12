@@ -9,6 +9,7 @@ Plug 'mattn/gist-vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 Plug 'flazz/vim-colorschemes'
+Plug 'robertmeta/nofrils'
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
@@ -45,16 +46,21 @@ set expandtab
 "set invlist
 
 
-" dark line numbers
-"highlight Normal ctermbg=none
-"highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-
 "set background=dark
 "colorscheme Tomorrow-Night-Eighties
 "colorscheme 256_noir
-"colorscheme apprentice
-colorscheme slate
+colorscheme apprentice
+"colorscheme slate
 "colorscheme sierra
+"colorscheme nofrils-dark
+"colorscheme PaperColor
+"colorscheme greyblue
+colorscheme goodwolf
+
+" dark line numbers
+highlight Normal ctermbg=none
+" make the background transparent no matter the colorscheme
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 "set foldmethod=syntax
 "au BufNewFile,BufReadPost *.coffee setl foldmethod=indent foldnestmax=2
