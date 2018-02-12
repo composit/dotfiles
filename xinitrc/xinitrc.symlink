@@ -1,6 +1,7 @@
 xinput set-prop $(xinput list | grep TouchPad | sed -r 's/.*id=([0-9]+).*/\1/') "Device Enabled" 0
 setxkbmap -layout us -variant colemak
 export TPCONF=$(find /sys/devices/platform/i8042 -name name | xargs grep -Fl TrackPoint | sed 's/\/input\/input[0-9]*\/name$//')
-echo 90 | sudo tee $TPCONF/sensitivity
-echo 180 | sudo tee $TPCONF/speed
+echo 100 | sudo tee $TPCONF/sensitivity
+echo 50 | sudo tee $TPCONF/speed
+xrdb -load ~/.Xresources # maybe doesn't autoload because of ecryptfs not auto-mounting
 exec i3 -V >> ~/i3log-$(date +'%F-%k-%M-%S') 2>&1
