@@ -75,6 +75,9 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN TEST OR PRODUCTION CODE IN SPLIT
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if exists('*OpenTestAlternate')
+  finish
+endif
 function! OpenTestAlternate()
   let new_file = AlternateForCurrentFile()
   exec ':vsp ' . new_file
