@@ -19,6 +19,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
+Plug 'janko-m/vim-test'
+Plug 'jgdavey/tslime.vim'
+Plug 'w0rp/ale'
 call plug#end()
 
 syntax on
@@ -47,15 +50,15 @@ set expandtab
 
 
 "set background=dark
-"colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night-Eighties
 "colorscheme 256_noir
-colorscheme apprentice
+"colorscheme apprentice
 "colorscheme slate
 "colorscheme sierra
 "colorscheme nofrils-dark
 "colorscheme PaperColor
 "colorscheme greyblue
-colorscheme goodwolf
+"colorscheme goodwolf
 
 " dark line numbers
 highlight Normal ctermbg=none
@@ -90,6 +93,11 @@ xnoremap . :norm.<CR>
 map <leader>f :Files<cr>
 
 " let g:ctrlp_by_filename = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-test
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let test#strategy = "tslime"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
@@ -127,6 +135,12 @@ cnoreabbrev ag Ag!
 
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ale
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:ale_sign_column_always = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VimWiki
