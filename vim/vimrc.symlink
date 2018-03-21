@@ -10,6 +10,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 Plug 'flazz/vim-colorschemes'
 Plug 'robertmeta/nofrils'
+Plug 'fenetikm/falcon'
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
@@ -50,7 +51,7 @@ set expandtab
 
 
 "set background=dark
-colorscheme Tomorrow-Night-Eighties
+"colorscheme Tomorrow-Night-Eighties
 "colorscheme 256_noir
 "colorscheme apprentice
 "colorscheme slate
@@ -59,6 +60,7 @@ colorscheme Tomorrow-Night-Eighties
 "colorscheme PaperColor
 "colorscheme greyblue
 "colorscheme goodwolf
+colorscheme falcon
 
 " dark line numbers
 highlight Normal ctermbg=none
