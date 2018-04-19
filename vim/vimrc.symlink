@@ -6,23 +6,30 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise', { 'for': 'ruby' }
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'flazz/vim-colorschemes'
 Plug 'robertmeta/nofrils'
 Plug 'fenetikm/falcon'
 Plug 'airblade/vim-gitgutter'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
 Plug 'rking/ag.vim'
-Plug 'elixir-lang/vim-elixir'
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'janko-m/vim-test'
 Plug 'jgdavey/tslime.vim'
-Plug 'w0rp/ale'
+Plug 'w0rp/ale', { 'for': 'go' }
+Plug 'guns/vim-sexp', { 'for': 'clojure' }
+Plug 'tpope/vim-repeat', { 'for': 'clojure' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
 call plug#end()
 
 syntax on
