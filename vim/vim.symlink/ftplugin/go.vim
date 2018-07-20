@@ -13,7 +13,7 @@ let g:go_metalinter_autosave = 1
 nmap <leader>r <Plug>(go-run)
 nmap <leader>b <Plug>(go-build)
 "nmap <leader>t <Plug>(go-test)
-nmap <leader>c <Plug>(go-coverage)
+nmap <leader>c <Plug>(go-coverage-toggle)
 
 " By default the mapping gd is enabled, which opens the target identifier in current buffer. You can also open the definition/declaration, in a new vertical, horizontal, or tab, for the word under your cursor:
 nmap <Leader>ds <Plug>(go-def-split)

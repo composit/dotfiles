@@ -58,7 +58,7 @@ set expandtab
 
 
 "set background=dark
-"colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night-Eighties
 "colorscheme 256_noir
 "colorscheme apprentice
 "colorscheme slate
@@ -67,7 +67,7 @@ set expandtab
 "colorscheme PaperColor
 "colorscheme greyblue
 "colorscheme goodwolf
-colorscheme falcon
+"colorscheme falcon
 
 " dark line numbers
 highlight Normal ctermbg=none
@@ -150,6 +150,7 @@ let g:ycm_add_preview_to_completeopt = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ale_sign_column_always = 1
+let g:ale_lint_on_text_changed = 'never'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VimWiki
