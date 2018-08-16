@@ -37,8 +37,8 @@ nmap <Leader>i <Plug>(go-info)
 nmap <Leader>e <Plug>(go-rename)
 
 " Tests
-nmap <Leader>t :TestNearest -v -cover<CR>
-nmap <Leader>T :TestSuite -cover<CR>
+nmap <Leader>t :TestNearest -v <CR>
+nmap <Leader>T :TestSuite <CR>
 
 if exists('*OpenTestAlternate')
   finish
