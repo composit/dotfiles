@@ -13,7 +13,7 @@ Plug 'robertmeta/nofrils'
 Plug 'fenetikm/falcon'
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer' }
 Plug 'rking/ag.vim'
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'tpope/vim-fugitive'
