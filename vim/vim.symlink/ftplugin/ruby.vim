@@ -1,3 +1,9 @@
+" tabs
+setlocal tabstop=2
+setlocal smarttab
+setlocal shiftwidth=2
+setlocal expandtab
+
 " Open javascript files
 map <leader>j :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
 " map <leader>j :CtrlP app/assets/javascripts/angular<cr>
