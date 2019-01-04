@@ -64,7 +64,7 @@ export EDITOR='vim'
 alias e=$EDITOR
 alias vi=vim
 
-alias ll='ls -lath'
+alias ll='ls -lah'
 
 # go test without vendor (assuming code is in cmd and pkg)
 alias gt='go test -v ./cmd/... ./pkg/...'
