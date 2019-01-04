@@ -2,3 +2,5 @@ xinput set-prop $(xinput list | grep TouchPad | sed -r 's/.*id=([0-9]+).*/\1/') 
 setxkbmap -layout us -variant colemak
 xrdb -load ~/.Xresources # maybe doesn't autoload because of ecryptfs not auto-mounting
 exec i3 -V >> ~/i3log-$(date +'%F-%k-%M-%S') 2>&1
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
