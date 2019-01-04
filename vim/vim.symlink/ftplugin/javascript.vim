@@ -1,2 +1,6 @@
 " tabs are 4 spaces
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+setlocal tabstop=4
+setlocal softtabstop=0
+setlocal expandtab
+setlocal shiftwidth=4
+setlocal smarttab

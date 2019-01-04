@@ -1,7 +1,7 @@
-set tabstop=8
-set nosmarttab
-set shiftwidth=8
-set noexpandtab
+setlocal tabstop=8
+setlocal nosmarttab
+setlocal shiftwidth=8
+setlocal noexpandtab
 
 " run goimports on save/fmt
 let g:go_fmt_command = "goimports"

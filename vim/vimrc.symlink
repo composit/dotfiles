@@ -47,12 +47,6 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" tabs
-set tabstop=2
-set smarttab
-set shiftwidth=2
-set expandtab
-
 " show tabs and trailing spaces
 set listchars=tab:\|\ ,trail:·
 set list
@@ -155,6 +149,7 @@ let g:ycm_add_preview_to_completeopt = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ale_sign_column_always = 1
+"only lint on save
 let g:ale_lint_on_text_changed = 'never'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
