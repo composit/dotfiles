@@ -23,6 +23,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'janko-m/vim-test'
 Plug 'jgdavey/tslime.vim'
 Plug 'w0rp/ale', { 'for': ['go', 'typescript'] }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
 Plug 'tpope/vim-repeat', { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
@@ -30,7 +31,6 @@ Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 call plug#end()
 
 syntax on
@@ -48,8 +48,8 @@ set t_vb=
 set tm=500
 
 " show tabs and trailing spaces
-"set listchars=tab:\|\ ,trail:·
-"set invlist
+set listchars=tab:\|\ ,trail:·
+set list
 
 
 "set background=dark
@@ -96,7 +96,11 @@ xnoremap . :norm.<CR>
 " map <leader>f :CtrlP<cr>
 map <leader>f :Files<cr>
 
+" yank to the system clipboard
+set clipboard=unnamed
+
 " let g:ctrlp_by_filename = 1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-test
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
