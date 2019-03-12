@@ -9,7 +9,7 @@ Plug 'mattn/gist-vim'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'flazz/vim-colorschemes'
-Plug 'robertmeta/nofrils'
+"Plug 'robertmeta/nofrils'
 Plug 'fenetikm/falcon'
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
@@ -51,18 +51,8 @@ set tm=500
 set listchars=tab:\|\ ,trail:·
 set list
 
-
-"set background=dark
-colorscheme Tomorrow-Night-Eighties
-"colorscheme 256_noir
-"colorscheme apprentice
-"colorscheme slate
-"colorscheme sierra
-"colorscheme nofrils-dark
-"colorscheme PaperColor
-"colorscheme greyblue
-"colorscheme goodwolf
-"colorscheme falcon
+" mycolors are set in ./vim/plugin/setcolors.vim
+colorscheme goodwolf
 
 " dark line numbers
 highlight Normal ctermbg=none
