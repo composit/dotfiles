@@ -54,18 +54,6 @@ set list
 " mycolors are set in ./vim/plugin/setcolors.vim
 colorscheme goodwolf
 
-" dark line numbers
-highlight Normal ctermbg=none
-" make the background transparent no matter the colorscheme
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-
-"set foldmethod=syntax
-"au BufNewFile,BufReadPost *.coffee setl foldmethod=indent foldnestmax=2
-"set foldmethod=indent
-"set foldnestmax=2
-"set nofoldenable
-"set foldlevel=2
-
 " Pressing Ctrl-L leaves insert mode in evim, so why not in regular vim, too.
 :imap <C-L> <Esc>
 
@@ -88,8 +76,6 @@ map <leader>f :Files<cr>
 
 " yank to the system clipboard
 set clipboard=unnamed
-
-" let g:ctrlp_by_filename = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-test
@@ -148,3 +134,19 @@ let g:ale_lint_on_text_changed = 'never'
 
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 " helppage -> :h vimwiki-syntax
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Transparent Background
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! Background_transparent()
+	" regular
+	highlight Normal guibg=NONE ctermbg=NONE
+	" line numbers
+	"highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+	highlight LineNr ctermbg=NONE guibg=NONE
+	" empty lines
+	highlight EmptyLines guibg=NONE ctermbg=NONE
+endfunction
+nnoremap <Leader>r : call Background_transparent()<CR>
+call Background_transparent()
