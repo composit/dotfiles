@@ -119,7 +119,7 @@ setw -g monitor-activity on
 set -g visual-activity on
  
 # Highlighting the active window in status bar
-setw -g window-status-current-bg green
+setw -g window-status-current-style bg=green
  
 # Clock
 setw -g clock-mode-colour green
