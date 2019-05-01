@@ -106,8 +106,8 @@ set -g history-limit 10000
 #set -g set-titles-string '#S:#I.#P #W'
  
 # Status Bar
-#set -g status-bg 'colour235'
-#set -g status-fg white
+#set -g status-style bg='colour235'
+#set -g status-style fg=white
 set -g status-interval 1
 #set -g status-left '#[fg=green]#H#[default]'
 #set -g status-right-length 150
