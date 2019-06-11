@@ -1,6 +1,10 @@
-xinput set-prop $(xinput list | grep TouchPad | sed -r 's/.*id=([0-9]+).*/\1/') "Device Enabled" 0
-setxkbmap -layout us -variant colemak
-xrdb -load ~/.Xresources # maybe doesn't autoload because of ecryptfs not auto-mounting
+# colemak is the default. switch to qwerty with left alt+left shift
+setxkbmap -layout us,us -variant colemak, grp:lalt_lshift_toggle
+# a display manager would load Xresources, but this is simpler
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+VBoxClient-all
 exec i3 -V >> ~/i3log-$(date +'%F-%k-%M-%S') 2>&1
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
+# if there is a Xmodmap file to load
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
