@@ -8,3 +8,8 @@ autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 # if there is a Xmodmap file to load
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+
+#these three lines are to authenticate sfdx - https://wiki.archlinux.org/index.php/GNOME/Keyring#Using_the_keyring_outside_GNOME
+dbus-update-activation-environment --systemd DISPLAY
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
