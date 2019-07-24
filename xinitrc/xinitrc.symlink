@@ -8,3 +8,5 @@ autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 # if there is a Xmodmap file to load
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+# this is necessary for gnome-keyring to authenticate sfdx with salesforce
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
