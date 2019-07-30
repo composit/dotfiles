@@ -2,7 +2,7 @@ setlocal tabstop=8
 setlocal expandtab
 setlocal shiftwidth=4
 setlocal softtabstop=4
-setlocal textwidth=100
+setlocal textwidth=80
 
 " go to definition in new tab
 nmap <Leader>dt :ALEGoToDefinitionInTab<CR>
@@ -31,4 +31,5 @@ function! AlternateForCurrentFile()
 endfunction
 noremap <leader>. :call OpenTestAlternate()<cr>
 
-autocmd BufWritePost *.py execute ':Black'
+let b:ale_fixers = ['add_blank_lines_for_python_control_statements', 'autopep8', 'black', 'isort', 'reorder-python-imports', 'yapf']
+" let g:ale_fix_on_save=1

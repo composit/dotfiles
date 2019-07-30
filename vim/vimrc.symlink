@@ -21,7 +21,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'janko-m/vim-test'
 Plug 'jgdavey/tslime.vim'
-Plug 'w0rp/ale', { 'for': ['go', 'typescript'] }
+Plug 'w0rp/ale', { 'for': ['go', 'typescript', 'python'] }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
 Plug 'tpope/vim-repeat', { 'for': 'clojure' }
@@ -120,7 +120,7 @@ let g:ycm_add_preview_to_completeopt = 0
 
 let g:ale_sign_column_always = 1
 "only lint on save
-let g:ale_lint_on_text_changed = 'never'
+"let g:ale_lint_on_text_changed = 'never'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VimWiki
