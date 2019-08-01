@@ -8,5 +8,13 @@ autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 # if there is a Xmodmap file to load
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
-# required for SalesForce sfdx authentication
+
+# this is necessary for gnome-keyring to authenticate sfdx with salesforce
+# unfortunately, it does not seem to work and must be done manually
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
+#these three lines are to authenticate sfdx - https://wiki.archlinux.org/index.php/GNOME/Keyring#Using_the_keyring_outside_GNOME
+#they should be covered by the above source command, so commenting out for now
+#dbus-update-activation-environment --systemd DISPLAY
+#eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+#export SSH_AUTH_SOCK
