@@ -29,3 +29,5 @@ function! AlternateForCurrentFile()
   return new_file
 endfunction
 noremap <leader>. :call OpenTestAlternate()<cr>
+
+let b:ale_fixers = ['add_blank_lines_for_python_control_statements', 'autopep8', 'black', 'isort', 'reorder-python-imports', 'yapf', 'remove_trailing_lines', 'trim_whitespace']
