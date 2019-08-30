@@ -59,3 +59,6 @@ function! AlternateForCurrentFile()
   return new_file
 endfunction
 noremap <leader>. :call OpenTestAlternate()<cr>
+
+# go test without vendor (assuming code is in cmd and pkg)
+alias gt='go test -v ./cmd/... ./pkg/...'
