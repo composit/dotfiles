@@ -1,2 +1,0 @@
--# colemak is the default. switch to qwerty with left alt+left shift
--setxkbmap -layout us,us -variant colemak, grp:lalt_lshift_toggle
