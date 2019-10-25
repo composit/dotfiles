@@ -10,7 +10,7 @@ nmap <Leader>dt :ALEGoToDefinitionInTab<CR>
 " linters
 let g:ale_python_flake8_options="--ignore=E501"
 " fixers
-let b:ale_fixers = ['add_blank_lines_for_python_control_statements', 'autopep8', 'black', 'isort', 'reorder-python-imports', 'yapf', 'remove_trailing_lines', 'trim_whitespace']
+let b:ale_fixers = ['autopep8', 'black', 'isort', 'reorder-python-imports', 'yapf', 'remove_trailing_lines', 'trim_whitespace']
 let g:ale_fix_on_save=1
 
 " Tests
