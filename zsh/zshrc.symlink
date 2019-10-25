@@ -114,3 +114,7 @@ export PATH="/home/matt/.local/bin:$PATH"
 # ASDF (Elixir) stuff
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+# kubectl completion
+source <(kubectl completion zsh)
+
