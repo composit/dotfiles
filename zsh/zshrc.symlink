@@ -120,7 +120,7 @@ source <(kubectl completion zsh)
 
 # prompt
 # shows the status code of the previous command in red if it failed
-export PROMPT='%F{247}%B%3~%b %(?.%F{230}☀%f.☇)%f '
+export PROMPT='%F{247}%B%3~%b %(?.%F{247}☀%f.☇)%f '
 
 autoload -Uz vcs_info
 precmd_functions+=( vcs_info )
