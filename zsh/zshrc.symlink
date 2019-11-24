@@ -120,7 +120,7 @@ source <(kubectl completion zsh)
 
 # prompt
 # shows the status code of the previous command in red if it failed
-export PROMPT='%F{247}%B%3~%b %(?.%F{247}☀%f.☇)%f '
+export PROMPT='%F{247}%B%3~%b%f %(?.%F{230}☀%f.%F{174}☇%f)%f '
 
 autoload -Uz vcs_info
 precmd_functions+=( vcs_info )
@@ -129,5 +129,5 @@ RPROMPT=\$vcs_info_msg_0_
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' unstagedstr '☽'
 zstyle ':vcs_info:git:*' stagedstr '☾'
-zstyle ':vcs_info:git:*' formats '%F{247}%u%c %r (%b)'
+zstyle ':vcs_info:git:*' formats '%F{230}%u%c%f %F{247} %b'
 zstyle ':vcs_info:*' enable git
