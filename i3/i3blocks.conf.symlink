@@ -112,11 +112,6 @@ interval=30
 label=K8S 
 interval=5
 
-# keyboard layout
-[keys]
-label=KEYS 
-interval=5
-
 # Date Time
 #
 [time]
