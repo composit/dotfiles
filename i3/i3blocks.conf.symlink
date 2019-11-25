@@ -50,12 +50,6 @@ label=MEM
 separator=false
 interval=30
 
-[memory]
-label=SWAP 
-instance=swap
-separator=false
-interval=30
-
 # Disk usage
 #
 # The directory defaults to $HOME if the instance is not specified.
@@ -72,8 +66,12 @@ interval=30
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
 #IFACE=wlan0
-color=#00FF00
 interval=10
+separator=false
+
+[vpn]
+label=VPN 
+interval=5
 separator=false
 
 [wifi]
@@ -104,8 +102,8 @@ interval=10
 #
 # The battery instance defaults to 0.
 [battery]
-label=BAT 
-#label=⚡
+#label=BAT 
+label=⚡
 interval=30
 
 [kubernetes]

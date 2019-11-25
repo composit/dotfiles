@@ -1,0 +1,7 @@
+if [[ "$(systemctl is-active openvpn-client@ipvanish)" = 'active' ]]; then
+	echo "up"
+else
+	echo "down"
+	echo "down"
+	echo \#FF0000 # color
+fi
