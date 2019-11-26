@@ -115,6 +115,10 @@ interval=5
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=5
 
+[countdown]
+label=cdt 
+interval=5
+
 # Generic media player support
 #
 # This displays "ARTIST - SONG" if a music is playing.

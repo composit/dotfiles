@@ -1,0 +1,4 @@
+t=$(cat /home/matt/.cdt)
+
+echo $t
+echo $t
