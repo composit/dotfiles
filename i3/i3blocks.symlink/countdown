@@ -2,3 +2,6 @@ t=$(cat /home/matt/.cdt)
 
 echo $t
 echo $t
+if [ $t == "did" ]; then
+	echo \#FF0000 # color
+fi

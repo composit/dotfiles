@@ -131,3 +131,7 @@ zstyle ':vcs_info:git:*' unstagedstr '☽'
 zstyle ':vcs_info:git:*' stagedstr '☾'
 zstyle ':vcs_info:git:*' formats '%F{230}%u%c%f %F{247} %b'
 zstyle ':vcs_info:*' enable git
+
+# countdowntown
+alias cdw='/home/matt/go/bin/countdowntown 53 &'
+alias cdp='/home/matt/go/bin/countdowntown 17 &'
