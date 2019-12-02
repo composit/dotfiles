@@ -73,11 +73,16 @@ label=vpn
 interval=5
 separator=false
 
+[wifi_network]
+command=iwgetid -r
+interval=5
+separator=false
+
 [wifi]
-#INTERFACE=wlp3s0
-label=wifi:
+INTERFACE=wlp3s0
 interval=10
 separator=false
+color=white
 
 [bandwidth]
 #INTERFACE=eth0
