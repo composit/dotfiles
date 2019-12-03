@@ -1,0 +1,13 @@
+#!/bin/bash
+
+COLOR=\#FFFFFF
+IP=$(timeout 5 curl ifconfig.co)
+ipExitCode=$?
+if [ $ipExitCode -ne 0 ]; then
+	IP="NO CONNECTION"
+	COLOR=\#FF0000
+fi
+
+echo $IP
+echo $IP
+echo $COLOR

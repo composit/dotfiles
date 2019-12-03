@@ -1,8 +1,11 @@
 #!/bin/bash
 
+COLOR=\#FFFFFF
 STATUS=$(systemctl is-active openvpn-client@ipvanish)
-echo $STATUS
-echo $STATUS
 if [ $STATUS != "active" ]; then
-	echo \#FF0000 # color
+	COLOR=\#FF0000
 fi
+
+echo $STATUS
+echo $STATUS
+echo $COLOR

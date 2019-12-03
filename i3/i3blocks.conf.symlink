@@ -70,7 +70,11 @@ separator=false
 
 [vpn]
 label=vpn 
-interval=5
+interval=10
+separator=false
+
+[external_ip]
+interval=60 # ifconfig.co rate limit
 separator=false
 
 [wifi_network]
