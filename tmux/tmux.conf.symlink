@@ -127,7 +127,7 @@ set-option -g status-style fg=white,dim
 set-window-option -g window-status-style fg=colour240,dim
 
 # active window title colors
-set-window-option -g window-status-current-style fg=white,bright
+set-window-option -g window-status-current-style fg=white
  
 # Clock
 setw -g clock-mode-colour green
