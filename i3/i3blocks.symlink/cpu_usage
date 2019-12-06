@@ -12,8 +12,7 @@ use utf8;
 use Getopt::Long;
 
 # default values
-my $t_warn = $ENV{T_WARN} // 50;
-my $t_crit = $ENV{T_CRIT} // 80;
+my $t_warn = $ENV{T_WARN} // 80;
 my $cpu_usage = -1;
 my $decimals = $ENV{DECIMALS} // 2;
 my $label = $ENV{LABEL} // "";
@@ -52,11 +51,8 @@ print "${label}";
 printf "%.${decimals}f%%\n", $cpu_usage;
 
 # Print color, if needed
-if ($cpu_usage >= $t_crit) {
-    print "#FF0000\n";
-    exit 33;
-} elsif ($cpu_usage >= $t_warn) {
-    print "#FFFC00\n";
+if ($cpu_usage >= $t_warn) {
+    print "#FFAE00\n";
 }
 
 exit 0;

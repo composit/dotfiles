@@ -5,7 +5,7 @@ IP=$(timeout 5 curl ifconfig.co)
 ipExitCode=$?
 if [ $ipExitCode -ne 0 ]; then
 	IP="NO CONNECTION"
-	COLOR=\#FF0000
+	COLOR=\#FFAE00
 fi
 
 echo $IP

@@ -3,7 +3,7 @@
 COLOR=\#FFFFFF
 STATUS=$(systemctl is-active openvpn-client@ipvanish)
 if [ $STATUS != "active" ]; then
-	COLOR=\#FF0000
+	COLOR=\#FFAE00
 fi
 
 echo $STATUS
