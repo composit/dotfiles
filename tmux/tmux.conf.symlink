@@ -119,7 +119,15 @@ setw -g monitor-activity on
 set -g visual-activity on
  
 # Highlighting the active window in status bar
-setw -g window-status-current-style bg=green
+#setw -g window-status-current-style bg=white fg=black
+# set color for status bar
+set-option -g status-style fg=white,dim
+
+# set window title list colors
+set-window-option -g window-status-style fg=colour240,dim
+
+# active window title colors
+set-window-option -g window-status-current-style fg=white,bright
  
 # Clock
 setw -g clock-mode-colour green
@@ -162,7 +170,7 @@ set -g @plugin 'tmux-plugins/tmux-pain-control'
 set -g @plugin 'tmux-plugins/tmux-open'
 set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'tmux-plugins/tmux-copycat'
-set -g @plugin 'seebi/tmux-colors-solarized'
+#set -g @plugin 'seebi/tmux-colors-solarized'
 
 # tmux-plugins/tmux-sessionist     \
 
