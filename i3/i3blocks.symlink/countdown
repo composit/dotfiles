@@ -2,6 +2,6 @@ t=$(cat /home/matt/.cdt)
 
 echo $t
 echo $t
-if [ $t == "did" ]; then
+if [[ $t == "did"* ]]; then
 	echo \#FFAE00 # orang
 fi
