@@ -133,6 +133,6 @@ zstyle ':vcs_info:git:*' formats '%F{230}%u%c%f %F{247} %b'
 zstyle ':vcs_info:*' enable git
 
 # countdowntown
-alias cdw='/home/matt/go/bin/countdowntown 53 &'
+alias cdw='tmux send-keys -t notes:countdown "countdowntown 25" C-m'
 alias cdp='/home/matt/go/bin/countdowntown 17 &'
 alias cdc='truncate -s 0 /home/matt/.cdt'

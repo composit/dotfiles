@@ -19,7 +19,6 @@ Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'vimwiki/vimwiki'
 Plug 'janko-m/vim-test'
 Plug 'jgdavey/tslime.vim'
 Plug 'w0rp/ale', { 'for': ['go', 'typescript', 'python'] }
