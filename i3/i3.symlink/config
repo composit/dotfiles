@@ -177,8 +177,8 @@ hide_edge_borders both
 gaps inner 10
 gaps outer 0
 
+# pass
+bindsym $mod+p exec i3-sensible-terminal -e zsh -c passfzf
+
 # wallpaper
 exec --no-startup-id exec bash $HOME/.fehbg
-
-# pass
-bindsym $mod+p exec passmenu
