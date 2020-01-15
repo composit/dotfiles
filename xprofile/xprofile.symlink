@@ -1,3 +1,4 @@
 # disable touchpad
 xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
 light-locker &
+autocutsel -fork
