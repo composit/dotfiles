@@ -21,7 +21,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'janko-m/vim-test'
 Plug 'jgdavey/tslime.vim'
-Plug 'w0rp/ale', { 'for': ['go', 'typescript', 'python'] }
+Plug 'w0rp/ale', { 'for': ['go', 'typescript', 'python', 'sh'] }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
 Plug 'tpope/vim-repeat', { 'for': 'clojure' }
