@@ -141,3 +141,6 @@ alias cdp='tmux send-keys -t notes:countdown "/home/matt/go/bin/countdowntown 8"
 alias cds='tmux send-keys -t notes:countdown C-c'
 # reset
 alias cdr='truncate -s 0 /home/matt/.cdt'
+
+# don't add lines that start with a space into the history
+HISTCONTROL=ignorespace
