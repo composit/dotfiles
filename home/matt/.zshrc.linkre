@@ -72,7 +72,7 @@ source ~/.bin/tmuxinator.zsh
 bindkey -v
 
 # The next line enables bash completion for gcloud.
-# source '/home/matt/google-cloud-sdk/completion.zsh.inc'
+# source '$HOME/google-cloud-sdk/completion.zsh.inc'
 
 # tm - create new tmux session, or switch to existing one. Works from within tmux too. (@bag-man)
 # `tm` will allow you to select your tmux session via fzf.
@@ -102,14 +102,14 @@ export PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
 export PATH="`yarn global bin`:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/matt/google-cloud-sdk/path.zsh.inc' ]; then source '/home/matt/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/matt/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/matt/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # python stuff
-export PATH="/home/matt/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # ASDF (Elixir) stuff
 . $HOME/.asdf/asdf.sh
@@ -134,13 +134,13 @@ zstyle ':vcs_info:*' enable git
 
 # countdowntown
 # work
-alias cdw='tmux send-keys -t notes:countdown "/home/matt/go/bin/countdowntown 25" C-m'
+alias cdw='tmux send-keys -t notes:countdown "~/go/bin/countdowntown 30" C-m'
 # rest
-alias cdp='tmux send-keys -t notes:countdown "/home/matt/go/bin/countdowntown 8" C-m'
+alias cdp='tmux send-keys -t notes:countdown "$HOME/go/bin/countdowntown 10" C-m'
 # stop
 alias cds='tmux send-keys -t notes:countdown C-c'
 # reset
-alias cdr='truncate -s 0 /home/matt/.cdt'
+alias cdr='truncate -s 0 $HOME/.cdt'
 
 # don't add lines that start with a space into the history
 HISTCONTROL=ignorespace

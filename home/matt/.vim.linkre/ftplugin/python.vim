@@ -10,7 +10,7 @@ nmap <Leader>dt :ALEGoToDefinitionInTab<CR>
 " linters
 let g:ale_python_flake8_options="--ignore=E501"
 let g:ale_python_pylint_options="--enable=F,E,unreachable,duplicate-key,unnecessary-semicolon,global-variable-not-assigned,unused-variable,binary-op-exception,bad-format-string,anomalous-backslash-in-string,bad-open-mode"
-let g:ale_python_isort_options="-m3"
+let g:ale_python_isort_options="--multi-line=3 --trailing-comma --combine-as"
 " fixers
 " let b:ale_fixers = ['autopep8', 'black', 'isort', 'reorder-python-imports', 'yapf', 'remove_trailing_lines', 'trim_whitespace']
 let b:ale_fixers = ['black', 'isort', 'remove_trailing_lines', 'trim_whitespace']

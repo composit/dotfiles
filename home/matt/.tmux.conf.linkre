@@ -112,7 +112,7 @@ set -g status-interval 1
 #set -g status-left '#[fg=green]#H#[default]'
 #set -g status-right-length 150
 #set -g status-right '#(cat ~/.thyme-tmux) #[fg=green]#(cut -d " " -f 1-4 /proc/loadavg)#[default] #[fg=green,bold]%Y-%m-%d %H:%M:%S#[default]'
-set -g status-right '#(cat ~/.thyme-tmux)'
+set-option -g status-right '#(cat ~/.cdt)'
  
 # Notifying if other windows has activities
 setw -g monitor-activity on
