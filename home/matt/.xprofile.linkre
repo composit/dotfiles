@@ -1,5 +1,6 @@
 # reverse scrolling
-xmodmap ~/.Xmodmap
+device=$(xinput list --id-only 'CHESEN PS2 to USB Converter Mouse')
+xinput set-prop $device "libinput Natural Scrolling Enabled" 1
 # disable touchpad
 xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
 light-locker &
