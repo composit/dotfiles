@@ -4,9 +4,6 @@ setlocal shiftwidth=4
 setlocal softtabstop=4
 setlocal textwidth=100
 
-" go to definition in new tab
-nmap <Leader>dt :ALEGoToDefinitionInTab<CR>
-
 " linters
 let g:ale_python_flake8_options="--ignore=E501"
 let g:ale_python_pylint_options="--enable=F,E,unreachable,duplicate-key,unnecessary-semicolon,global-variable-not-assigned,unused-variable,binary-op-exception,bad-format-string,anomalous-backslash-in-string,bad-open-mode"
@@ -18,9 +15,6 @@ let g:ale_fix_on_save=1
 
 " Tests
 let test#python#runner = 'pytest'
-
-nmap <Leader>t :TestNearest<CR>
-nmap <Leader>T :TestSuite<CR>
 
 if exists('*OpenTestAlternate')
   finish

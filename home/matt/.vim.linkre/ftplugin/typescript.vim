@@ -10,15 +10,6 @@ setlocal shiftwidth=2
 setlocal smarttab
 
 let b:ale_fixers = ['tslint']
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
-
-" go to definition in new tab
-nmap <Leader>dt :ALEGoToDefinitionInTab<CR>
-
-" Tests
-nmap <Leader>t :TestNearest<CR>
-nmap <Leader>T :TestSuite<CR>
 
 if exists('*OpenTestAlternate')
   finish

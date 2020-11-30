@@ -11,11 +11,7 @@ Plug 'mattn/gist-vim'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'flazz/vim-colorschemes'
-"Plug 'robertmeta/nofrils'
-Plug 'fenetikm/falcon'
 Plug 'airblade/vim-gitgutter'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer' }
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 Plug 'tpope/vim-fugitive'
@@ -56,9 +52,6 @@ set list
 " mycolors are set in ./vim/plugin/setcolors.vim
 colorscheme goodwolf
 
-" Pressing Ctrl-L leaves insert mode in evim, so why not in regular vim, too.
-:imap <C-L> <Esc>
-
 let mapleader=","
 
 " Open and close folds with space
@@ -85,6 +78,10 @@ set clipboard=unnamed
 
 let test#strategy = "tslime"
 
+" Tests
+nmap <Leader>t :TestNearest -v <CR>
+nmap <Leader>T :TestSuite <CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
@@ -110,19 +107,29 @@ let g:gist_open_browser_after_post = 1
 let g:gist_post_private = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" YouCompleteMe
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set completeopt-=preview
-let g:ycm_add_preview_to_completeopt = 0
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ale
+" ALE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ale_sign_column_always = 1
 "only lint on save
 "let g:ale_lint_on_text_changed = 'never'
+"enable completion
+let g:ale_completion_enabled = 1
+"fix on save
+let g:ale_fix_on_save = 1
+
+" go to definition
+nmap <Leader>dd :ALEGoToDefinition<CR>
+nmap <Leader>dt :ALEGoToDefinition -tab<CR>
+nmap <Leader>dv :ALEGoToDefinition -vsplit<CR>
+
+" find references
+nmap <Leader>rr :ALEFindReferences<CR>
+nmap <Leader>rt :ALEFindReferences -tab<CR>
+nmap <Leader>rv :ALEFindReferences -vsplit<CR>
+
+" rename
+nmap <Leader>e :ALERename<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Transparent Background

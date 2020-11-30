@@ -1,7 +1,3 @@
-" Tests
-nmap <Leader>t :TestNearest<CR>
-nmap <Leader>T :TestSuite<CR>
-
 if exists('*OpenTestAlternate')
   finish
 endif
