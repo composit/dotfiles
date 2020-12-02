@@ -9,6 +9,7 @@ setlocal expandtab
 setlocal shiftwidth=2
 setlocal smarttab
 
+let b:ale_linters = ['tslint', 'tsserver', 'typecheck']
 let b:ale_fixers = ['tslint']
 
 if exists('*OpenTestAlternate')
