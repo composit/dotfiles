@@ -79,7 +79,7 @@ set clipboard=unnamed
 let test#strategy = "tslime"
 
 " Tests
-nmap <Leader>t :TestNearest -v <CR>
+nmap <Leader>t :TestNearest <CR>
 nmap <Leader>T :TestSuite <CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -137,12 +137,13 @@ nmap <Leader>e :ALERename<CR>
 
 function! Background_transparent()
 	" regular
-	highlight Normal guibg=NONE ctermbg=NONE
+	highlight Normal ctermbg=NONE
 	" line numbers
-	"highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-	highlight LineNr ctermbg=NONE guibg=NONE
+	highlight LineNr ctermbg=NONE
 	" empty lines
-	highlight EmptyLines guibg=NONE ctermbg=NONE
+	highlight EmptyLines ctermbg=NONE
+	" special chars (tabs and such)
+	highlight SpecialKey ctermbg=none
 endfunction
 nnoremap <Leader>r : call Background_transparent()<CR>
 call Background_transparent()

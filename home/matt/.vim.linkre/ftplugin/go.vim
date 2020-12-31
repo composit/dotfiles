@@ -3,6 +3,9 @@ setlocal nosmarttab
 setlocal shiftwidth=8
 setlocal noexpandtab
 
+" default to verbose for go tests
+nmap <Leader>t :TestNearest -v <CR>
+
 let b:ale_linters = ['gofmt', 'golint', 'govet', 'gopls']
 let b:ale_fixers = ['gofmt', 'goimports']
 
