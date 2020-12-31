@@ -144,6 +144,10 @@ function! Background_transparent()
 	highlight EmptyLines ctermbg=NONE
 	" special chars (tabs and such)
 	highlight SpecialKey ctermbg=none
+	" sign column (gitgutter, etc.)
+	highlight SignColumn ctermbg=none
+	" lines without text
+	highlight NonText ctermbg=none
 endfunction
 nnoremap <Leader>r : call Background_transparent()<CR>
 call Background_transparent()
