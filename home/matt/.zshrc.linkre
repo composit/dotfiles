@@ -92,15 +92,19 @@ path=($HOME/go/bin $path)
 path=(`ruby -e 'puts Gem.user_dir'`/bin $path)
 
 # Yarn stuff
-path=(`yarn global bin` $path)
-path=("$HOME/.yarn/bin" "$HOME/.config/yarn/global/node_modules/.bin" $path)
+if [ -x "$(command -v yarn)" ]; then
+  path=(`yarn global bin` $path)
+  path=("$HOME/.yarn/bin" "$HOME/.config/yarn/global/node_modules/.bin" $path)
+fi
 
 # Python stuff
 path=("$HOME/.local/bin" $path)
 
 # ASDF (Elixir) stuff
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+if [ -d "$HOME/.asdf/asdf.sh" ]; then
+  . $HOME/.asdf/asdf.sh
+  . $HOME/.asdf/completions/asdf.bash
+fi
 
 # kubectl completion
 source <(kubectl completion zsh)
