@@ -6,8 +6,8 @@ setlocal noexpandtab
 " default to verbose for go tests
 nmap <Leader>t :TestNearest -v <CR>
 
-let b:ale_linters = ['gofmt', 'golint', 'govet', 'gopls']
-let b:ale_fixers = ['gofmt', 'goimports']
+let b:ale_linters = ['gofmt', 'golint', 'govet', 'gopls', 'golangci-lint']
+let b:ale_fixers = ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace']
 
 if exists('*OpenTestAlternate')
   finish
