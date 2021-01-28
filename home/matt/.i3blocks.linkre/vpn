@@ -1,10 +1,20 @@
 #!/bin/bash
 
 COLOR=\#FFFFFF
-STATUS=$(systemctl is-active openvpn-client@ipvanish)
+STATUS=$(systemctl is-active openvpn-client@*)
+if [ -z "$STATUS" ]; then
+	STATUS=inactive
+fi
 if [ $STATUS != "active" ]; then
 	COLOR=\#FFAE00
 fi
+if [ -n "$(pidof openconnect)" ]; then
+	# this is a special case that I want to be
+	# aware of. Make it green.
+	STATUS="OPENCONNECT"
+	COLOR=\#00FFAE
+fi
+
 
 echo $STATUS
 echo $STATUS
