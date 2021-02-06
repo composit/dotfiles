@@ -44,14 +44,11 @@ plugins=(git bundler command-not-found docker npm vi-mode golang tmux)
 
 source $ZSH/oh-my-zsh.sh
 
-# 256 color tmux
-alias tmux="tmux -2"
-
 alias rspec='nocorrect rspec'
 
 alias sz='source ~/.zshrc'
 
-EDITOR='vim'
+export EDITOR='vim'
 alias e=$EDITOR
 
 alias ll='ls -lah'
