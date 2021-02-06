@@ -1,125 +1,23 @@
-# ~/.tmux.conf
-# By Tyler Mulligan. Public domain.
-#
-# This configuration file binds many of the common GNU screen key bindings to
-# appropriate tmux key bindings. Note that for some key bindings there is no
-# tmux analogue and also that this set omits binding some commands available in
-# tmux but not in screen.
-#
-# Note this is a good starting point but you should check out the man page for more
-# configuration options if you really want to get more out of tmux
- 
-### Unbind existing tmux key bindings (except 0-9).
- 
-# Set the prefix to ^A.
-unbind C-b
-set -g prefix ^A
-bind a send-prefix
- 
-# Bind appropriate commands similar to screen.
-# lockscreen ^X x
-unbind ^X
-bind ^X lock-server
-unbind x
-bind x lock-server
- 
-# screen ^C c
-unbind ^C
-bind ^C new-window
-bind c new-window
- 
-# detach ^D d
-unbind ^D
-bind ^D detach
- 
-# displays *
-unbind *
-bind * list-clients
- 
-# next ^@ ^N sp n
-unbind ^@
-bind ^@ next-window
-unbind ^N
-bind ^N next-window
-#unbind " "
-#bind " " next-window
-unbind n
-bind n next-window
- 
-# title A
-unbind A
-bind A command-prompt "rename-window %%"
- 
-# other ^A
-unbind ^A
-bind ^A last-window
- 
-# prev ^H ^P p ^?
-unbind ^H
-bind ^H previous-window
-unbind ^P
-bind ^P previous-window
-unbind p
-bind p previous-window
-unbind BSpace
-bind BSpace previous-window
- 
-# windows ^W w
-unbind ^W
-bind ^W list-windows
-unbind w
-bind w list-windows
- 
-# quit \
-unbind \
-bind \ confirm-before "kill-server"
- 
-# kill K k
-unbind K
-bind K confirm-before "kill-window"
-unbind k
-bind k confirm-before "kill-window"
- 
-# redisplay ^L l
-unbind ^L
-bind ^L refresh-client
-unbind l
-bind l refresh-client
- 
-# More straight forward key bindings for splitting
-unbind %
-bind | split-window -h
-bind v split-window -h
-unbind '"'
-bind - split-window -v
-bind h split-window -v
- 
+# Start windows and panes at 1 to mimic i3 windows
+set -g base-index 1
+setw -g pane-base-index 1
+
+# address vim mode switching delay (http://superuser.com/a/252717/65504)
+set -s escape-time 0
+
+# refresh the status bar more frequently
+set -g status-interval 5
+
+# 256-color $TERM
+set -g default-terminal "tmux-256color"
+
 # History
-set -g history-limit 10000
- 
-# Pane
-#unbind o
-#bind C-s down-pane
- 
-# Terminal emulator window title
-#set -g set-titles on
-#set -g set-titles-string '#S:#I.#P #W'
- 
+set -g history-limit 50000
+
 # Status Bar
-#set -g status-style bg='colour235'
-#set -g status-style fg=white
-set -g status-interval 1
-#set -g status-left '#[fg=green]#H#[default]'
-#set -g status-right-length 150
-#set -g status-right '#(cat ~/.thyme-tmux) #[fg=green]#(cut -d " " -f 1-4 /proc/loadavg)#[default] #[fg=green,bold]%Y-%m-%d %H:%M:%S#[default]'
+## show the countdowntown status
 set-option -g status-right '#(cat ~/.cdt)'
- 
-# Notifying if other windows has activities
-setw -g monitor-activity on
-set -g visual-activity on
- 
-# Highlighting the active window in status bar
-#setw -g window-status-current-style bg=white fg=black
+
 # set color for status bar
 set-option -g status-style fg=white,dim
 
@@ -129,50 +27,12 @@ set-window-option -g window-status-style fg=colour240,dim
 # active window title colors
 set-window-option -g window-status-current-style fg=white
  
-# Clock
-setw -g clock-mode-colour green
-setw -g clock-mode-style 24
- 
-# :kB: focus up
-#unbind Tab
-#bind Tab down-pane
-#unbind BTab
-#bind BTab up-pane
- 
-# " windowlist -b
-#unbind '"'
-#bind '"' choose-window
-
-# vim copy mode
+# vim navigation while in copy/scrollback mode
 setw -g mode-keys vi
-#bind-key -t vi-copy 'v' begin-selection
-#bind-key -t vi-copy 'y' copy-selection
 
-# Smart pane switching with awareness of vim splits
-#bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim(diff)?$' && tmux send-keys C-h) || tmux select-pane -L"
-#bind -n C-j run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim(diff)?$' && tmux send-keys C-j) || tmux select-pane -D"
-#bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim(diff)?$' && tmux send-keys C-k) || tmux select-pane -U"
-#bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim(diff)?$' && tmux send-keys C-l) || tmux select-pane -R"
-#bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim(diff)?$' && tmux send-keys 'C-\\') || tmux select-pane -l"
+# X clipboard integration (similar to tmux-yank)
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xsel -i -p && xsel -o -p | xsel -i -b"
+bind-key p run "xsel -o | tmux load-buffer - ; tmux paste-buffer"
 
-#bind C-l send-keys 'C-l'
-
-# List of plugins
-# Supports `github_username/repo` or full git URLs
-# Other examples:
-# github_username/plugin_name    \
-# git@github.com/user/plugin     \
-# git@bitbucket.com/user/plugin  \
-
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'tmux-plugins/tmux-pain-control'
-set -g @plugin 'tmux-plugins/tmux-open'
-set -g @plugin 'tmux-plugins/tmux-yank'
-set -g @plugin 'tmux-plugins/tmux-copycat'
-#set -g @plugin 'seebi/tmux-colors-solarized'
-
-# tmux-plugins/tmux-sessionist     \
-
-# initializes TMUX plugin manager
-run '~/.tmux/plugins/tpm/tpm'
+# open the current .tmuxxer file
+bind-key a source-file .tmuxxer
