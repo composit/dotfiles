@@ -40,7 +40,10 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler command-not-found docker npm vi-mode golang tmux)
+# plugins that add functionality
+plugins=(command-not-found vi-mode)
+# plugins that mostly add autocompletion
+plugins+=(bundler docker npm golang)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -59,7 +62,6 @@ bindkey -v
 # tm - create new tmux session, or switch to existing one. Works from within tmux too. (@bag-man)
 # `tm` will allow you to select your tmux session via fzf.
 # `tm irc` will attach to the irc session (if it exists), else it will create it.
-
 tm() {
   [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
   if [ $1 ]; then 
@@ -86,7 +88,9 @@ path=(/usr/local/go/bin $path)
 path=($HOME/go/bin $path)
 
 # Ruby stuff
-path=(`ruby -e 'puts Gem.user_dir'`/bin $path)
+if [ -x "$(command -v ruby)" ]; then
+  path=(`ruby -e 'puts Gem.user_dir'`/bin $path)
+fi
 
 # Yarn stuff
 if [ -x "$(command -v yarn)" ]; then
@@ -110,16 +114,6 @@ source <(kubectl completion zsh)
 # shows the status code of the previous command in red if it failed
 PROMPT='%F{247}%B%3~%b%f %(?.%F{230}☀%f.%F{174}☇%f)%f '
 
-autoload -Uz vcs_info
-precmd_functions+=( vcs_info )
-setopt prompt_subst
-RPROMPT=\$vcs_info_msg_0_
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' unstagedstr '☽'
-zstyle ':vcs_info:git:*' stagedstr '☾'
-zstyle ':vcs_info:git:*' formats '%F{230}%u%c%f %F{247} %b'
-zstyle ':vcs_info:*' enable git
-
 # countdowntown
 # work
 alias cdw='tmux send-keys -t notes:countdown "$HOME/go/bin/countdowntown 30" C-m'
@@ -132,3 +126,9 @@ alias cdr='truncate -s 0 $HOME/.cdt'
 
 # don't add lines that start with a space into the history
 HISTCONTROL=ignorespace
+
+# git aliases
+alias gc='git commit'
+alias ga='git add'
+alias gb='git branch'
+alias gp='git pull && git push'
