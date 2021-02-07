@@ -43,7 +43,7 @@ DISABLE_AUTO_TITLE="true"
 # plugins that add functionality
 plugins=(command-not-found vi-mode)
 # plugins that mostly add autocompletion
-plugins+=(bundler docker npm golang)
+plugins+=(bundler npm golang)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -71,8 +71,7 @@ tm() {
 }
 
 # docker-compose completions
-plugins+=(zsh-completions)
-autoload -U compinit && compinit
+plugins+=(docker docker-compose)
 
 [[ -r ~/.zshrc.midnight ]] && . ~/.zshrc.midnight
 [[ -r ~/.zshrc.local ]] && . ~/.zshrc.local
@@ -108,7 +107,7 @@ if [ -d "$HOME/.asdf/asdf.sh" ]; then
 fi
 
 # kubectl completion
-source <(kubectl completion zsh)
+source <(command kubectl completion zsh)
 
 # prompt
 # shows the status code of the previous command in red if it failed
@@ -128,7 +127,9 @@ alias cdr='truncate -s 0 $HOME/.cdt'
 HISTCONTROL=ignorespace
 
 # git aliases
+alias gs='git status'
 alias gc='git commit'
 alias ga='git add'
+alias gd='git diff'
 alias gb='git branch'
 alias gp='git pull && git push'

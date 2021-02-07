@@ -29,6 +29,7 @@ Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
 Plug 'psf/black', { 'for': 'python', 'tag': '19.10b0' }
+Plug 'pearofducks/ansible-vim'
 call plug#end()
 
 syntax on
