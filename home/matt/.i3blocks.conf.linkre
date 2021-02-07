@@ -41,6 +41,13 @@ interval=once
 signal=10
 #STEP=5%
 
+# Backlight indicator
+#
+
+[backlight]
+label=bl
+interval=once
+
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
@@ -58,6 +65,10 @@ interval=30
 label=sda4 
 DIR=/dev/sda4
 interval=30
+
+[countdown]
+label=cdt 
+interval=5
 
 # Network interface monitoring
 #
@@ -83,7 +94,7 @@ interval=5
 separator=false
 
 [wifi]
-INTERFACE=wlp3s0
+INTERFACE=wlan0
 interval=10
 separator=false
 color=white
@@ -122,10 +133,6 @@ interval=5
 #
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'
-interval=5
-
-[countdown]
-label=cdt 
 interval=5
 
 # Generic media player support

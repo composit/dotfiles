@@ -9,10 +9,16 @@ if [ $STATUS != "active" ]; then
 	COLOR=\#FFAE00
 fi
 if [ -n "$(pidof openconnect)" ]; then
-	# this is a special case that I want to be
-	# aware of. Make it green.
-	STATUS="OPENCONNECT"
-	COLOR=\#00FFAE
+	if [ $STATUS == "active" ]; then
+		# 2 vpns are running
+		STATUS="MULTIPLE"
+		COLOR=\#FFAE00
+	else
+		# this is a special case that I want to be
+		# aware of. Make it green.
+		STATUS="OPENCONNECT"
+		COLOR=\#00FFAE
+	fi
 fi
 
 
