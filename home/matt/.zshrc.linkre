@@ -110,8 +110,18 @@ fi
 source <(command kubectl completion zsh)
 
 # prompt
+function git_branch_name()
+{
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]];
+  then
+    :
+  else
+    echo ' '$branch
+  fi
+}
 # shows the status code of the previous command in red if it failed
-PROMPT='%F{247}%B%3~%b%f %(?.%F{230}☀%f.%F{174}☇%f)%f '
+PROMPT='%F{247}%B%3~%b$(git_branch_name)%f %(?.%F{230}☀%f.%F{174}☇%f)%f '
 
 # countdowntown
 # work
