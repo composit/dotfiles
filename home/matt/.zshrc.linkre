@@ -121,8 +121,15 @@ function git_branch_name()
   fi
 }
 # shows the status code of the previous command in red if it failed
-PROMPT='%F{247}%B%3~%b$(git_branch_name)%f %(?.%F{230}☀%f.%F{174}☇%f)%f '
-
+PROMPT=''
+PROMPT+='%F{247}' # gray
+if [[ ! -z "$SSH_TTY" ]]; then # only display the hostname if not local
+  PROMPT+='${(%):-%m} ' # %m is hostname
+fi
+PROMPT+='%B%3~%b' # %3~ is dir to 3 levels
+PROMPT+='$(git_branch_name) ' # git branch
+PROMPT+='%f' # end gray color
+PROMPT+='%(?.%F{230}☀%f.%F{174}☇%f) ' # exit code thingy
 # countdowntown
 # work
 alias cdw='tmux send-keys -t notes:countdown "$HOME/go/bin/countdowntown 30" C-m'
@@ -143,3 +150,5 @@ alias ga='git add'
 alias gd='git diff'
 alias gb='git branch'
 alias gp='git pull && git push'
+
+export PATH="$HOME/.poetry/bin:$PATH"
