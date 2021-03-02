@@ -1,13 +1,12 @@
-alias rspec='nocorrect rspec'
-
-alias sz='source ~/.zshrc'
-
+# export this so child processes know how to edit things
 export EDITOR='vim'
-alias e=$EDITOR
 
+# some aliases
+alias e=$EDITOR
+alias sz='source ~/.zshrc'
 alias ll='ls -lah'
 
-# Vi mode
+# Vi mode (edit commands inline or in vim)
 bindkey -v
 
 # tm - create new tmux session, or switch to existing one. Works from within tmux too. (@bag-man)
@@ -25,9 +24,13 @@ tm() {
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
+# kubectl completion
+source <(command kubectl completion zsh)
+
 [[ -r ~/.zshrc.midnight ]] && . ~/.zshrc.midnight
 [[ -r ~/.zshrc.local ]] && . ~/.zshrc.local
 
+# fzf completions, etc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # keep path unique by using zsh path and specifying uniqueness
@@ -41,6 +44,7 @@ path=($HOME/go/bin $path)
 # Ruby stuff
 if [ -x "$(command -v ruby)" ]; then
   path=(`ruby -e 'puts Gem.user_dir'`/bin $path)
+  alias rspec='nocorrect rspec'
 fi
 
 # Yarn stuff
@@ -50,16 +54,16 @@ if [ -x "$(command -v yarn)" ]; then
 fi
 
 # Python stuff
-path=("$HOME/.local/bin" $path)
+if [[ -x "$(command -v python)" || -x "$(command -v python3)" ]]; then
+  path=("$HOME/.local/bin" $path)
+  path=("$HOME/.poetry/bin" $path)
+fi
 
 # ASDF (Elixir) stuff
 if [ -d "$HOME/.asdf/asdf.sh" ]; then
   . $HOME/.asdf/asdf.sh
   . $HOME/.asdf/completions/asdf.bash
 fi
-
-# kubectl completion
-source <(command kubectl completion zsh)
 
 # prompt
 function git_branch_name()
@@ -99,5 +103,3 @@ alias ga='git add'
 alias gd='git diff'
 alias gb='git branch'
 alias gp='git pull && git push'
-
-export PATH="$HOME/.poetry/bin:$PATH"
