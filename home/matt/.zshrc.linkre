@@ -6,6 +6,28 @@ alias e=$EDITOR
 alias sz='source ~/.zshrc'
 alias ll='ls -lah'
 
+# history stuff, mostly adapted from 
+# https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/history.zsh
+
+# keep history
+[ "$SAVEHIST" -lt 1000000 ] && SAVEHIST=1000000
+[ "$HISTSIZE" -lt 5000000 ] && HISTSIZE=5000000
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
+
+# append immediately to history, rather than at session end
+setopt inc_append_history
+
+# add timestamp to history
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_verify            # show command with history expansion to user before running it
+
+# no dups
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+
+# don't add lines that start with a space into the history
+setopt hist_ignore_space      # ignore commands that start with space
+
 # Vi mode (edit commands inline or in vim)
 bindkey -v
 
@@ -92,9 +114,6 @@ PROMPT+='%B%3~%b' # %3~ is dir to 3 levels
 PROMPT+='$git_branch_name_msg ' # git branch
 PROMPT+='%f' # end gray color
 PROMPT+='%(?.%F{230}☀%f.%F{174}☇%f) ' # exit code thingy
-
-# don't add lines that start with a space into the history
-HISTCONTROL=ignorespace
 
 # git aliases
 alias gs='git status'
