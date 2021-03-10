@@ -14,12 +14,10 @@ alias ll='ls -lah'
 [ "$HISTSIZE" -lt 5000000 ] && HISTSIZE=5000000
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
 
-# append immediately to history, rather than at session end
-setopt inc_append_history
-
-# add timestamp to history
 setopt extended_history       # record timestamp of command in HISTFILE
+
 setopt hist_verify            # show command with history expansion to user before running it
+setopt share_history          # share command history data
 
 # no dups
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
