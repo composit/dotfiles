@@ -1,13 +1,23 @@
 #!/bin/bash
 
 COLOR=\#FFFFFF
+
+# openvpn
 STATUS=$(systemctl is-active openvpn-client@*)
+
+# expressvpn app
+if [[ "$(expressvpn status)" =~ Connected.* ]]; then
+	STATUS=active
+fi
+
 if [ -z "$STATUS" ]; then
 	STATUS=inactive
 fi
 if [ $STATUS != "active" ]; then
 	COLOR=\#FFAE00
 fi
+
+# openconnect
 if [ -n "$(pidof openconnect)" ]; then
 	if [ $STATUS == "active" ]; then
 		# 2 vpns are running
