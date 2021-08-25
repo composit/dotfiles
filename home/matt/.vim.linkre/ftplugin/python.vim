@@ -10,8 +10,8 @@ let g:ale_python_pylint_options="--enable=F,E,unreachable,duplicate-key,unnecess
 let g:ale_python_isort_options="--multi-line=3 --trailing-comma --combine-as"
 " fixers
 " let b:ale_fixers = ['autopep8', 'black', 'isort', 'reorder-python-imports', 'yapf', 'remove_trailing_lines', 'trim_whitespace']
-let b:ale_fixers = ['black', 'isort', 'remove_trailing_lines', 'trim_whitespace']
-let g:ale_fix_on_save=1
+" let b:ale_fixers = ['black', 'isort', 'remove_trailing_lines', 'trim_whitespace']
+" let g:ale_fix_on_save=1
 
 " Tests
 let test#python#runner = 'pytest'

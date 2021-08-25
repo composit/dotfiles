@@ -30,6 +30,7 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
 Plug 'psf/black', { 'for': 'python', 'tag': '19.10b0' }
 Plug 'pearofducks/ansible-vim'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end()
 
 syntax on
@@ -38,7 +39,9 @@ set smartcase
 set incsearch
 set autoindent
 set hlsearch
-set number " show the numbers
+" set number relativenumber " show hybrid numbers
+set nonumber norelativenumber " don't show numbers
+set ruler
 
 " quiet down
 set noerrorbells
@@ -65,10 +68,10 @@ map <Leader>h :set invhls <CR>
 " Repeat stuff in visual mode
 xnoremap . :norm.<CR>
 
-" Open files with <leader>f
-" map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-" map <leader>f :CtrlP<cr>
-map <leader>f :Files<cr>
+" Open files with <Leader>f
+" map <Leader>f :CommandTFlush<cr>\|:CommandT<cr>
+" map <Leader>f :CtrlP<cr>
+map <Leader>f :Files<cr>
 
 " yank to the system clipboard
 set clipboard=unnamed
@@ -118,6 +121,9 @@ let g:ale_sign_column_always = 1
 let g:ale_completion_enabled = 1
 "fix on save
 let g:ale_fix_on_save = 1
+"lint the whole package otherwise it fails if referencing things defined in
+"other files
+let g:ale_go_golangci_lint_package = 1
 
 " go to definition
 nmap <Leader>dd :ALEGoToDefinition<CR>
@@ -137,6 +143,19 @@ nmap <Leader>e :ALERename<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nmap <Leader>rg :Rg<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Toggle gutters
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! ToggleGutters()
+	set number!
+	GitGutterToggle
+endfunction
+" start disabled
+let g:gitgutter_enabled = 0
+
+nmap <Leader>b : call ToggleGutters()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Transparent Background
