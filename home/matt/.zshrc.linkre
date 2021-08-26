@@ -104,10 +104,12 @@ precmd() {
 setopt prompt_subst
 
 PROMPT=''
-PROMPT+='%F{247}' # gray
 if [[ ! -z "$SSH_TTY" ]]; then # only display the hostname if not local
+  PROMPT+='%F{230}' # whitish
   PROMPT+='${(%):-%m} ' # %m is hostname
+  PROMPT+='%f'
 fi
+PROMPT+='%F{247}' # gray
 PROMPT+='%B%3~%b' # %3~ is dir to 3 levels
 PROMPT+='$git_branch_name_msg ' # git branch
 PROMPT+='%f' # end gray color
