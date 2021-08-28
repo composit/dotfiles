@@ -235,6 +235,9 @@ bar {
 # remove borders
 default_border none
 
+# gaps
+gaps inner 10
+
 # pass
 bindsym $mod+p exec i3-sensible-terminal -e zsh -c passfzf
 
