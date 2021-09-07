@@ -47,9 +47,9 @@ output "*" bg `find $wallpapers_path -type f | shuf -n 1` fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+#         timeout 300 'swaylock -f -c 000000' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+#         before-sleep 'swaylock -f -c 000000'
 
 ### Input configuration
 #
@@ -240,6 +240,6 @@ default_border none
 gaps inner 10
 
 # pass
-bindsym $mod+p exec i3-sensible-terminal -e zsh -c passfzf
+bindsym $mod+p exec $term -e zsh -c passfzf
 
 include /etc/sway/config.d/*
