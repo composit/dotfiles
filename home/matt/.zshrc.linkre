@@ -79,7 +79,6 @@ fi
 # Python stuff
 if [[ -x "$(command -v python)" || -x "$(command -v python3)" ]]; then
   path=("$HOME/.local/bin" $path)
-  path=("$HOME/.poetry/bin" $path)
 fi
 
 # ASDF (Elixir) stuff
@@ -112,7 +111,7 @@ if [[ ! -z "$SSH_TTY" ]]; then # only display the hostname if not local
   PROMPT+='${(%):-%m} ' # %m is hostname
   PROMPT+='%f'
 fi
-PROMPT+='%F{247}' # gray
+PROMPT+='%F{255}' # gray
 PROMPT+='%B%3~%b' # %3~ is dir to 3 levels
 PROMPT+='$git_branch_name_msg ' # git branch
 PROMPT+='%f' # end gray color
