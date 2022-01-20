@@ -53,6 +53,9 @@ source <(command kubectl completion zsh)
 # fzf completions, etc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# fzf-tab
+[ -f ~/.fzf-tab/fzf-tab.plugin.zsh ] && source ~/.fzf-tab/fzf-tab.plugin.zsh
+
 # keep path unique by using zsh path and specifying uniqueness
 # otherwise, loading tmux doubles the path
 typeset -aU path
