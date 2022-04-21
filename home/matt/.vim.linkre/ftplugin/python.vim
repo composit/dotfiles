@@ -1,3 +1,7 @@
+call Enable_coding_plugins()
+
+packadd black
+
 setlocal tabstop=4
 setlocal expandtab
 setlocal shiftwidth=4

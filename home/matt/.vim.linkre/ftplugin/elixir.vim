@@ -1,3 +1,8 @@
+call Enable_coding_plugins()
+
+packadd vim-elixir
+packadd alchemist
+
 if exists('*OpenTestAlternate')
   finish
 endif

@@ -1,3 +1,8 @@
+call Enable_coding_plugins()
+
+packadd vim-rails
+packadd vim-endwise
+
 " tabs
 setlocal tabstop=2
 setlocal smarttab

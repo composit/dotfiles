@@ -3,6 +3,10 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
+call Enable_coding_plugins()
+
+packadd typescript-vim
+
 setlocal tabstop=2
 setlocal softtabstop=0
 setlocal expandtab

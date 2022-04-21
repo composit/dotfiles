@@ -5,36 +5,9 @@ set encoding=utf-8
 
 set nocompatible
 
-call plug#begin('~/.vim/plugged')
-Plug 'mattn/webapi-vim'
-Plug 'mattn/gist-vim'
-Plug 'tpope/vim-endwise', { 'for': 'ruby' }
-Plug 'tpope/vim-rails', { 'for': 'ruby' }
-Plug 'flazz/vim-colorschemes'
-Plug 'airblade/vim-gitgutter'
-Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
-Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'janko-m/vim-test'
-Plug 'jgdavey/tslime.vim'
-Plug 'w0rp/ale', { 'for': ['go', 'typescript', 'python', 'sh'] }
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'guns/vim-sexp', { 'for': 'clojure' }
-Plug 'tpope/vim-repeat', { 'for': 'clojure' }
-Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
-Plug 'psf/black', { 'for': 'python', 'tag': '19.10b0' }
-Plug 'pearofducks/ansible-vim'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-call plug#end()
-
 syntax on
 set showmatch
+set ignorecase
 set smartcase
 set incsearch
 set autoindent
@@ -72,6 +45,9 @@ xnoremap . :norm.<CR>
 " map <Leader>f :CommandTFlush<cr>\|:CommandT<cr>
 " map <Leader>f :CtrlP<cr>
 map <Leader>f :Files<cr>
+
+" Close all splits except the current one
+map <Leader>o :only<cr>
 
 " yank to the system clipboard
 set clipboard=unnamed
@@ -150,7 +126,9 @@ nmap <Leader>rg :Rg<CR>
 
 function! ToggleGutters()
 	set number!
-	GitGutterToggle
+	if &rtp =~ 'vim-gitgutter'
+		GitGutterToggle
+	endif
 endfunction
 " start disabled
 let g:gitgutter_enabled = 0
@@ -177,3 +155,69 @@ function! Background_transparent()
 endfunction
 nnoremap <Leader>r : call Background_transparent()<CR>
 call Background_transparent()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" general
+" git clone git@github.com:flazz/vim-colorschemes.git ~/.vim/pack/3rd-party-plugins/opt/vim-colorschemes
+" git clone git@github.com:junegunn/fzf.git ~/.vim/pack/3rd-party-plugins/start/fzf
+" git clone git@github.com:junegunn/fzf.vim.git ~/.vim/pack/3rd-party-plugins/start/fzf.vim
+"
+" gist
+" git clone git@github.com:mattn/webapi-vim.git ~/.vim/pack/3rd-party-plugins/opt/webapi-vim
+" git clone git@github.com:mattn/vim-gist.git ~/.vim/pack/3rd-party-plugins/opt/vim-gist
+" to enable:
+" * :packadd webapi-vim
+" * :packadd vim-gist
+"
+" all coding
+" git clone git@github.com:tpope/vim-fugitive.git ~/.vim/pack/3rd-party-plugins/opt/vim-fugitive
+" git clone git@github.com:airblade/vim-gitgutter.git ~/.vim/pack/3rd-party-plugins/opt/vim-gitgutter
+" git clone git@github.com:dense-analysis/ale.git ~/.vim/pack/3rd-party-plugins/opt/ale
+" git clone git@github.com:janko-m/vim-test.git ~/.vim/pack/3rd-party-plugins/opt/vim-test
+" git clone git@github.com:jgdavey/tslime.vim.git ~/.vim/pack/3rd-party-plugins/opt/tslime.vim
+"
+" go
+" git clone git@github.com:sebdah/vim-delve.git ~/.vim/pack/3rd-party-plugins/opt/vim-delve
+"
+" ruby/rails
+" git clone git@github.com:tpope/vim-rails.git ~/.vim/pack/3rd-party-plugins/opt/vim-rails
+" git clone git@github.com:tpope/vim-endwise.git ~/.vim/pack/3rd-party-plugins/opt/vim-endwise
+"
+" elixir
+" git clone git@github.com:elixir-editors/vim-elixir.git ~/.vim/pack/3rd-party-plugins/opt/vim-elixir
+" git clone git@github.com:slashmili/alchemist.vim.git ~/.vim/pack/3rd-party-plugins/opt/alchemist.vim
+"
+" typescript
+" git clone git@github.com:leafgarland/typescript-vim.git ~/.vim/pack/3rd-party-plugins/opt/typescript-vim
+"
+" clojure
+" git clone git@github.com:guns/vim-clojure-static.git ~/.vim/pack/3rd-party-plugins/opt/vim-clojure-static
+" git clone git@github.com:guns/vim-clojure-highlight.git ~/.vim/pack/3rd-party-plugins/opt/vim-clojure-highlight
+" git clone git@github.com:tpope/vim-fireplace.git ~/.vim/pack/3rd-party-plugins/opt/vim-fireplace
+" git clone git@github.com:kien/rainbow_parentheses.vim.git ~/.vim/pack/3rd-party-plugins/opt/rainbow_parentheses.vim
+"
+" python
+" git clone git@github.com:psf/black.git ~/.vim/pack/3rd-party-plugins/opt/black
+"
+" ansible
+" git clone git@github.com:pearofducks/ansible-vim.git ~/.vim/pack/3rd-party-plugins/opt/ansible-vim
+" to enable: :packadd ansible-vim
+"
+" unused?
+" git clone git@github.com:guns/vim-sexp.git ~/.vim/pack/3rd-party-plugins/opt/vim-sexp
+" git clone git@github.com:tpope/vim-sexp-mappings-for-regular-people.git ~/.vim/pack/3rd-party-plugins/opt/vim-sexp-mappings-for-regular-people
+" git clone git@github.com:tpope/vim-repeat.git ~/.vim/pack/3rd-party-plugins/opt/vim-repeat
+
+" called by ftplugin files for specific languages
+function! Enable_coding_plugins()
+	packadd vim-fugitive
+	packadd vim-gitgutter
+	packadd ale
+	packadd vim-test
+	packadd tslime.vim
+endfunction
+
+filetype plugin on
