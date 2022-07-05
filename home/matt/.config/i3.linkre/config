@@ -182,3 +182,6 @@ bindsym $mod+p exec i3-sensible-terminal -e zsh -c passfzf
 
 # wallpaper
 exec --no-startup-id exec bash $HOME/.fehbg
+
+# flameshot
+exec --no-startup-id exec /usr/bin/flameshot
