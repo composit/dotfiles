@@ -50,8 +50,7 @@ function! RunTests(filename)
     if match(expand("%"), '.js.coffee$') != -1
         exec ":!jasmine-headless-webkit --color --no-full-run --runner-out runner.html " . a:filename
     else
-        call system("tmux send-keys -t 'tests' 'bin/rspec " . a:filename ."' C-m")
-        call system("tmux select-window -t tests")
+        call system("tmux send-keys -t 'notes:tests' 'zeus rspec " . a:filename ."' C-m")
     end
 endfunction
 
