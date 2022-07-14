@@ -90,7 +90,7 @@ let g:gist_post_private = 1
 " ALE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ale_sign_column_always = 1
+"let g:ale_sign_column_always = 0
 "only lint on save
 "let g:ale_lint_on_text_changed = 'never'
 "enable completion
@@ -121,19 +121,24 @@ nmap <Leader>e :ALERename<CR>
 nmap <Leader>rg :Rg<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Toggle gutters
+" Fugitive
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-function! ToggleGutters()
-	set number!
-	if &rtp =~ 'vim-gitgutter'
-		GitGutterToggle
-	endif
-endfunction
-" start disabled
-let g:gitgutter_enabled = 0
+nmap <Leader>gb :Git blame<CR>
 
-nmap <Leader>b : call ToggleGutters()<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Toggle gutters for a brief period
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! ShowNumbers()
+	set number!
+	let timer = timer_start(5000, 'HideNumbers', {})
+endfunction
+
+function! HideNumbers(timer)
+	set nonumber!
+endfunction
+nmap <Leader>b : call ShowNumbers()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Transparent Background
@@ -148,10 +153,12 @@ function! Background_transparent()
 	highlight EmptyLines ctermbg=NONE
 	" special chars (tabs and such)
 	highlight SpecialKey ctermbg=none
-	" sign column (gitgutter, etc.)
+	" sign column (gutter, etc.)
 	highlight SignColumn ctermbg=none
 	" lines without text
 	highlight NonText ctermbg=none
+	" comments
+	highlight Comment ctermbg=none
 endfunction
 nnoremap <Leader>r : call Background_transparent()<CR>
 call Background_transparent()
@@ -174,7 +181,6 @@ call Background_transparent()
 "
 " all coding
 " git clone git@github.com:tpope/vim-fugitive.git ~/.vim/pack/3rd-party-plugins/opt/vim-fugitive
-" git clone git@github.com:airblade/vim-gitgutter.git ~/.vim/pack/3rd-party-plugins/opt/vim-gitgutter
 " git clone git@github.com:dense-analysis/ale.git ~/.vim/pack/3rd-party-plugins/opt/ale
 " git clone git@github.com:janko-m/vim-test.git ~/.vim/pack/3rd-party-plugins/opt/vim-test
 " git clone git@github.com:jgdavey/tslime.vim.git ~/.vim/pack/3rd-party-plugins/opt/tslime.vim
@@ -214,7 +220,6 @@ call Background_transparent()
 " called by ftplugin files for specific languages
 function! Enable_coding_plugins()
 	packadd vim-fugitive
-	packadd vim-gitgutter
 	packadd ale
 	packadd vim-test
 	packadd tslime.vim
