@@ -1,3 +1,5 @@
+call Enable_coding_plugins()
+
 if exists("b:did_ftplugin")
   finish
 endif

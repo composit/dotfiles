@@ -20,11 +20,12 @@ function! DebugNearest()
   unlet g:test#go#runner
 endfunction
 nmap <Leader>dd :call DebugNearest()<CR>
+
 nmap <Leader>db :DlvAddBreakpoint<CR>
 nmap <Leader>dr :DlvRemoveBreakpoint<CR>
 nmap <Leader>dc :DlvClearAll<CR>
 
-let b:ale_linters = ['gofmt', 'golint', 'govet', 'gopls', 'golangci-lint']
+let b:ale_linters = ['gofmt', 'govet', 'gopls', 'golangci-lint']
 let b:ale_fixers = ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace']
 
 let g:ale_go_golangci_lint_options = '--config $HOME/fanatics-recommended-golangci.yml'
