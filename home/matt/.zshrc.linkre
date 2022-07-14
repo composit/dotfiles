@@ -47,8 +47,8 @@ autoload -Uz compinit && compinit -i
 # kubectl completion
 source <(command kubectl completion zsh)
 
-[[ -r ~/.zshrc.midnight ]] && . ~/.zshrc.midnight
 [[ -r ~/.zshrc.local ]] && . ~/.zshrc.local
+[[ -r ~/.zshrc.midnight ]] && . ~/.zshrc.midnight
 
 # fzf completions, etc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -78,7 +78,9 @@ fi
 
 # Python stuff
 if [[ -x "$(command -v python)" || -x "$(command -v python3)" ]]; then
-  path=("$HOME/.local/bin" $path)
+  export PYENV_ROOT="$HOME/.pyenv"
+  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
 fi
 
 # ASDF (Elixir) stuff
@@ -124,3 +126,5 @@ alias ga='git add'
 alias gd='git diff'
 alias gb='git branch'
 alias gp='git pull && git push'
+
+export PATH="$HOME/.poetry/bin:$PATH"
