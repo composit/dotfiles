@@ -23,7 +23,7 @@
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
 
-#window:
+window:
   # Window dimensions (changes require restart)
   #
   # Number of lines/columns (not pixels) in the terminal. The number of columns
@@ -61,18 +61,16 @@
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  #decorations: full
-
-window:
-  decorations: none
+  decorations: buttonless
 
   # Background opacity
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
   #opacity: 1.0
+  opacity: 0.95
 
-background_opacity: 0.65
+#background_opacity: 0.65
 
   # Startup Mode (changes require restart)
   #
@@ -224,7 +222,9 @@ font:
 # Colors (substrata)
 colors:
   primary:
-    background: '#000000'
+#    background: '#000000'
+#    background: '#434443'
+    background: '#4d2b14'
     foreground: '#ffffff'
   normal:
     black:   '#2e313d'
