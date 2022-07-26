@@ -27,6 +27,7 @@ nmap <Leader>dc :DlvClearAll<CR>
 
 let b:ale_linters = ['gofmt', 'govet', 'gopls', 'golangci-lint']
 let b:ale_fixers = ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace']
+let g:ale_go_golangci_lint_options = '--config $HOME/golangci.yml
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS

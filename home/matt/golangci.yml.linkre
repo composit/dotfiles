@@ -1,0 +1,105 @@
+run:
+  go: '1.18'
+  deadline: 5m
+  tests: true
+  modules-download-mode: readonly
+output:
+  format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true
+linters-settings:
+  depguard:
+    list-type: blacklist
+    include-go-root: true
+    packages:
+      - log
+      - github.com/satori/go.uuid
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+  goconst:
+    min-len: 3
+    min-occurrences: 3
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - performance
+      - style
+      - opinionated
+      - experimental
+    disabled-checks:
+      - sloppyReassign
+  gofmt:
+    simplify: true
+  govet:
+    check-shadowing: true
+    settings:
+      printf:
+        funcs:
+          - Errorf
+          - Warnf
+          - Infof
+          - Debugf
+          - Fatalf
+          - StartRootSpanf
+          - StartSubSpanf
+          - EndWithMsgf
+          - Newf
+          - NewWithCausef
+  maligned:
+    suggest-new: true
+  misspell:
+    locale: US
+  prealloc:
+    simple: true
+    range-loops: true
+    for-loops: false
+  unused:
+    check-exported: false
+linters:
+# these are the linters recommended by fanatics. Don't disable any of these.
+#  disable-all: true
+#  enable:
+#    - deadcode
+#    - depguard
+#    - errcheck
+#    - exportloopref
+#    - goconst
+#    - gocritic
+#    - gofmt
+#    - goimports
+#    - gosec
+#    - gosimple
+#    - govet
+#    - ineffassign
+#    - interfacer
+#    - maligned
+#    - misspell
+#    - prealloc
+#    - revive
+#    - staticcheck
+#    - structcheck
+#    - unconvert
+#    - unused
+#    - varcheck
+  enable-all: true
+  disable:
+    - varnamelen
+    - exhaustivestruct
+    - exhaustruct
+    - tagliatelle
+issues:
+  max-per-linter: 20
+  max-same-issues: 3
+  new: false
+  exclude-use-default: false
+  exclude:
+    - should call os.Exit to set exit code
+    - "G304: Potential file inclusion via variable"
+    - "G402: TLS MinVersion too low"
+  exclude-rules:
+    - path: _gen\.go
+      linters:
+        - unused
+        - deadcode
+        - goconst
