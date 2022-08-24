@@ -50,35 +50,7 @@ function! RunTests(filename)
     if match(expand("%"), '.js.coffee$') != -1
         exec ":!jasmine-headless-webkit --color --no-full-run --runner-out runner.html " . a:filename
     else
-        call system("tmux send-keys -t 'notes:tests' 'zeus rspec " . a:filename ."' C-m")
-    end
-endfunction
-
-function! OldRunTests(filename)
-    " Write the file and run tests for the given filename
-    :w
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    if match(expand("%"), '.js.coffee$') != -1
-        exec ":!jasmine-headless-webkit --color --no-full-run --runner-out runner.html " . a:filename
-    else
-        if match(expand("%"), '^test/') != -1
-            "exec ":Dispatch zeus test " . a:filename
-            exec ":tmux send-keys -t 'tests' C-z 'zeus test " . a:filename . "' C-r"
-        else
-            exec ":Dispatch zeus test " . a:filename
-        end
-        " if filereadable("Gemfile")
-        "     "exec ":!bundle exec rspec --color --drb " . a:filename
-        "     exec ":!bundle exec spec --color --drb " . a:filename
-        " else
-        "     "exec ":!rspec --color --drb " . a:filename
-        "     exec ":!spec --color --drb " . a:filename
-        "end
+        call system("tmux send-keys -t 'notes:tests' 'bundle exec rails test " . a:filename ."' C-m")
     end
 endfunction
 
