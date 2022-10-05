@@ -1,5 +1,3 @@
-echom "golang"
-
 call Enable_coding_plugins()
 
 packadd vim-delve
@@ -10,24 +8,9 @@ setlocal shiftwidth=8
 setlocal noexpandtab
 setlocal textwidth=100
 
-" default to verbose for go tests
-nmap <Leader>t :TestNearest -v <CR>
-
-" debug (delve) with a different command
-function! DebugNearest()
-  let g:test#go#runner = 'delve'
-  TestNearest
-  unlet g:test#go#runner
-endfunction
-nmap <Leader>dd :call DebugNearest()<CR>
-
-nmap <Leader>db :DlvAddBreakpoint<CR>
-nmap <Leader>dr :DlvRemoveBreakpoint<CR>
-nmap <Leader>dc :DlvClearAll<CR>
-
 let b:ale_linters = ['gofmt', 'govet', 'gopls', 'golangci-lint']
 let b:ale_fixers = ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace']
-let g:ale_go_golangci_lint_options = '--config $HOME/golangci.yml
+let g:ale_go_golangci_lint_options = '--config $HOME/golangci.yml'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
@@ -99,7 +82,7 @@ function! DebugRebuild()
 endfunction
 
 function! DebugSetBreakpoint()
-  call TmuxSend("break " . expand("%") . ":" . line("."))
+  call TmuxSend("break " . @% . ":" . line("."))
 endfunction
 
 function! DebugContinue()
