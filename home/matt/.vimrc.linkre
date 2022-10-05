@@ -23,8 +23,8 @@ set t_vb=
 set tm=500
 
 " show tabs and trailing spaces
+" this is enabled by ShowNumbers()
 set listchars=tab:\|\ ,trail:·
-set list
 
 " mycolors are set in ./vim/plugin/setcolors.vim
 colorscheme goodwolf
@@ -132,11 +132,13 @@ nmap <Leader>gb :Git blame<CR>
 
 function! ShowNumbers()
 	set number!
+	set list!
 	let timer = timer_start(5000, 'HideNumbers', {})
 endfunction
 
 function! HideNumbers(timer)
 	set nonumber!
+	set nolist!
 endfunction
 nmap <Leader>b : call ShowNumbers()<CR>
 
