@@ -222,10 +222,10 @@ font:
 # Colors (substrata)
 colors:
   primary:
-#    background: '#000000'
-#    background: '#434443'
-    background: '#4d2b14'
-    foreground: '#ffffff'
+    background: '#000000'
+    background: '#434443'
+#    background: '#4d2b14'
+#    foreground: '#ffffff'
   normal:
     black:   '#2e313d'
     red:     '#cf8164'
