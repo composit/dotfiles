@@ -68,7 +68,7 @@ window:
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
   #opacity: 1.0
-  opacity: 0.95
+  opacity: 0.90
 
 #background_opacity: 0.65
 
@@ -178,7 +178,7 @@ font:
     family: Source Code Pro
     style: Bold Italic
 
-  size: 11
+  size: 9.5
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
