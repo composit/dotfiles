@@ -51,7 +51,8 @@ source <(command kubectl completion zsh)
 [[ -r ~/.zshrc.midnight ]] && . ~/.zshrc.midnight
 
 # fzf completions, etc
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -r /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
+[[ -r /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
 
 # keep path unique by using zsh path and specifying uniqueness
 # otherwise, loading tmux doubles the path
