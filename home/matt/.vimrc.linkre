@@ -87,6 +87,12 @@ let g:gist_open_browser_after_post = 1
 let g:gist_post_private = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COPILOT
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nmap <Leader>c :Copilot<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ALE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -225,6 +231,7 @@ function! Enable_coding_plugins()
 	packadd ale
 	packadd vim-test
 	packadd tslime.vim
+	packadd copilot.vim
 endfunction
 
 filetype plugin on
