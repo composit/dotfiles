@@ -50,9 +50,11 @@ source <(command kubectl completion zsh)
 [[ -r ~/.zshrc.local ]] && . ~/.zshrc.local
 [[ -r ~/.zshrc.midnight ]] && . ~/.zshrc.midnight
 
-# fzf completions, etc
+# fzf completions, etc for linux
 [[ -r /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
 [[ -r /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
+# for mac
+[[ -r ~/.fzf.zsh ]] && . ~/.fzf.zsh
 
 # keep path unique by using zsh path and specifying uniqueness
 # otherwise, loading tmux doubles the path
@@ -132,4 +134,5 @@ alias gd='git diff'
 alias gb='git branch'
 alias gp='git pull && git push'
 
-export PATH="$HOME/.poetry/bin:$PATH"
+# poetry binary
+export PATH="$HOME/.local/bin:$PATH"
