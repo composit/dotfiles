@@ -90,7 +90,19 @@ let g:gist_post_private = 1
 " COPILOT
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-nmap <Leader>c :Copilot<CR>
+let b:copilot_enabled = 0
+
+function! EnableCopilot()
+	let g:ale_completion_enabled = 0
+	let b:copilot_enabled = 1
+endfunction
+
+function! DisableCopilot()
+	let g:ale_completion_enabled = 1
+	let b:copilot_enabled = 0
+endfunction
+
+nmap <Leader>cp :call EnableCopilot()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ALE
