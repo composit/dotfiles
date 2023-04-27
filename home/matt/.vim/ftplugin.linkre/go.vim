@@ -22,7 +22,7 @@ let s:tmux_session = 'notes'
 let s:tmux_window = 'tests'
 
 function! RunAllTests()
-  call TmuxSend("go test -v ./...")
+  call TmuxSend("go test ./...")
 endfunction
 
 " taken from https://github.com/tyru/current-func-info.vim/blob/893c964f7d5692fe1ea114667869858503fc903a/ftplugin/go/cfi.vim#L17
@@ -74,8 +74,15 @@ endfunction
 
 map <leader>vt :call DebugTestFunc()<cr>
 map <leader>vc :call DebugContinue()<cr>
+map <leader>vx :call DebugExit()<cr>
 map <leader>vb :call DebugSetBreakpoint()<cr>
 map <leader>vr :call DebugRebuild()<cr>
+map <leader>va :call DebugClearall()<cr>
+map <leader>vv :call DebugTestBreakpointFunc()<cr>
+
+function! DebugClearall()
+  call TmuxSend("clearall")
+endfunction
 
 function! DebugRebuild()
   call TmuxSend("rebuild")
@@ -83,10 +90,15 @@ endfunction
 
 function! DebugSetBreakpoint()
   call TmuxSend("break " . @% . ":" . line("."))
+  call DebugContinue()
 endfunction
 
 function! DebugContinue()
   call TmuxSend("continue")
+endfunction
+
+function! DebugExit()
+  call TmuxSend("exit")
 endfunction
 
 function! DebugTestFunc()
@@ -105,6 +117,11 @@ endfunction
 function! DebugTests(dir, func)
   :w
   call TmuxSend("dlv test " . a:dir . " -- -test.v -test.run '" . a:func . "$'")
+endfunction
+
+function! DebugTestBreakpointFunc()
+  call DebugTestFunc()
+  call DebugSetBreakpoint()
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
