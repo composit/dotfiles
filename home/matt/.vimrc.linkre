@@ -90,8 +90,6 @@ let g:gist_post_private = 1
 " COPILOT
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let b:copilot_enabled = 0
-
 function! EnableCopilot()
 	let g:ale_completion_enabled = 0
 	let b:copilot_enabled = 1
@@ -103,6 +101,10 @@ function! DisableCopilot()
 endfunction
 
 nmap <Leader>cp :call EnableCopilot()<CR>
+
+imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ALE
