@@ -22,7 +22,7 @@ set-option -g status-right '#(cat ~/.cdt)'
 set-option -g status-style fg=white,dim
 
 # set window title list colors
-set-window-option -g window-status-style fg=colour240,dim
+set-window-option -g window-status-style fg=colour250,dim
 
 # active window title colors
 set-window-option -g window-status-current-style fg=white
