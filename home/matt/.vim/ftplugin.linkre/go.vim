@@ -29,7 +29,7 @@ endfunction
 " \C makes it case insensitive
 " \> matches the end of a word
 " \%(\) searches for escaped parentheses without making it a sub-expression
-let s:FUNC_PATTERN = '\C'.'^\s*'.'func\>'.'\s\+'.'\((\w\+\s\+[^)]\+)\s\+\)\='.'\('.'[^(]\+'.'\)'.'\%('.'\s*'.'('.'\=\)'
+let s:FUNC_PATTERN = '\C'.'^\s*'.'func\>'.'\s\+'.'Test\((\w\+\s\+[^)]\+)\s\+\)\='.'\('.'[^(]\+'.'\)'.'\%('.'\s*'.'('.'\=\)'
 
 function! RunTestFunc()
   " Run the tests for the previously-marked func.
@@ -76,16 +76,12 @@ map <leader>vt :call DebugTestFunc()<cr>
 map <leader>vc :call DebugContinue()<cr>
 map <leader>vx :call DebugExit()<cr>
 map <leader>vb :call DebugSetBreakpoint()<cr>
-map <leader>vr :call DebugRebuild()<cr>
 map <leader>va :call DebugClearall()<cr>
-map <leader>vv :call DebugTestBreakpointFunc()<cr>
+map <leader>vv :call DebugTestBreakpoint()<cr>
+map <leader>vr :call DebugRunBreakpoint()<cr>
 
 function! DebugClearall()
   call TmuxSend("clearall")
-endfunction
-
-function! DebugRebuild()
-  call TmuxSend("rebuild")
 endfunction
 
 function! DebugSetBreakpoint()
@@ -119,8 +115,18 @@ function! DebugTests(dir, func)
   call TmuxSend("dlv test " . a:dir . " -- -test.v -test.run '" . a:func . "$'")
 endfunction
 
-function! DebugTestBreakpointFunc()
+function! DebugRun()
+  :w
+  call TmuxSend("dlv debug")
+endfunction
+
+function! DebugTestBreakpoint()
   call DebugTestFunc()
+  call DebugSetBreakpoint()
+endfunction
+
+function! DebugRunBreakpoint()
+  call DebugRun()
   call DebugSetBreakpoint()
 endfunction
 

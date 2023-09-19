@@ -131,6 +131,11 @@ nmap <Leader>rr :ALEFindReferences<CR>
 nmap <Leader>rt :ALEFindReferences -tab<CR>
 nmap <Leader>rv :ALEFindReferences -vsplit<CR>
 
+" go to implementation
+nmap <Leader>ii :ALEGoToImplementation<CR>
+nmap <Leader>it :ALEGoToImplementation -tab<CR>
+nmap <Leader>iv :ALEGoToImplementation -vsplit<CR>
+
 " rename
 nmap <Leader>e :ALERename<CR>
 

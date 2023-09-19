@@ -1,6 +1,5 @@
 run:
-  go: '1.18'
-  deadline: 5m
+  timeout: 5m
   tests: true
   modules-download-mode: readonly
 output:
@@ -9,11 +8,13 @@ output:
   print-linter-name: true
 linters-settings:
   depguard:
-    list-type: blacklist
-    include-go-root: true
-    packages:
-      - log
-      - github.com/satori/go.uuid
+    rules:
+      main:
+        deny:
+          - pkg: log
+            desc: Use gitlab.frg.tech/forge/furnace/log instead
+          - pkg: github.com/satori/go.uuid
+            desc: Use github.com/gofrs/uuid instead
   errcheck:
     check-type-assertions: true
     check-blank: true
@@ -28,7 +29,7 @@ linters-settings:
       - opinionated
       - experimental
     disabled-checks:
-      - sloppyReassign
+#      - sloppyReassign
   gofmt:
     simplify: true
   govet:
@@ -54,13 +55,52 @@ linters-settings:
     simple: true
     range-loops: true
     for-loops: false
+  revive:
+    rules:
+      - name: blank-imports
+        disabled: false
+      - name: context-as-argument
+        disabled: false
+      - name: context-keys-type
+        disabled: false
+      - name: dot-imports
+        disabled: false
+      - name: error-return
+        disabled: false
+      - name: error-strings
+        disabled: false
+      - name: error-naming
+        disabled: false
+      - name: exported
+        disabled: false
+      - name: if-return
+        disabled: false
+      - name: increment-decrement
+        disabled: false
+      - name: var-naming
+        disabled: false
+      - name: var-declaration
+        disabled: false
+      - name: package-comments
+        disabled: true
+      - name: range
+        disabled: false
+      - name: receiver-naming
+        disabled: false
+      - name: time-naming
+        disabled: false
+      - name: unexported-return
+        disabled: false
+      - name: indent-error-flow
+        disabled: false
+      - name: errorf
+        disabled: false
   unused:
     check-exported: false
 linters:
 # these are the linters recommended by fanatics. Don't disable any of these.
 #  disable-all: true
 #  enable:
-#    - deadcode
 #    - depguard
 #    - errcheck
 #    - exportloopref
@@ -72,22 +112,20 @@ linters:
 #    - gosimple
 #    - govet
 #    - ineffassign
-#    - interfacer
 #    - maligned
 #    - misspell
 #    - prealloc
 #    - revive
 #    - staticcheck
-#    - structcheck
 #    - unconvert
 #    - unused
-#    - varcheck
   enable-all: true
   disable:
     - varnamelen
     - exhaustivestruct
     - exhaustruct
     - tagliatelle
+    - godot
 issues:
   max-per-linter: 20
   max-same-issues: 3
@@ -101,5 +139,4 @@ issues:
     - path: _gen\.go
       linters:
         - unused
-        - deadcode
         - goconst
