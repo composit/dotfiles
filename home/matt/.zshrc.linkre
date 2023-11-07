@@ -137,4 +137,25 @@ alias gp='git pull && git push'
 # poetry binary
 export PATH="$HOME/.local/bin:$PATH"
 
+# cd helpers
+# CDF (doesn't seem to work well with deep directory structures)
 alias cdf='cd $(find * -type d | fzf)'
+# CDG
+unalias cdg 2> /dev/null
+cdg() {
+   local dest_dir=$(cat ~/.cdg_paths | fzf )
+   if [[ $dest_dir != '' ]]; then
+      cd "$dest_dir"
+   fi
+}
+export -f cdg > /dev/null
+
+unalias cdgadd 2> /dev/null
+cdgadd() {
+   pwd >> ~/.cdg_paths
+   sort ~/.cdg_paths -o ~/.cdg_paths
+   uniq -u ~/.cdg_paths /tmp/.cdg_paths
+   mv /tmp/.cdg_paths ~/.cdg_paths
+   cat ~/.cdg_paths
+}
+export -f cdgadd > /dev/null
