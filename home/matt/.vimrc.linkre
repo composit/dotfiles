@@ -11,6 +11,7 @@ set ignorecase
 set smartcase
 set incsearch
 set autoindent
+set smartindent
 set hlsearch
 " set number relativenumber " show hybrid numbers
 set nonumber norelativenumber " don't show numbers
@@ -51,9 +52,6 @@ map <Leader>f :Files<cr>
 
 " Close all splits except the current one
 map <Leader>o :only<cr>
-
-" yank to the system clipboard
-set clipboard=unnamed
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-test
@@ -158,17 +156,12 @@ nmap <Leader>gb :Git blame<CR>
 " Toggle gutters for a brief period
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-function! ShowNumbers()
+function! ToggleNumbers()
 	set number!
 	set list!
-	let timer = timer_start(5000, 'HideNumbers', {})
 endfunction
 
-function! HideNumbers(timer)
-	set nonumber!
-	set nolist!
-endfunction
-nmap <Leader>b : call ShowNumbers()<CR>
+nmap <Leader>b : call ToggleNumbers()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Transparent Background
