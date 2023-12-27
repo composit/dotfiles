@@ -36,6 +36,8 @@ colorscheme goodwolf
 let mapleader=","
 
 " Open and close folds with space
+set foldmethod=syntax
+set nofoldenable
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
@@ -153,7 +155,7 @@ nmap <Leader>rg :Rg<CR>
 nmap <Leader>gb :Git blame<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Toggle gutters for a brief period
+" Toggle numbers, tabs, etc.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! ToggleNumbers()
