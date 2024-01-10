@@ -22,10 +22,10 @@ set-option -g status-right '#(cat ~/.cdt)'
 set-option -g status-style fg=white,dim
 
 # set window title list colors
-set-window-option -g window-status-style fg=colour250,dim
+set-window-option -g window-status-style fg=colour246,dim
 
 # active window title colors
-set-window-option -g window-status-current-style fg=white
+set-window-option -g window-status-current-style fg=colour231,bold
  
 # vim navigation while in copy/scrollback mode
 setw -g mode-keys vi
