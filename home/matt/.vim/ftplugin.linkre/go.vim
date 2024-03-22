@@ -19,8 +19,9 @@ setlocal noexpandtab
 setlocal textwidth=100
 
 let b:ale_linters = ['gofmt', 'govet', 'gopls', 'golangci-lint']
-let b:ale_fixers = ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace']
+let b:ale_fixers = ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace', 'gofumpt', 'golines', 'gopls']
 let g:ale_go_golangci_lint_options = '--config $HOME/golangci.yml'
+let g:ale_go_golines_options = '--no-chain-split-dots --no-reformat-tags'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS

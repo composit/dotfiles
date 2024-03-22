@@ -11,8 +11,6 @@ linters-settings:
     rules:
       main:
         deny:
-          - pkg: log
-            desc: Use gitlab.frg.tech/forge/furnace/log instead
           - pkg: github.com/satori/go.uuid
             desc: Use github.com/gofrs/uuid instead
   errcheck:
@@ -125,7 +123,7 @@ linters:
     - exhaustivestruct
     - exhaustruct
     - tagliatelle
-    - godot
+    - hugeParam
 issues:
   max-per-linter: 20
   max-same-issues: 3

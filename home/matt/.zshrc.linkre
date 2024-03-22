@@ -1,5 +1,5 @@
 # export this so child processes know how to edit things
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # some aliases
 alias e=$EDITOR
@@ -148,7 +148,7 @@ cdg() {
       cd "$dest_dir"
    fi
 }
-export -f cdg > /dev/null
+export cdg > /dev/null
 
 unalias cdgadd 2> /dev/null
 cdgadd() {
@@ -158,4 +158,4 @@ cdgadd() {
    mv /tmp/.cdg_paths ~/.cdg_paths
    cat ~/.cdg_paths
 }
-export -f cdgadd > /dev/null
+export cdgadd > /dev/null
