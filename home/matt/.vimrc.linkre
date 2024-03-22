@@ -93,17 +93,25 @@ let g:gist_post_private = 1
 " COPILOT
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-function! EnableCopilot()
-	let g:ale_completion_enabled = 0
-	let b:copilot_enabled = 1
-endfunction
+if !has('nvim')
+	function! EnableCopilot()
+		let g:ale_completion_enabled = 0
+		let b:copilot_enabled = 1
+	endfunction
 
-function! DisableCopilot()
-	let g:ale_completion_enabled = 1
-	let b:copilot_enabled = 0
-endfunction
+	function! DisableCopilot()
+		let g:ale_completion_enabled = 1
+		let b:copilot_enabled = 0
+	endfunction
 
-nmap <Leader>cp :call EnableCopilot()<CR>
+	nmap <Leader>cp :call EnableCopilot()<CR>
+end
+
+" copilot can use gopls to evaluate the full project
+" doesn't currently work
+let g:copilot_filetypes = {
+    \ 'go': 'gopls',
+    \ }
 
 imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
@@ -113,34 +121,36 @@ let g:copilot_no_tab_map = v:true
 " ALE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"let g:ale_sign_column_always = 0
-"only lint on save
-"let g:ale_lint_on_text_changed = 'never'
-"enable completion
-let g:ale_completion_enabled = 1
-"fix on save
-let g:ale_fix_on_save = 1
-"lint the whole package otherwise it fails if referencing things defined in
-"other files
-let g:ale_go_golangci_lint_package = 1
+if !has('nvim')
+	"let g:ale_sign_column_always = 0
+	"only lint on save
+	"let g:ale_lint_on_text_changed = 'never'
+	"enable completion
+	let g:ale_completion_enabled = 1
+	"fix on save
+	let g:ale_fix_on_save = 1
+	"lint the whole package otherwise it fails if referencing things defined in
+	"other files
+	let g:ale_go_golangci_lint_package = 1
 
-" go to definition
-nmap <Leader>dd :ALEGoToDefinition<CR>
-nmap <Leader>dt :ALEGoToDefinition -tab<CR>
-nmap <Leader>dv :ALEGoToDefinition -vsplit<CR>
+	" go to definition
+	nmap <Leader>dd :ALEGoToDefinition<CR>
+	nmap <Leader>dt :ALEGoToDefinition -tab<CR>
+	nmap <Leader>dv :ALEGoToDefinition -vsplit<CR>
 
-" find references
-nmap <Leader>rr :ALEFindReferences<CR>
-nmap <Leader>rt :ALEFindReferences -tab<CR>
-nmap <Leader>rv :ALEFindReferences -vsplit<CR>
+	" find references
+	nmap <Leader>rr :ALEFindReferences<CR>
+	nmap <Leader>rt :ALEFindReferences -tab<CR>
+	nmap <Leader>rv :ALEFindReferences -vsplit<CR>
 
-" go to implementation
-nmap <Leader>ii :ALEGoToImplementation<CR>
-nmap <Leader>it :ALEGoToImplementation -tab<CR>
-nmap <Leader>iv :ALEGoToImplementation -vsplit<CR>
+	" go to implementation
+	nmap <Leader>ii :ALEGoToImplementation<CR>
+	nmap <Leader>it :ALEGoToImplementation -tab<CR>
+	nmap <Leader>iv :ALEGoToImplementation -vsplit<CR>
 
-" rename
-nmap <Leader>e :ALERename<CR>
+	" rename
+	nmap <Leader>e :ALERename<CR>
+end
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RipGrep
@@ -241,14 +251,21 @@ call Background_transparent()
 " git clone git@github.com:guns/vim-sexp.git ~/.vim/pack/3rd-party-plugins/opt/vim-sexp
 " git clone git@github.com:tpope/vim-sexp-mappings-for-regular-people.git ~/.vim/pack/3rd-party-plugins/opt/vim-sexp-mappings-for-regular-people
 " git clone git@github.com:tpope/vim-repeat.git ~/.vim/pack/3rd-party-plugins/opt/vim-repeat
-
 " called by ftplugin files for specific languages
-function! Enable_coding_plugins()
-	packadd vim-fugitive
-	packadd ale
-	packadd vim-test
-	packadd tslime.vim
-	packadd copilot.vim
+function Enable_coding_plugins()
+       packadd vim-fugitive
+       if !has('nvim')
+	       packadd ale
+       end
+       packadd vim-test
+       packadd tslime.vim
+       packadd copilot.vim
 endfunction
+
+if has('nvim')
+	packadd nvim-lspconfig
+	packadd plenary.nvim
+	packadd CopilotChat.nvim
+end
 
 filetype plugin on
