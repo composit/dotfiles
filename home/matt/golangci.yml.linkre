@@ -123,7 +123,8 @@ linters:
     - exhaustivestruct
     - exhaustruct
     - tagliatelle
-    - hugeParam
+    - godot
+    - nosnakecase
 issues:
   max-per-linter: 20
   max-same-issues: 3
