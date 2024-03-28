@@ -243,4 +243,9 @@ gaps inner 10
 # pass
 bindsym $mod+p exec $term -e zsh -c passfzf
 
+# mouse scrolling
+input "1133:45110:Pebble_M350s_Mouse" {
+	natural_scroll enabled
+}
+
 include /etc/sway/config.d/*

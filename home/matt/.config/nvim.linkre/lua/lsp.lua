@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
     vim.keymap.set('n', '<leader>wl', function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
@@ -44,6 +44,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
   end,
 })
 
@@ -75,7 +76,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 lspconfig.golangci_lint_ls.setup{
   cmd = {'golangci-lint-langserver', '-debug'},
   init_options = {
-    command = { "golangci-lint", "run", "--config", "~/golangci.yml", "--out-format", "json", "--issues-exit-code=1" }
+    command = { "golangci-lint", "run", "--config", "~/golangci.yml", "--build-tags", "integration", "--out-format", "json", "--issues-exit-code=1" }
   }
 }
 

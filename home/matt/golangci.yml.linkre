@@ -3,7 +3,7 @@ run:
   tests: true
   modules-download-mode: readonly
 output:
-  format: colored-line-number
+  formats: colored-line-number
   print-issued-lines: true
   print-linter-name: true
 linters-settings:
@@ -27,11 +27,12 @@ linters-settings:
       - opinionated
       - experimental
     disabled-checks:
+      - hugeParam
 #      - sloppyReassign
   gofmt:
     simplify: true
   govet:
-    check-shadowing: true
+    shadow: true
     settings:
       printf:
         funcs:
@@ -123,8 +124,6 @@ linters:
     - exhaustivestruct
     - exhaustruct
     - tagliatelle
-    - godot
-    - nosnakecase
 issues:
   max-per-linter: 20
   max-same-issues: 3
