@@ -55,6 +55,12 @@ map <Leader>f :Files<cr>
 " Close all splits except the current one
 map <Leader>o :only<cr>
 
+" Close the quickfix windor
+map <Leader>c :cclose<cr>
+
+" Yank to clipboard
+nmap <Leader>y "+y
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-test
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -163,6 +169,7 @@ nmap <Leader>rg :Rg<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nmap <Leader>gb :Git blame<CR>
+nmap <Leader>gd :Gvdiffsplit<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Toggle numbers, tabs, etc.
