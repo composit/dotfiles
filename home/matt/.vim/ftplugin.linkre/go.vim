@@ -5,7 +5,7 @@ endif
 packadd vim-fugitive
 if !has('nvim')
        packadd ale
-end
+endif
 packadd vim-test
 packadd tslime.vim
 packadd copilot.vim

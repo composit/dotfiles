@@ -28,6 +28,7 @@ linters-settings:
       - experimental
     disabled-checks:
       - hugeParam
+      - unnamedResult
 #      - sloppyReassign
   gofmt:
     simplify: true
@@ -46,6 +47,9 @@ linters-settings:
           - EndWithMsgf
           - Newf
           - NewWithCausef
+  gosec:
+    excludes:
+      - G601 # Implicit memory aliasing in for loop is no longer an issue in Go 1.22
   maligned:
     suggest-new: true
   misspell:
