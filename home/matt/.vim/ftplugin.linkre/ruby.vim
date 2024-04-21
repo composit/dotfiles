@@ -60,7 +60,7 @@ function! RunTests(filename)
     if match(expand("%"), '.js.coffee$') != -1
         exec ":!jasmine-headless-webkit --color --no-full-run --runner-out runner.html " . a:filename
     else
-        call system("tmux send-keys -t 'notes:tests' 'bundle exec rails test " . a:filename ."' C-m")
+        call system("tmux send-keys -t 'notes:tests' 'bundle exec rake test " . a:filename ."' C-m")
     end
 endfunction
 
