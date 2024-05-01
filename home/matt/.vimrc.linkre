@@ -33,6 +33,10 @@ set listchars=tab:\|\ ,trail:·
 " mycolors are set in ./vim/plugin/setcolors.vim
 colorscheme goodwolf
 
+" make the highlights and line numbers more visible
+highlight Visual cterm=none ctermbg=Grey ctermfg=White guibg=Grey guifg=White
+highlight LineNr ctermfg=yellow guifg=yellow
+
 let mapleader=","
 
 " Open and close folds with space
