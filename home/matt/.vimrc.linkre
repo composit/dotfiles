@@ -33,13 +33,9 @@ set listchars=tab:\|\ ,trail:·
 " mycolors are set in ./vim/plugin/setcolors.vim
 colorscheme goodwolf
 
-<<<<<<< Updated upstream
 " make the highlights and line numbers more visible
 highlight Visual cterm=none ctermbg=Grey ctermfg=White guibg=Grey guifg=White
 highlight LineNr ctermfg=yellow guifg=yellow
-=======
-highlight Visual ctermbg=gray ctermfg=white guibg=gray guifg=white
->>>>>>> Stashed changes
 
 let mapleader=","
 
