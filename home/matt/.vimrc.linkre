@@ -33,9 +33,13 @@ set listchars=tab:\|\ ,trail:·
 " mycolors are set in ./vim/plugin/setcolors.vim
 colorscheme goodwolf
 
+<<<<<<< Updated upstream
 " make the highlights and line numbers more visible
 highlight Visual cterm=none ctermbg=Grey ctermfg=White guibg=Grey guifg=White
 highlight LineNr ctermfg=yellow guifg=yellow
+=======
+highlight Visual ctermbg=gray ctermfg=white guibg=gray guifg=white
+>>>>>>> Stashed changes
 
 let mapleader=","
 
@@ -264,19 +268,25 @@ call Background_transparent()
 " git clone git@github.com:tpope/vim-repeat.git ~/.vim/pack/3rd-party-plugins/opt/vim-repeat
 " called by ftplugin files for specific languages
 function Enable_coding_plugins()
-       packadd vim-fugitive
-       if !has('nvim')
+	packadd vim-fugitive
+	if !has('nvim')
 	       packadd ale
-       end
-       packadd vim-test
-       packadd tslime.vim
-       packadd copilot.vim
+	end
+	packadd vim-test
+	packadd tslime.vim
+	packadd copilot.vim
+	if has('nvim')
+		packadd nvim-lspconfig
+	end
 endfunction
 
 if has('nvim')
-	packadd nvim-lspconfig
 	packadd plenary.nvim
 	packadd CopilotChat.nvim
 end
+
+" wanted to make these optional based on filetype, but nvim is having issues
+" with that, so for now, we'll just enable them always.
+call Enable_coding_plugins()
 
 filetype plugin on

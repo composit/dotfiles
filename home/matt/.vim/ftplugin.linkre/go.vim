@@ -2,14 +2,6 @@ if exists('Enable_coding_plugins')
        call Enable_coding_plugins()
 endif
 
-packadd vim-fugitive
-if !has('nvim')
-       packadd ale
-endif
-packadd vim-test
-packadd tslime.vim
-packadd copilot.vim
-
 packadd vim-delve
 
 setlocal tabstop=8
