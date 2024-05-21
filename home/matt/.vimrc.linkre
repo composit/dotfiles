@@ -36,8 +36,22 @@ colorscheme goodwolf
 " make the highlights and line numbers more visible
 highlight Visual cterm=none ctermbg=Grey ctermfg=White guibg=Grey guifg=White
 highlight LineNr ctermfg=yellow guifg=yellow
-" allow the terminal opacity to show through
-highlight Normal ctermbg=none ctermfg=none guifg=none guibg=none
+" allow the terminal opacity to show through #TODO investigate why the
+" background_transparent function below is not working
+" regular
+highlight Normal ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
+" line numbers
+highlight LineNr ctermbg=NONE guibg=NONE
+" empty lines
+highlight EmptyLines ctermbg=NONE guibg=NONE
+" special chars (tabs and such)
+highlight SpecialKey ctermbg=NONE guibg=NONE
+" sign column (gutter, etc.)
+highlight SignColumn ctermbg=NONE guibg=NONE
+" lines without text
+highlight NonText ctermbg=NONE guibg=NONE
+" comments
+highlight Comment ctermbg=NONE guibg=NONE
 
 let mapleader=","
 
