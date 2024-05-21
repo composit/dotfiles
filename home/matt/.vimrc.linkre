@@ -36,6 +36,8 @@ colorscheme goodwolf
 " make the highlights and line numbers more visible
 highlight Visual cterm=none ctermbg=Grey ctermfg=White guibg=Grey guifg=White
 highlight LineNr ctermfg=yellow guifg=yellow
+" allow the terminal opacity to show through
+highlight Normal ctermbg=none ctermfg=none guifg=none guibg=none
 
 let mapleader=","
 
