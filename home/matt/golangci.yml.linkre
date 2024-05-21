@@ -128,7 +128,6 @@ linters:
     - exhaustivestruct
     - exhaustruct
     - tagliatelle
-    - godot
 issues:
   max-per-linter: 20
   max-same-issues: 3
