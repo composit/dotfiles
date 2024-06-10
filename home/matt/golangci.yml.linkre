@@ -3,7 +3,6 @@ run:
   tests: true
   modules-download-mode: readonly
 output:
-  formats: colored-line-number
   print-issued-lines: true
   print-linter-name: true
 linters-settings:
@@ -16,6 +15,11 @@ linters-settings:
   errcheck:
     check-type-assertions: true
     check-blank: true
+    exclude-functions:
+      - fmt.Fprint
+      - fmt.Fprintf
+      - fmt.Fprintln
+      - (fmt.State).Write
   goconst:
     min-len: 3
     min-occurrences: 3
@@ -29,11 +33,13 @@ linters-settings:
     disabled-checks:
       - hugeParam
       - unnamedResult
-#      - sloppyReassign
+      # - sloppyReassign
   gofmt:
     simplify: true
   govet:
-    shadow: true
+    enable-all: true
+    disable:
+      - composites
     settings:
       printf:
         funcs:
@@ -47,11 +53,6 @@ linters-settings:
           - EndWithMsgf
           - Newf
           - NewWithCausef
-  gosec:
-    excludes:
-      - G601 # Implicit memory aliasing in for loop is no longer an issue in Go 1.22
-  maligned:
-    suggest-new: true
   misspell:
     locale: US
   prealloc:
@@ -106,6 +107,7 @@ linters:
 #  enable:
 #    - depguard
 #    - errcheck
+#    - errorlint
 #    - exportloopref
 #    - goconst
 #    - gocritic
@@ -115,11 +117,12 @@ linters:
 #    - gosimple
 #    - govet
 #    - ineffassign
-#    - maligned
 #    - misspell
 #    - prealloc
+#    - predeclared
 #    - revive
 #    - staticcheck
+#    - typecheck
 #    - unconvert
 #    - unused
   enable-all: true
@@ -134,6 +137,7 @@ issues:
   new: false
   exclude-use-default: false
   exclude:
+    - "fieldalignment: struct with \\d+ pointer bytes could be"
     - should call os.Exit to set exit code
     - "G304: Potential file inclusion via variable"
     - "G402: TLS MinVersion too low"
