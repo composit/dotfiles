@@ -32,7 +32,10 @@ endfunction
 " \C makes it case insensitive
 " \> matches the end of a word
 " \%(\) searches for escaped parentheses without making it a sub-expression
-let s:FUNC_PATTERN = '\C'.'^\s*'.'func\>'.'\s\+'.'Test\((\w\+\s\+[^)]\+)\s\+\)\='.'\('.'[^(]\+'.'\)'.'\%('.'\s*'.'('.'\=\)'
+let s:FUNC_PATTERN = '\C^\s*func\s\+Test\(\w\+\)\s*('
+let s:SCENARIO_PATTERN = '\vt\.Run\("([^"]+)",\s*func\(\)\s*\{'
+let s:SCENARIO_PATTERN = '\v^\s*t\.Run\("([^"]+)",\s*func\(\s*t\s*\*\s*testing\.T\s*\)\s*\{'
+let s:METHOD_PATTERN = '\C^\s*func\s\+(\w\s\+\*\w\+)\s\+Test\(\w\+\)\s*('
 
 function! RunTestFunc()
   " Run the tests for the previously-marked func.
@@ -47,14 +50,60 @@ function! RunTestFunc()
   call RunTests(t:grb_test_dir, t:grb_test_func)
 endfunction
 
-function! FuncName()
+function! OldFuncName()
   let m = matchlist(getline(search(s:FUNC_PATTERN, 'bWn')), s:FUNC_PATTERN)
   if empty(m)
     return ''
   endif
 
-  return m[1].m[2]
+  return m[1].m[2].s
 endfunction
+
+function! FuncName()
+  " Get the current line number
+  let lnum = line('.')
+  let scenario = ''
+  let method = ''
+
+  while lnum > 0
+    let line = getline(lnum)
+
+    if scenario == '' " only find the nearest scenario
+      " Search for the t.Run pattern from the current line upwards
+      let m = matchlist(line, s:SCENARIO_PATTERN)
+      if !empty(m)
+        " If a match is found, set the scenario name prepended with a slash
+        let scenario = '$/'.m[1]
+      endif
+    endif
+
+    if method == '' " only find the nearest method
+      " Search for the method pattern from the current line upwards
+      let m = matchlist(line, s:METHOD_PATTERN)
+      if !empty(m)
+        echo line
+	echo m
+	" If a match is found, set the method name
+	let method = m[1]
+      endif
+    endif
+
+    " find the function name
+    let m = matchlist(line, s:FUNC_PATTERN)
+    if !empty(m)
+      " If a match is found, return the function
+      " and scenario names (if a scenario was found)
+      " and method name (if a method was found)
+      return [m[1].m[2].scenario, method]
+    endif
+
+    let lnum -= 1
+  endwhile
+
+  " If no match is found, return an empty string
+  return ''
+endfunction
+
 
 function! SetTestFunc()
   " Set the test func that tests will be run for.
@@ -64,7 +113,12 @@ endfunction
 
 function! RunTests(dir, func)
   :w
-  call TmuxSend("go test -v -run '" . a:func . "$' " . a:dir)
+  let cmd = "go test -v -run '" . a:func[0] . "$' " . a:dir
+  if a:func[1] != ''
+    let cmd = cmd . " -testify.m '" . a:func[1] . "$'"
+  endif
+
+  call TmuxSend(cmd)
 endfunction
 
 function! TmuxSend(cmd)
@@ -115,7 +169,12 @@ endfunction
 
 function! DebugTests(dir, func)
   :w
-  call TmuxSend("dlv test " . a:dir . " -- -test.v -test.run '" . a:func . "$'")
+  let cmd = "dlv test " . a:dir . " -- -test.v -test.run '" . a:func[0] . "$'"
+  if a:func[1] != ''
+    let cmd = cmd . " -testify.m '" . a:func[1] . "$'"
+  endif
+
+  call TmuxSend(cmd)
 endfunction
 
 function! DebugRun()
