@@ -62,11 +62,20 @@ endfunction
 function! FuncName()
   " Get the current line number
   let lnum = line('.')
-  let scenario = ''
   let method = ''
+  let scenario = ''
 
   while lnum > 0
     let line = getline(lnum)
+
+    if method == '' " only find the nearest method
+      " Search for the method pattern from the current line upwards
+      let m = matchlist(line, s:METHOD_PATTERN)
+      if !empty(m)
+	" If a match is found, set the method name prepended with a slash
+	let method = '$/'.m[1]
+      endif
+    endif
 
     if scenario == '' " only find the nearest scenario
       " Search for the t.Run pattern from the current line upwards
@@ -77,24 +86,13 @@ function! FuncName()
       endif
     endif
 
-    if method == '' " only find the nearest method
-      " Search for the method pattern from the current line upwards
-      let m = matchlist(line, s:METHOD_PATTERN)
-      if !empty(m)
-        echo line
-	echo m
-	" If a match is found, set the method name
-	let method = m[1]
-      endif
-    endif
-
     " find the function name
     let m = matchlist(line, s:FUNC_PATTERN)
     if !empty(m)
       " If a match is found, return the function
       " and scenario names (if a scenario was found)
       " and method name (if a method was found)
-      return [m[1].m[2].scenario, method]
+      return m[1].m[2].method.scenario
     endif
 
     let lnum -= 1
@@ -113,12 +111,7 @@ endfunction
 
 function! RunTests(dir, func)
   :w
-  let cmd = "go test -v -run '" . a:func[0] . "$' " . a:dir
-  if a:func[1] != ''
-    let cmd = cmd . " -testify.m '" . a:func[1] . "$'"
-  endif
-
-  call TmuxSend(cmd)
+  call TmuxSend("go test -v -run '" . a:func . "$' " . a:dir)
 endfunction
 
 function! TmuxSend(cmd)
@@ -169,12 +162,7 @@ endfunction
 
 function! DebugTests(dir, func)
   :w
-  let cmd = "dlv test " . a:dir . " -- -test.v -test.run '" . a:func[0] . "$'"
-  if a:func[1] != ''
-    let cmd = cmd . " -testify.m '" . a:func[1] . "$'"
-  endif
-
-  call TmuxSend(cmd)
+  call TmuxSend("dlv test " . a:dir . " -- -test.v -test.run '" . a:func . "$'")
 endfunction
 
 function! DebugRun()
