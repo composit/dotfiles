@@ -42,6 +42,7 @@ tm() {
 
 # auto completions
 fpath=(~/.zsh/completion $fpath)
+FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH # needs to be before compinit on the mac
 autoload -Uz compinit && compinit -i
 
 # kubectl completion
@@ -128,11 +129,22 @@ PROMPT+='%(?.%F{230}☀%f.%F{174}☇%f) ' # exit code thingy
 
 # git aliases
 alias gs='git status'
-alias gc='git commit'
+alias gc='echo "Please use gcm or gct instead of gc"'
+alias gcm='git commit -m'
+alias gct='git_commit_ticket'
 alias ga='git add'
 alias gd='git diff'
 alias gb='git branch'
 alias gp='git pull && git push'
+
+function git_commit_ticket() {
+  ticket=$(git branch --show-current | grep -oE '([A-Z]+-[0-9]+)')
+  if [[ $ticket = "" ]]; then
+    echo "No ticket found in branch name"
+  else
+    git commit -m "$ticket $1"
+  fi
+}
 
 # poetry binary
 export PATH="$HOME/.local/bin:$PATH"
