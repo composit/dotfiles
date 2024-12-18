@@ -42,7 +42,9 @@ tm() {
 
 # auto completions
 fpath=(~/.zsh/completion $fpath)
-FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH # needs to be before compinit on the mac
+if command -v brew %> /dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH # needs to be before compinit on the mac
+fi
 autoload -Uz compinit && compinit -i
 
 # kubectl completion
