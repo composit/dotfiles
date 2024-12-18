@@ -22,7 +22,7 @@ yellow = "#ab924c"
 background = "#434443"
 
 [font]
-size = 14.5
+size = 14
 
 [font.bold]
 family = "Source Code Pro"
