@@ -167,7 +167,7 @@ endfunction
 
 function! DebugRun()
   :w
-  call TmuxSend("dlv debug")
+  call TmuxSend("dlv debug -- \\$RUN_FLAGS")
 endfunction
 
 function! DebugTestBreakpoint()

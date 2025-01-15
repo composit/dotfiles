@@ -1,4 +1,6 @@
-call Enable_coding_plugins()
+if exists('Enable_coding_plugins')
+	call Enable_coding_plugins()
+endif
 
 " tabs
 setlocal tabstop=2

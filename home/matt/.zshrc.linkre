@@ -3,6 +3,7 @@ export EDITOR='nvim'
 
 # some aliases
 alias e=$EDITOR
+alias el='NVIM_APPNAME=lazyvim nvim'
 alias sz='source ~/.zshrc'
 alias ll='ls -lah'
 

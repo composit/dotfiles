@@ -25,19 +25,19 @@ background = "#434443"
 size = 14
 
 [font.bold]
-family = "Source Code Pro"
+family = "SauceCodePro Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "Source Code Pro"
+family = "SauceCodePro Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "Source Code Pro"
+family = "SauceCodePro Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "Source Code Pro"
+family = "SauceCodePro Nerd Font"
 style = "Regular"
 
 [window]
