@@ -1,0 +1,5 @@
+vim.cmd('packadd vim-fugitive')
+-- vim.cmd('packadd vim-test')
+-- vim.cmd('packadd tslime')
+-- vim.cmd('packadd copilot')
+vim.cmd('packadd nvim-lspconfig')
