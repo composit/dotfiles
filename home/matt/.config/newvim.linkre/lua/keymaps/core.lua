@@ -2,14 +2,8 @@ vim.keymap.set('n', '<Space>', 'za', { silent = true })
 vim.keymap.set('v', '<Space>', 'zf', { silent = true })
 vim.keymap.set('n', '<Leader>h', ':set invhls<CR>', { silent = true })
 vim.keymap.set('x', '.', ':norm.<CR>', { silent = true })
-vim.keymap.set('n', '<Leader>f', ':FzfLua files<CR>', { silent = true })
-vim.keymap.set("n", "<leader>rg", function()
-  require("fzf-lua").live_grep({
-    actions = {
-      ["default"] = require("fzf-lua").actions.file_vsplit,
-    }
-  })
-end, { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader>f', ':lua require("fzf-lua").files()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>rg', ':lua require("fzf-lua").live_grep_resume({ })<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>o', ':only<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>c', ':cclose<CR>', { silent = true })
 vim.keymap.set('v', '<Leader>y', '"+y', { silent = true })
