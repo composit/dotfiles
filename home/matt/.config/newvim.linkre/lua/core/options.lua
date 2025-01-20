@@ -39,7 +39,7 @@ highlight Comment ctermbg=NONE guibg=NONE
 ]])
 
 -- Sets the leader key for custom mappings (Default: "\")
-vim.g.mapleader = ','
+vim.g.mapleader = ' '
 
 -- Gist configuration: Controls behavior of gist plugin (No defaults)
 -- vim.g.gist_detect_filetype = 1

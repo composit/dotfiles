@@ -16,7 +16,9 @@ set -g history-limit 50000
 
 # Status Bar
 ## show the countdowntown status
-set-option -g status-right '#(cat ~/.cdt)'
+set-option -g status-right '#(cat ~/.cdt) #{?SSH_CONNECTION,#[fg=red]#H, }'
+## set-option -g status-right '#(cat ~/.cdt)#{?SSH_CONNECTION,#[fg=red]#H}'
+## set-option -g status-right '#(cat ~/.cdt)'
 
 # set color for status bar
 set-option -g status-style fg=white,dim

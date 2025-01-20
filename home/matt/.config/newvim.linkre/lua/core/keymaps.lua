@@ -2,7 +2,14 @@ vim.keymap.set('n', '<Space>', 'za', { silent = true })
 vim.keymap.set('v', '<Space>', 'zf', { silent = true })
 vim.keymap.set('n', '<Leader>h', ':set invhls<CR>', { silent = true })
 vim.keymap.set('x', '.', ':norm.<CR>', { silent = true })
-vim.keymap.set('n', '<Leader>f', ':Files<CR>', { silent = true })
+vim.keymap.set('n', '<Leader>f', ':FzfLua files<CR>', { silent = true })
+vim.keymap.set("n", "<leader>rg", function()
+  require("fzf-lua").live_grep({
+    actions = {
+      ["default"] = require("fzf-lua").actions.file_vsplit,
+    }
+  })
+end, { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>o', ':only<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>c', ':cclose<CR>', { silent = true })
 vim.keymap.set('v', '<Leader>y', '"+y', { silent = true })
@@ -13,10 +20,7 @@ vim.keymap.set('n', '<Leader>t', ':TestNearest<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>T', ':TestSuite<CR>', { silent = true })
 
 -- copilot
-vim.keymap.set('i', '<C-a>', 'copilot#Accept("<CR>")', { silent = true, expr = true, script = true })
-
--- RipGrep mapping: Quick access to RipGrep search (No default)
-vim.keymap.set('n', '<Leader>rg', ':Rg<CR>', { silent = true })
+--vim.keymap.set('i', '<C-a>', 'copilot#Accept("<CR>")', { silent = true, expr = true, script = true })
 
 -- Fugitive mappings: Shortcuts for Git operations (No defaults)
 vim.keymap.set('n', '<Leader>gb', ':Git blame<CR>', { silent = true })

@@ -5,7 +5,7 @@ export EDITOR='nvim'
 alias e=$EDITOR
 alias el='NVIM_APPNAME=lazyvim nvim'
 alias en='NVIM_APPNAME=newvim nvim'
-alias sz='source ~/.zshrc'
+alias sz='source $ZDOTDIR/.zshrc'
 alias ll='ls -lah'
 
 # history stuff, mostly adapted from 
@@ -42,6 +42,12 @@ tm() {
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
 
+# bak - create a backup of a file
+bak() {
+  current_date_time="`date +%Y%m%d%H%M%S`";
+  cp $1 $1.$current_date_time.bak
+}
+
 # auto completions
 fpath=(~/.zsh/completion $fpath)
 if command -v brew %> /dev/null; then
@@ -52,8 +58,8 @@ autoload -Uz compinit && compinit -i
 # kubectl completion
 source <(command kubectl completion zsh)
 
-[[ -r ~/.zshrc.local ]] && . ~/.zshrc.local
-[[ -r ~/.zshrc.midnight ]] && . ~/.zshrc.midnight
+[[ -r ~/.config/zsh/.zshrc.local ]] && . ~/.config/zsh/.zshrc.local
+[[ -r ~/.config/zsh/.zshrc.midnight ]] && . ~/.config/zsh/.zshrc.midnight
 
 # fzf completions, etc for linux
 [[ -r /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
@@ -120,7 +126,7 @@ precmd() {
 setopt prompt_subst
 
 PROMPT=''
-if [[ ! -z "$SSH_TTY" ]]; then # only display the hostname if not local
+if [[ -n "$SSH_CONNECTION" ]]; then # only display the hostname if not local
   PROMPT+='%F{230}' # whitish
   PROMPT+='${(%):-%m} ' # %m is hostname
   PROMPT+='%f'
