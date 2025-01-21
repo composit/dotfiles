@@ -1,1 +1,3 @@
-require('which-key').setup()
+require('which-key').setup({
+  delay = 2000
+})
