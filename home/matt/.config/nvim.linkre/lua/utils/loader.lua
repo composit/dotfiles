@@ -54,6 +54,7 @@ plugins['opt'] = {
   'https://github.com/nvim-lua/plenary.nvim.git', -- required by avante
   'https://github.com/MunifTanjim/nui.nvim.git', -- required by avante
   'https://github.com/zbirenbaum/copilot.lua.git', -- required by avante
+  'https://github.com/nvim-treesitter/nvim-treesitter.git',
   --'https://github.com/mattn/vim-gist.git',
   --'https://github.com/janko-m/vim-test.git',
   --'https://github.com/mattn/webapi-vim.git',

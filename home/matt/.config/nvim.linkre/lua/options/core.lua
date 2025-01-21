@@ -72,6 +72,5 @@ endfunction
 
 vim.cmd('call Background_transparent()')
 
--- Load additional plugins for Neovim (No defaults)
--- require('plenary').setup()
--- require('CopilotChat').setup()
+-- show the window numbers in the status bar
+vim.opt.statusline = '%{winnr()} %f'

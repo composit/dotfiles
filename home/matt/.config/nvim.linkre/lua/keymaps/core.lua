@@ -3,7 +3,8 @@
 vim.keymap.set('n', '<Leader>h', ':set invhls<CR>', { silent = true })
 vim.keymap.set('x', '.', ':norm.<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>f', ':lua require("fzf-lua").files()<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>rg', ':lua require("fzf-lua").live_grep_resume({ })<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>rg', ':lua require("fzf-lua").live_grep({ })<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>rrg', ':lua require("fzf-lua").live_grep_resume({ })<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>o', ':only<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>c', ':cclose<CR>', { silent = true })
 vim.keymap.set('v', '<Leader>y', '"+y', { silent = true })
@@ -28,6 +29,11 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+
+-- jump directly to a specific pane
+for i = 1, 9 do
+  vim.keymap.set('n', '<Leader>' .. i, i .. '<C-w>w', { desc = "Move to window " .. i })
+end
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
