@@ -76,8 +76,10 @@ path=(/usr/local/go/bin $path)
 path=($HOME/go/bin $path)
 
 # Ruby stuff
+source /usr/share/chruby/chruby.sh
+source /usr/share/chruby/auto.sh
+
 if [ -x "$(command -v ruby)" ]; then
-  path=(`ruby -e 'puts Gem.user_dir'`/bin $path)
   alias rspec='nocorrect rspec'
 fi
 
