@@ -36,7 +36,7 @@ plugins['opt'] = {
   'https://github.com/pearofducks/ansible-vim.git',
   'https://github.com/psf/black.git',
   'https://github.com/neovim/nvim-lspconfig.git',
-  'https://github.com/nvim-lua/plenary.nvim.git',
+  'https://github.com/nvim-lua/plenary.nvim.git', -- required by a bunch (avante, codecompanion, etc)
   'https://github.com/kien/rainbow_parentheses.vim.git',
   'https://github.com/leafgarland/typescript-vim.git',
   'https://github.com/guns/vim-clojure-highlight.git',
@@ -51,13 +51,14 @@ plugins['opt'] = {
   'https://github.com/Saghen/blink.compat.git', -- required by blink, makes it nvm-cmp compatible
   'https://github.com/rafamadriz/friendly-snippets.git', -- required by blink
   'https://github.com/L3MON4D3/LuaSnip.git', -- required by blink
-  'https://github.com/yetone/avante.nvim.git',
-  'https://github.com/stevearc/dressing.nvim.git', -- required by avante
-  'https://github.com/nvim-lua/plenary.nvim.git', -- required by avante
-  'https://github.com/MunifTanjim/nui.nvim.git', -- required by avante
-  'https://github.com/zbirenbaum/copilot.lua.git', -- required by avante
+  'https://github.com/giuxtaposition/blink-cmp-copilot.git', -- required to integrate blink and copilot
+  --'https://github.com/yetone/avante.nvim.git',
+  --'https://github.com/stevearc/dressing.nvim.git', -- required by avante
+  --'https://github.com/MunifTanjim/nui.nvim.git', -- required by avante
+  'https://github.com/zbirenbaum/copilot.lua.git', -- required by avante and codecompanion
   'https://github.com/nvim-treesitter/nvim-treesitter.git',
   'https://github.com/folke/which-key.nvim.git',
+  'https://github.com/olimorris/codecompanion.nvim.git',
   --'https://github.com/mattn/vim-gist.git',
   --'https://github.com/janko-m/vim-test.git',
   --'https://github.com/mattn/webapi-vim.git',

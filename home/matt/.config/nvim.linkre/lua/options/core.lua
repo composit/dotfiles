@@ -1,7 +1,6 @@
 -- enable true color support
 vim.opt.termguicolors = true
 
-
 -- Searches are case-insensitive by default
 -- If the search pattern contains any uppercase letters, it becomes case-sensitive
 vim.opt.ignorecase = true
@@ -26,17 +25,17 @@ vim.opt.foldenable = false
 vim.cmd('colorscheme goodwolf')
 
 -- Customizes highlight groups for various UI elements (Defaults vary)
-vim.cmd([[
-highlight Visual cterm=none ctermbg=Grey ctermfg=White guibg=Grey guifg=White
-highlight LineNr ctermfg=yellow guifg=yellow
-highlight Normal ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
-highlight LineNr ctermbg=NONE guibg=NONE
-highlight EmptyLines ctermbg=NONE guibg=NONE
-highlight SpecialKey ctermbg=NONE guibg=NONE
-highlight SignColumn ctermbg=NONE guibg=NONE
-highlight NonText ctermbg=NONE guibg=NONE
-highlight Comment ctermbg=NONE guibg=NONE
-]])
+vim.api.nvim_set_hl(0, 'Visual', { bg = 'Grey', fg = 'White' })
+vim.api.nvim_set_hl(0, 'LineNr', { fg = 'yellow' })
+
+-- Transparent backround
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE', fg = 'NONE' })
+vim.api.nvim_set_hl(0, 'LineNr', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'EmptyLines', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'SpecialKey', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'NonText', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'Comment', { bg = 'NONE' })
 
 -- Sets the leader key for custom mappings (Default: "\")
 vim.g.mapleader = ' '
@@ -57,20 +56,16 @@ function! ToggleNumbers()
 endfunction
 ]])
 
--- Background transparent function: Removes background colors
-vim.cmd([[
-function! Background_transparent()
-    highlight Normal ctermbg=NONE
-    highlight LineNr ctermbg=NONE
-    highlight EmptyLines ctermbg=NONE
-    highlight SpecialKey ctermbg=none
-    highlight SignColumn ctermbg=none
-    highlight NonText ctermbg=none
-    highlight Comment ctermbg=none
-endfunction
-]])
-
-vim.cmd('call Background_transparent()')
-
 -- show the window numbers in the status bar
-vim.opt.statusline = '%{winnr()} %f'
+-- %f: Path to the file in the buffer
+-- %m: Modified flag
+-- %r: Read-only flag
+-- %h: Help buffer flag
+-- %w: Preview window flag
+-- %=: Right-align the following items
+-- %{winnr()} neovim window number
+-- %l: Current line number
+-- %c: Current column number
+-- %p%%: Percentage through file
+
+vim.opt.statusline = "%f %m%r%h%w%=%{winnr()} %l,%c %p%%"
