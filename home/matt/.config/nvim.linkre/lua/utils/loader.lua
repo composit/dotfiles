@@ -48,13 +48,16 @@ plugins['opt'] = {
   'https://github.com/tpope/vim-rails.git',
   'https://github.com/echasnovski/mini.pairs.git',
   'https://github.com/Saghen/blink.cmp.git',
+  'https://github.com/Saghen/blink.compat.git', -- required by blink, makes it nvm-cmp compatible
   'https://github.com/rafamadriz/friendly-snippets.git', -- required by blink
+  'https://github.com/L3MON4D3/LuaSnip.git', -- required by blink
   'https://github.com/yetone/avante.nvim.git',
   'https://github.com/stevearc/dressing.nvim.git', -- required by avante
   'https://github.com/nvim-lua/plenary.nvim.git', -- required by avante
   'https://github.com/MunifTanjim/nui.nvim.git', -- required by avante
   'https://github.com/zbirenbaum/copilot.lua.git', -- required by avante
   'https://github.com/nvim-treesitter/nvim-treesitter.git',
+  'https://github.com/folke/which-key.nvim.git',
   --'https://github.com/mattn/vim-gist.git',
   --'https://github.com/janko-m/vim-test.git',
   --'https://github.com/mattn/webapi-vim.git',
