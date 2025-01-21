@@ -1,5 +1,4 @@
 -- Setup language server.
 local lspconfig = require('lspconfig')
 
--- golangci-lint
-lspconfig.golangci_lint_ls.setup({})
+vim.lsp.set_log_level("debug")

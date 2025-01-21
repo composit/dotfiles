@@ -1,5 +1,5 @@
-vim.keymap.set('n', '<Space>', 'za', { silent = true })
-vim.keymap.set('v', '<Space>', 'zf', { silent = true })
+-- vim.keymap.set('n', '<Space>', 'za', { silent = true })
+-- vim.keymap.set('v', '<Space>', 'zf', { silent = true })
 vim.keymap.set('n', '<Leader>h', ':set invhls<CR>', { silent = true })
 vim.keymap.set('x', '.', ':norm.<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>f', ':lua require("fzf-lua").files()<CR>', { noremap = true, silent = true })
@@ -35,7 +35,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
     -- Enable completion triggered by <c-x><c-o>
-    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+    -- vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions

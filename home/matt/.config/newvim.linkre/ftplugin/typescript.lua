@@ -1,5 +1,4 @@
 require('plugins.coding')
-require('lsp')
 require('plugins.typescript')
 require('options.typescript')
 require('keymaps.typescript')

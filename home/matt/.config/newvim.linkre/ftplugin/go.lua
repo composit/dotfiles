@@ -1,7 +1,4 @@
 require('plugins.coding')
-require('lsp')
-require('lsp.servers.gopls')
-require('lsp.servers.golangci-lint')
 require('utils.go')
 require('options.go')
 require('keymaps.go')

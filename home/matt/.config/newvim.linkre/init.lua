@@ -5,7 +5,6 @@ require('utils.loader')
 require('plugins.core')
 require('options.core')
 require('keymaps.core')
-require('autocmds.core')
 
 -- File type specific settings are automatically loaded from the ftplugin directory
 
