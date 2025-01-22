@@ -1,2 +1,3 @@
 -- show the global status line below the splits
+-- this is recommended in the docs, but I'm not sure why
 -- vim.opt.laststatus = 3
