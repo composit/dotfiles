@@ -25,17 +25,15 @@ vim.opt.foldenable = false
 vim.cmd('colorscheme goodwolf')
 
 -- Customizes highlight groups for various UI elements (Defaults vary)
-vim.api.nvim_set_hl(0, 'Visual', { bg = 'Grey', fg = 'White' })
-vim.api.nvim_set_hl(0, 'LineNr', { fg = 'yellow' })
-
--- Transparent backround
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE', fg = 'NONE' })
-vim.api.nvim_set_hl(0, 'LineNr', { bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'EmptyLines', { bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'SpecialKey', { bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'NonText', { bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'Comment', { bg = 'NONE' })
+-- creates a transparent background
+vim.api.nvim_set_hl(0, 'Visual', { bg = 'grey', fg = 'white' })
+vim.api.nvim_set_hl(0, 'LineNr', { bg = 'none', fg = 'yellow' })
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'none', fg = 'none' })
+vim.api.nvim_set_hl(0, 'EmptyLines', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'SpecialKey', { fg = 'grey', bg = 'none' })
+vim.api.nvim_set_hl(0, 'SignColumn', { fg = 'grey', bg = 'none' })
+vim.api.nvim_set_hl(0, 'NonText', { fg = 'grey', bg = 'none' })
+vim.api.nvim_set_hl(0, 'Comment', { bg = 'none' })
 
 -- Sets the leader key for custom mappings (Default: "\")
 vim.g.mapleader = ' '
@@ -51,8 +49,8 @@ vim.g.mapleader = ' '
 -- Toggle numbers function: Toggles line numbers and listchars (No default)
 vim.cmd([[
 function! ToggleNumbers()
-    set number!
-    set list!
+  set number!
+  set list!
 endfunction
 ]])
 
