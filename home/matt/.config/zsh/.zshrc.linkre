@@ -158,9 +158,9 @@ function git_commit_ticket() {
   ticket=$(git branch --show-current | grep -oE '([A-Z]+-[0-9]+)')
 
   if [[ ! $ticket = "" ]]; then
-    echo -n "Ticket found: $ticket. Do you want to add it to the commit message? (y/n) "
+    echo -n "Ticket found: $ticket. Do you want to add it to the commit message? (Y/n) "
     read choice
-    if [[ $choice = "y" ]]; then
+    if [[ $choice = "" || $choice = "y" || $choice = "Y" ]]; then
       git commit -m "$ticket $1"
       return
     fi
