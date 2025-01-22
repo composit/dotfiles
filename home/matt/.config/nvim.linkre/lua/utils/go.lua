@@ -9,15 +9,12 @@ function Run_all_tests()
   tmux_send("go test ./...")
 end
 
--- let s:FUNC_PATTERN = '\C^\s*func\s\+Test\(\w\+\)\s*('
--- let s:SCENARIO_PATTERN = '\v^\s*t\.Run\("([^"]+)",\s*func\(\s*t\s*\*\s*testing\.T\s*\)\s*\{'
--- let s:METHOD_PATTERN = '\C^\s*func\s\+(\w\s\+\*\w\+)\s\+Test\(\w\+\)\s*('
 -- "^%s*func%s+Test(%w+)%s*%(%s*[%w_]*%s*%*testing%.T%s*%)",  -- matches standard signature
 -- "^%s*func%s+Test(%u%w+)%s*%(.*%*testing%.T.*%)"            -- more flexible signature match
 
-local func_pattern = "^%s*func%s+Test(%w+)%s*%(%s*[%w_]*%s*%*testing%.T%s*%)" -- matches standard signature
+local func_pattern = "^%s*func%s+Test([%w_]+)%s*%(.*%*testing%.T.*%)"
 local scenario_pattern = '^%s*t%.Run%("([^"]+)",%s*func%(%s*t%s*%*%s*testing%.T%s*%)%s*%{'
-local method_pattern = "^%s*func%s+%(%w+%s+%w+%)%s+Test(%w+)%s*%("
+local method_pattern = "^%s*func%s+%([%w_]+%s+[%w_]+%)%s+Test([%w_]+)%s*%("
 
 local function func_name()
   local lnum = vim.fn.line('.')
