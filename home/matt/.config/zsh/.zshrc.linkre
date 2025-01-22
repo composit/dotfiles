@@ -148,8 +148,7 @@ PROMPT+='%(?.%F{230}☀%f.%F{174}☇%f) ' # exit code thingy
 # git aliases
 alias gs='git status'
 alias gc='echo "Please use gcm or gct instead of gc"'
-alias gcm='git commit -m'
-alias gct='git_commit_ticket'
+alias gcm='git_commit_ticket'
 alias ga='git add'
 alias gd='git diff'
 alias gb='git branch'
@@ -157,11 +156,17 @@ alias gp='git pull && git push'
 
 function git_commit_ticket() {
   ticket=$(git branch --show-current | grep -oE '([A-Z]+-[0-9]+)')
-  if [[ $ticket = "" ]]; then
-    echo "No ticket found in branch name"
-  else
-    git commit -m "$ticket $1"
+
+  if [[ ! $ticket = "" ]]; then
+    echo -n "Ticket found: $ticket. Do you want to add it to the commit message? (y/n) "
+    read choice
+    if [[ $choice = "y" ]]; then
+      git commit -m "$ticket $1"
+      return
+    fi
   fi
+
+  git commit -m "$1"
 }
 
 # poetry binary
