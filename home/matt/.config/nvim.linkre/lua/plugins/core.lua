@@ -9,6 +9,9 @@ require('plugins/configs/nvim-treesitter')
 vim.cmd('packadd copilot.lua')
 require('plugins.configs.copilot')
 
+vim.cmd('packadd render-markdown.nvim')
+require('plugins.configs.render-markdown')
+
 vim.cmd('packadd codecompanion.nvim')
 require('plugins.configs.codecompanion')
 
