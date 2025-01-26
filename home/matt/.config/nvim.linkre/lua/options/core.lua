@@ -22,7 +22,7 @@ vim.opt.foldmethod = 'syntax'
 vim.opt.foldenable = false
 
 -- Sets the color scheme for syntax highlighting (Default: depends on terminal)
-vim.cmd('colorscheme goodwolf')
+vim.cmd.colorscheme('melange')
 
 -- Customizes highlight groups for various UI elements (Defaults vary)
 -- creates a transparent background
@@ -65,5 +65,4 @@ endfunction
 -- %l: Current line number
 -- %c: Current column number
 -- %p%%: Percentage through file
-
 vim.opt.statusline = "%f %m%r%h%w%=%{winnr()} %l,%c %p%%"

@@ -12,6 +12,9 @@ require('plugins.configs.copilot')
 vim.cmd('packadd render-markdown.nvim')
 require('plugins.configs.render-markdown')
 
+vim.cmd('packadd mini.diff')
+require('plugins.configs.mini-diff')
+
 vim.cmd('packadd codecompanion.nvim')
 require('plugins.configs.codecompanion')
 
