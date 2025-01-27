@@ -1,26 +1,26 @@
 general.import = [
-    "~/.config/alacritty/themes/themes/meliora.toml"
+   "~/.config/alacritty/themes/themes/meliora.toml"
 ]
 
-[colors.bright]
-black = "#5b5f71"
-blue = "#a0b9d8"
-cyan = "#7dc2c7"
-green = "#92c47e"
-magenta = "#c6aed7"
-red = "#fe9f7c"
-white = "#f0ecfe"
-yellow = "#d2b45f"
-
-[colors.normal]
-black = "#2e313d"
-blue = "#8296b0"
-cyan = "#659ea2"
-green = "#76a065"
-magenta = "#a18daf"
-red = "#cf8164"
-white = "#b5b4c9"
-yellow = "#ab924c"
+# [colors.bright]
+# black = "#5b5f71"
+# blue = "#a0b9d8"
+# cyan = "#7dc2c7"
+# green = "#92c47e"
+# magenta = "#c6aed7"
+# red = "#fe9f7c"
+# white = "#f0ecfe"
+# yellow = "#d2b45f"
+#
+# [colors.normal]
+# black = "#2e313d"
+# blue = "#8296b0"
+# cyan = "#659ea2"
+# green = "#76a065"
+# magenta = "#a18daf"
+# red = "#cf8164"
+# white = "#b5b4c9"
+# yellow = "#ab924c"
 
 [colors.primary]
 background = "#434443"
