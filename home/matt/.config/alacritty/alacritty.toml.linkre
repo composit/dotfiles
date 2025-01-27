@@ -1,3 +1,7 @@
+general.import = [
+    "~/.config/alacritty/themes/themes/meliora.toml"
+]
+
 [colors.bright]
 black = "#5b5f71"
 blue = "#a0b9d8"
