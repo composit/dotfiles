@@ -15,7 +15,7 @@ vim.keymap.set('n', '<Leader>T', ':TestSuite<CR>', { silent = true, desc = "Run 
 vim.keymap.set('n', '<Leader>gb', ':Git blame<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>gd', ':Gvdiffsplit<CR>', { silent = true })
 
-vim.keymap.set('n', '<Leader>b', ':call ToggleNumbers()<CR>', { silent = true, desc = "Toggle Numbers" })
+vim.keymap.set('n', '<Leader>b', ':lua ToggleNumbers()<CR>', { silent = true, desc = "Toggle Numbers" })
 
 -- jump directly to a specific pane
 for i = 1, 9 do

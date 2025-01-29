@@ -57,17 +57,17 @@ vim.g.mapleader = ' '
 
 -- Toggle numbers function: Toggles line numbers and listchars (No default)
 vim.o.signcolumn = "no" -- default to no
-vim.cmd([[
-function! ToggleNumbers()
-  set number!
-  set list!
-  if &signcolumn == 'no'
-    set signcolumn=yes
-  else
-    set signcolumn=no
-  endif
-endfunction
-]])
+function ToggleNumbers()
+    if vim.b.toggle_numbers_on == nil or vim.b.toggle_numbers_on == false then
+        vim.b.toggle_numbers_on = true
+    else
+        vim.b.toggle_numbers_on = false
+    end
+
+    vim.wo.number = vim.b.toggle_numbers_on
+    vim.o.list = vim.b.toggle_numbers_on
+    -- vim.o.signcolumn = vim.b.toggle_numbers_on and "yes" or "no"
+end
 
 -- show the window numbers in the status bar
 -- %f: Path to the file in the buffer
