@@ -28,11 +28,10 @@ local plugins = {}
 plugins['start'] = {
 	'https://github.com/savq/melange-nvim.git',
 	'https://github.com/ibhagwan/fzf-lua.git',
-	'https://github.com/nvim-lua/plenary.nvim.git',               -- required by a bunch (avante, codecompanion, etc)
+	'https://github.com/nvim-lua/plenary.nvim.git',               -- required by a bunch (codecompanion, etc)
 	'https://github.com/nvim-treesitter/nvim-treesitter.git',
-	'https://github.com/zbirenbaum/copilot.lua.git',              -- required by avante and codecompanion
+	'https://github.com/zbirenbaum/copilot.lua.git',              -- required by codecompanion
 	'https://github.com/MeanderingProgrammer/render-markdown.nvim.git', -- used by codecompanion
-	-- 'https://github.com/echasnovski/mini.diff.git',                     -- used by codecompanion
 	'https://github.com/olimorris/codecompanion.nvim.git',
 	'https://github.com/Saghen/blink.cmp.git',
 	'https://github.com/Saghen/blink.compat.git',        -- required by blink, makes it nvm-cmp compatible
@@ -56,9 +55,6 @@ plugins['opt'] = {
 	'https://github.com/tpope/vim-fugitive.git',
 	'https://github.com/tpope/vim-rails.git',
 	'https://github.com/stevearc/conform.nvim.git',
-	--'https://github.com/yetone/avante.nvim.git',
-	--'https://github.com/stevearc/dressing.nvim.git', -- required by avante
-	--'https://github.com/MunifTanjim/nui.nvim.git', -- required by avante
 	--'https://github.com/mattn/vim-gist.git',
 	--'https://github.com/mattn/webapi-vim.git', -- required by vim-gist
 	--'https://github.com/sebdah/vim-delve.git',
