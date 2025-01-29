@@ -25,25 +25,24 @@ require('blink.cmp').setup({
 				enabled = true,
 			},
 		},
-		menu = {
-			border = "single",
-			draw = {
-				gap = 2,
-				treesitter = { "lsp" },
-			},
-			winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None",
-		},
+		-- menu = {
+		-- 	border = "single",
+		-- 	draw = {
+		-- 		gap = 2,
+		-- 		treesitter = { "lsp" },
+		-- 	},
+		-- 	winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None",
+		-- },
 		documentation = {
 			auto_show = true,
 			auto_show_delay_ms = 200,
-			window = {
-				border = "double",
-				winhighlight = "Normal:Normal,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc",
-			},
+			-- window = {
+			-- 	border = "double",
+			-- 	winhighlight = "Normal:Normal,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc",
+			-- },
 		},
 		ghost_text = {
-			-- enabled = vim.g.ai_cmp,
-			enabled = true,
+			enabled = vim.g.ai_cmp,
 		},
 	},
 
