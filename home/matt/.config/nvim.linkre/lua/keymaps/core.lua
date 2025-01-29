@@ -22,5 +22,8 @@ for i = 1, 9 do
 	vim.keymap.set('n', '<Leader>' .. i, i .. '<C-w>w', { desc = "Move to window " .. i })
 end
 
+-- update plugins
+vim.keymap.set('n', '<Leader>up', ':lua UpdatePlugins()<CR>', { silent = true, desc = "Update plugins" })
+
 require('keymaps.lsp')
 require('keymaps.codecompanion')
