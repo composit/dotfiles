@@ -8,9 +8,9 @@ require("codecompanion").setup({
 			adapter = "copilot",
 		},
 	},
-	display = {
-		diff = {
-			provider = "mini_diff",
-		},
-	},
+	-- display = {
+	-- 	diff = {
+	-- 		provider = "mini_diff",
+	-- 	},
+	-- },
 })

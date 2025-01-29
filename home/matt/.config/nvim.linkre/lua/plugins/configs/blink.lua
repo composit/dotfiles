@@ -1,12 +1,11 @@
 require('blink.cmp').setup({
 	fuzzy = {
 		prebuilt_binaries = {
-			force_version = "v0.10.0" -- Replace with the latest version
+			force_version = "v0.11.0" -- Replace with the latest version
 		}
 	},
-	--version = "*",
 	snippets = {
-		expand = function(snippet, _)
+		expand = function(snippet)
 			return require('luasnip').lsp_expand(snippet)
 		end,
 	},
@@ -43,7 +42,8 @@ require('blink.cmp').setup({
 			},
 		},
 		ghost_text = {
-			enabled = vim.g.ai_cmp,
+			-- enabled = vim.g.ai_cmp,
+			enabled = true,
 		},
 	},
 
