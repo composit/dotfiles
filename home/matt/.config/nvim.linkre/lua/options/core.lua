@@ -22,19 +22,11 @@ vim.opt.foldmethod = 'syntax'
 vim.opt.foldenable = false
 
 -- Sets the color scheme for syntax highlighting (Default: depends on terminal)
-vim.cmd.colorscheme('melange')
+-- vim.cmd.colorscheme('melange')
+vim.cmd.colorscheme('mr_colorscheme')
 
 -- Customizes highlight groups for various UI elements (Defaults vary)
 -- creates a transparent background
--- vim.api.nvim_set_hl(0, 'Visual', { bg = 'grey', fg = 'white' })
--- vim.api.nvim_set_hl(0, 'LineNr', { bg = 'none', fg = 'yellow' })
--- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none', fg = 'none' })
--- vim.api.nvim_set_hl(0, 'EmptyLines', { bg = 'none' })
--- vim.api.nvim_set_hl(0, 'SpecialKey', { fg = 'grey', bg = 'none' })
--- vim.api.nvim_set_hl(0, 'SignColumn', { fg = 'grey', bg = 'none' })
--- vim.api.nvim_set_hl(0, 'NonText', { fg = 'grey', bg = 'none' })
--- vim.api.nvim_set_hl(0, 'Comment', { bg = 'none' })
-
 vim.api.nvim_set_hl(0, 'Visual', { bg = 'grey' })
 vim.api.nvim_set_hl(0, 'LineNr', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
