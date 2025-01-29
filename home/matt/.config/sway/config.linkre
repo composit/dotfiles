@@ -255,4 +255,10 @@ input "1133:45110:Pebble_M350s_Mouse" {
 	natural_scroll enabled
 }
 
+# idle
+exec swayidle -w \
+	timeout 30 'swaylock -f' \
+	timeout 35 'swaymsg "output * power off"' \
+		resume 'swaymsg "output * power on"'
+
 include /etc/sway/config.d/*
