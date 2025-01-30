@@ -1,6 +1,6 @@
 -- plugins in the `start` dir
 require('plugins.configs.fzf-lua')
-require('plugins/configs/nvim-treesitter')
+require('plugins.configs.nvim-treesitter')
 require('plugins.configs.copilot')
 require('plugins.configs.render-markdown')
 require('luasnip.loaders.from_vscode').lazy_load()
