@@ -13,31 +13,21 @@ vim.opt.smartindent = true
 vim.opt.scrolloff = 10
 
 -- Defines how invisible characters are displayed (Default: "eol:$")
-vim.opt.listchars = { tab = '| ', trail = '·' }
+vim.opt.listchars = { tab = "| ", trail = "·" }
 
 -- Determines the kind of folding used for the current window (Default: "manual")
-vim.opt.foldmethod = 'syntax'
+vim.opt.foldmethod = "syntax"
 
 -- Controls whether folds are open or closed when first entering a buffer (Default: true)
 vim.opt.foldenable = false
 
 -- Sets the color scheme for syntax highlighting (Default: depends on terminal)
 -- vim.cmd.colorscheme('melange')
-vim.cmd.colorscheme('mr_colorscheme')
-
--- Customizes highlight groups for various UI elements (Defaults vary)
--- creates a transparent background
-vim.api.nvim_set_hl(0, 'Visual', { bg = 'grey' })
-vim.api.nvim_set_hl(0, 'LineNr', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'EmptyLines', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'SpecialKey', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'NonText', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'Comment', { bg = 'none' })
+-- vim.cmd.colorscheme("melangish")
+vim.cmd.colorscheme("stupidsimple")
 
 -- Sets the leader key for custom mappings (Default: "\")
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
 -- Gist configuration: Controls behavior of gist plugin (No defaults)
 -- vim.g.gist_detect_filetype = 1
@@ -50,15 +40,15 @@ vim.g.mapleader = ' '
 -- Toggle numbers function: Toggles line numbers and listchars (No default)
 vim.o.signcolumn = "no" -- default to no
 function ToggleNumbers()
-    if vim.b.toggle_numbers_on == nil or vim.b.toggle_numbers_on == false then
-        vim.b.toggle_numbers_on = true
-    else
-        vim.b.toggle_numbers_on = false
-    end
+	if vim.b.toggle_numbers_on == nil or vim.b.toggle_numbers_on == false then
+		vim.b.toggle_numbers_on = true
+	else
+		vim.b.toggle_numbers_on = false
+	end
 
-    vim.wo.number = vim.b.toggle_numbers_on
-    vim.o.list = vim.b.toggle_numbers_on
-    -- vim.o.signcolumn = vim.b.toggle_numbers_on and "yes" or "no"
+	vim.wo.number = vim.b.toggle_numbers_on
+	vim.o.list = vim.b.toggle_numbers_on
+	-- vim.o.signcolumn = vim.b.toggle_numbers_on and "yes" or "no"
 end
 
 -- show the window numbers in the status bar
