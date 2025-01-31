@@ -1,12 +1,13 @@
-require('blink.cmp').setup({
+local blink = require("blink.cmp")
+blink.setup({
 	fuzzy = {
 		prebuilt_binaries = {
-			force_version = "v0.11.0" -- Replace with the latest version
-		}
+			force_version = "v0.11.0", -- Replace with the latest version
+		},
 	},
 	snippets = {
 		expand = function(snippet)
-			return require('luasnip').lsp_expand(snippet)
+			return require("luasnip").lsp_expand(snippet)
 		end,
 	},
 	appearance = {
@@ -25,14 +26,15 @@ require('blink.cmp').setup({
 				enabled = true,
 			},
 		},
-		-- menu = {
-		-- 	border = "single",
-		-- 	draw = {
-		-- 		gap = 2,
-		-- 		treesitter = { "lsp" },
-		-- 	},
-		-- 	winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None",
-		-- },
+		menu = {
+			-- 	border = "single",
+			auto_show = false,
+			-- draw = {
+			-- 	gap = 2,
+			-- 	treesitter = { "lsp" },
+			-- },
+			-- winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None",
+		},
 		documentation = {
 			auto_show = true,
 			auto_show_delay_ms = 200,
@@ -42,7 +44,12 @@ require('blink.cmp').setup({
 			-- },
 		},
 		ghost_text = {
-			enabled = vim.g.ai_cmp,
+			-- enabled = vim.g.ai_cmp,
+			enabled = true,
+		},
+		trigger = {
+			-- by default, blink.cmp will block newline, tab and space trigger characters, disable that behavior
+			show_on_blocked_trigger_characters = {},
 		},
 	},
 
@@ -60,9 +67,20 @@ require('blink.cmp').setup({
 				async = true,
 			},
 			markdown = {
-				name = 'RenderMarkdown',
-				module = 'render-markdown.integ.blink',
-				fallbacks = { 'lsp' },
+				name = "RenderMarkdown",
+				module = "render-markdown.integ.blink",
+				fallbacks = { "lsp" },
+			},
+
+			lsp = {
+				override = {
+					-- add newline, tab and space to LSP source trigger characters
+					get_trigger_characters = function(self)
+						local trigger_characters = self:get_trigger_characters()
+						vim.list_extend(trigger_characters, { "\n", "\t", " " })
+						return trigger_characters
+					end,
+				},
 			},
 		},
 		cmdline = {},
