@@ -23,8 +23,8 @@ vim.opt.foldenable = false
 
 -- Sets the color scheme for syntax highlighting (Default: depends on terminal)
 -- vim.cmd.colorscheme('melange')
--- vim.cmd.colorscheme("melangish")
-vim.cmd.colorscheme("stupidsimple")
+vim.cmd.colorscheme("melangish")
+-- vim.cmd.colorscheme("stupidsimple")
 
 -- Sets the leader key for custom mappings (Default: "\")
 vim.g.mapleader = " "

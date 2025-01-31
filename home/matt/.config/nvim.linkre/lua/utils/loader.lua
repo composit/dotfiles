@@ -29,7 +29,7 @@ plugins["start"] = {
 	fzf_lua = "https://github.com/ibhagwan/fzf-lua.git",
 	plenary = "https://github.com/nvim-lua/plenary.nvim.git", -- required by a bunch (codecompanion, etc)
 	nvim_treesitter = "https://github.com/nvim-treesitter/nvim-treesitter.git",
-	copilot = "https://github.com/zbirenbaum/copilot.lua.git", -- required by codecompanion
+	copilot = "https://github.com/zbirenbaum/copilot.lua.git",
 	render_markdown = "https://github.com/MeanderingProgrammer/render-markdown.nvim.git", -- used by codecompanion
 	codecompanion = "https://github.com/olimorris/codecompanion.nvim.git",
 	blink_cmp = "https://github.com/Saghen/blink.cmp.git",
@@ -62,14 +62,14 @@ plugins["opt"] = {
 install_plugins(plugins)
 
 function UpdatePlugins()
+	print("updating plugins")
 	local install_path = vim.fn.stdpath("data") .. "/site/pack/3rd-party-plugins/"
 
 	for dir, pluginSet in pairs(plugins) do
 		local dir_path = install_path .. dir .. "/"
 
 		vim.fn.mkdir(dir_path, "p")
-		for _, plugin in ipairs(pluginSet) do
-			local plugin_name = plugin:match("([^/]+)%.git$")
+		for plugin_name, plugin in pairs(pluginSet) do
 			local plugin_path = dir_path .. plugin_name
 
 			print("Updating " .. plugin_name)
