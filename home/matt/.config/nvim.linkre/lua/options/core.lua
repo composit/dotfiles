@@ -15,6 +15,9 @@ vim.opt.scrolloff = 10
 -- Defines how invisible characters are displayed (Default: "eol:$")
 vim.opt.listchars = { tab = "| ", trail = "·" }
 
+-- Use tree-sitter for syntax highlighting
+vim.cmd("syntax off")
+
 -- Determines the kind of folding used for the current window (Default: "manual")
 vim.opt.foldmethod = "syntax"
 
@@ -23,7 +26,7 @@ vim.opt.foldenable = false
 
 -- Sets the color scheme for syntax highlighting (Default: depends on terminal)
 -- vim.cmd.colorscheme('melange')
--- vim.cmd.colorscheme("melangish")
+vim.cmd.colorscheme("melangish")
 vim.cmd.colorscheme("stupidsimple")
 
 -- Sets the leader key for custom mappings (Default: "\")

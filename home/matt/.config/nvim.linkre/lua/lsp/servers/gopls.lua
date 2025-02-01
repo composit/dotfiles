@@ -1,6 +1,6 @@
 -- Setup language server.
 local lspconfig = require("lspconfig")
-local capabilities = require('blink.cmp').get_lsp_capabilities()
+local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 -- gopls
 lspconfig.gopls.setup({
