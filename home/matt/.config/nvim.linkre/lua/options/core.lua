@@ -34,9 +34,6 @@ vim.g.mapleader = " "
 -- vim.g.gist_open_browser_after_post = 1
 -- vim.g.gist_post_private = 1
 
--- Copilot configuration: Sets up GitHub Copilot AI assistant (No defaults)
--- vim.g.copilot_no_tab_map = true
-
 -- Toggle numbers function: Toggles line numbers and listchars (No default)
 vim.o.signcolumn = "no" -- default to no
 function ToggleNumbers()
