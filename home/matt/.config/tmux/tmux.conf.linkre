@@ -15,19 +15,17 @@ set -g default-terminal "tmux-256color"
 set -g history-limit 50000
 
 # Status Bar
-## show the countdowntown status
+## show the countdowntown and ssh status
 set-option -g status-right '#(cat ~/.cdt) #{?SSH_CONNECTION,#[fg=red]#H, }'
-## set-option -g status-right '#(cat ~/.cdt)#{?SSH_CONNECTION,#[fg=red]#H}'
-## set-option -g status-right '#(cat ~/.cdt)'
 
 # set color for status bar
 set-option -g status-style fg=white,dim
 
-# set window title list colors
-set-window-option -g window-status-style fg=colour246,dim
-
-# active window title colors
-set-window-option -g window-status-current-style fg=colour231,bold
+# # set window title list colors
+# set-option -gw window-status-style fg=colour246,dim
+#
+# # active window title colors
+# set-option -gw window-status-current-style fg=#ffffaf,bold
  
 # vim navigation while in copy/scrollback mode
 setw -g mode-keys vi
@@ -38,3 +36,8 @@ bind-key p run "xsel -o | tmux load-buffer - ; tmux paste-buffer"
 
 # open the current .tmuxxer file
 bind-key a source-file .tmuxxer
+
+# change color depending on focus 
+set -g focus-events on
+set-hook -g client-focus-in "set window-status-current-style 'fg=#ffffaf,bold'"
+set-hook -g client-focus-out "set window-status-current-style 'fg=colour246,dim'"
