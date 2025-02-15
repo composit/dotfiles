@@ -14,7 +14,7 @@ alias ll='ls -lah'
 # keep history
 [ "$SAVEHIST" -lt 1000000 ] && SAVEHIST=1000000
 [ "$HISTSIZE" -lt 5000000 ] && HISTSIZE=5000000
-[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
+[ -z "$HISTFILE" ] && HISTFILE="$ZDOTDIR/.zsh_history"
 
 setopt extended_history       # record timestamp of command in HISTFILE
 
@@ -56,7 +56,9 @@ fi
 autoload -Uz compinit && compinit -i
 
 # kubectl completion
-source <(command kubectl completion zsh)
+if [ -x "$(command -v kubectl)" ]; then
+  source <(command kubectl completion zsh)
+fi
 
 [[ -r ~/.config/zsh/.zshrc.local ]] && . ~/.config/zsh/.zshrc.local
 [[ -r ~/.config/zsh/.zshrc.midnight ]] && . ~/.config/zsh/.zshrc.midnight
@@ -116,6 +118,7 @@ fi
 
 
 # prompt
+prompt off # clear the nixos prompt
 function git_branch_name()
 {
   git_branch_name_msg=''
