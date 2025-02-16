@@ -145,6 +145,7 @@ linters:
     - tagliatelle
     - gci
     - godot
+    - lll
 issues:
   max-per-linter: 20
   max-same-issues: 3
