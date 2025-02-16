@@ -107,10 +107,6 @@ PROMPT+='$git_branch_name_msg ' # git branch
 # PROMPT+='%(?.%F{230}☀%f.%F{174}☇%f) ' # exit code thingy
 PROMPT+='%(?.☀.%F{174}☇%f) ' # exit code thingy
 
-if [[ -n $IN_NIX_SHELL ]]; then
-  PROMPT+='%F{blue}[${name/-shell-env}]%f '
-fi
-
 # git aliases
 alias gs='git status'
 alias gc='echo "Please use gcm or gct instead of gc"'
@@ -134,9 +130,6 @@ function git_commit_ticket() {
 
   git commit -m "$1"
 }
-
-# poetry binary
-export PATH="$HOME/.local/bin:$PATH"
 
 # cd helpers
 # CDF (doesn't seem to work well with deep directory structures)
