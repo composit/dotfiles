@@ -60,9 +60,6 @@ if [ -x "$(command -v kubectl)" ]; then
   source <(command kubectl completion zsh)
 fi
 
-[[ -r ~/.config/zsh/.zshrc.local ]] && . ~/.config/zsh/.zshrc.local
-[[ -r ~/.config/zsh/.zshrc.midnight ]] && . ~/.config/zsh/.zshrc.midnight
-
 # fzf completions, etc for linux
 if command -v fzf-share >/dev/null; then
     source "$(fzf-share)/key-bindings.zsh"
@@ -74,38 +71,6 @@ fi
 # keep path unique by using zsh path and specifying uniqueness
 # otherwise, loading tmux doubles the path
 typeset -aU path
-
-# prompt
-prompt off # clear the nixos prompt
-function git_branch_name()
-{
-  git_branch_name_msg=''
-  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
-  if [[ $branch != "" ]] then;
-    git_branch_name_msg=' '$branch
-  fi
-}
-
-# run git_branch_name before each prompt rendering
-precmd() {
-  git_branch_name
-}
-
-# allow for var substitutions in the prompt
-setopt prompt_subst
-
-PROMPT=''
-if [[ -n "$SSH_CONNECTION" ]]; then # only display the hostname if not local
-  # PROMPT+='%F{230}' # whitish
-  PROMPT+='${(%):-%m} ' # %m is hostname
-  # PROMPT+='%f'
-fi
-# PROMPT+='%F{255}' # gray
-PROMPT+='%B%3~%b' # %3~ is dir to 3 levels
-PROMPT+='$git_branch_name_msg ' # git branch
-# PROMPT+='%f' # end gray color
-# PROMPT+='%(?.%F{230}☀%f.%F{174}☇%f) ' # exit code thingy
-PROMPT+='%(?.☀.%F{174}☇%f) ' # exit code thingy
 
 # git aliases
 alias gs='git status'
@@ -153,3 +118,34 @@ cdgadd() {
    cat ~/.cdg_paths
 }
 export cdgadd > /dev/null
+
+# prompt
+prompt off # clear the nixos prompt
+function git_branch_name()
+{
+  git_branch_name_msg=''
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch != "" ]] then;
+    git_branch_name_msg=' '$branch
+  fi
+}
+
+# run git_branch_name before each prompt rendering
+precmd() {
+  git_branch_name
+}
+
+# allow for var substitutions in the prompt
+setopt prompt_subst
+
+PROMPT=''
+if [[ -n "$SSH_CONNECTION" ]]; then # only display the hostname if not local
+  PROMPT+='${(%):-%m} ' # %m is hostname
+fi
+PROMPT+='%B%3~%b' # %3~ is dir to 3 levels
+PROMPT+='$git_branch_name_msg ' # git branch
+
+[[ -r ~/.config/zsh/.zshrc.local ]] && . ~/.config/zsh/.zshrc.local
+[[ -r ~/.config/zsh/.zshrc.midnight ]] && . ~/.config/zsh/.zshrc.midnight
+
+PROMPT+='%(?.☀.%F{174}☇%f) ' # exit code thingy
