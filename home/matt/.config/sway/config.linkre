@@ -264,10 +264,9 @@ input "1133:45110:Pebble_M350s_Mouse" {
 # Hibernate after 20 minutes
 # Lock the screen before sleep
 exec swayidle -w \
-    timeout 300 'swaylock -f' \
-    timeout 305 'swaymsg "output * power off"' \
-        resume 'swaymsg "output * power on"'
-    # timeout 600 'systemctl hibernate' \
-    # before-sleep 'swaylock -f'
+    timeout 6000 'swaylock -f' \
+    timeout 6005 'swaymsg "output * power off"' \
+    timeout 12000 'systemctl hibernate' \
+    before-sleep 'swaylock -f'
 
 include /etc/sway/config.d/*
