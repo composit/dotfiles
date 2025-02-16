@@ -5,7 +5,7 @@ export EDITOR='nvim'
 alias e=$EDITOR
 alias el='NVIM_APPNAME=lazyvim nvim'
 alias eo='NVIM_APPNAME=nvim.old nvim'
-alias sz='source $ZDOTDIR/.zshrc'
+alias sz='source $HOME/.config/zsh/.zshrc'
 alias ll='ls -lah'
 
 # history stuff, mostly adapted from 
@@ -64,58 +64,16 @@ fi
 [[ -r ~/.config/zsh/.zshrc.midnight ]] && . ~/.config/zsh/.zshrc.midnight
 
 # fzf completions, etc for linux
-[[ -r /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
-[[ -r /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
+if command -v fzf-share >/dev/null; then
+    source "$(fzf-share)/key-bindings.zsh"
+    source "$(fzf-share)/completion.zsh"
+fi
 # for mac
 [[ -r ~/.fzf.zsh ]] && . ~/.fzf.zsh
 
 # keep path unique by using zsh path and specifying uniqueness
 # otherwise, loading tmux doubles the path
 typeset -aU path
-
-# Go stuff
-path=(/usr/local/go/bin $path)
-path=($HOME/go/bin $path)
-
-# Ruby stuff
-if [ -d "/usr/share/chruby" ]; then
-  source /usr/share/chruby/chruby.sh
-  source /usr/share/chruby/auto.sh
-fi
-
-if which ruby > /dev/null && which gem > /dev/null; then
-    export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
-
-if [ -x "$(command -v ruby)" ]; then
-  alias rspec='nocorrect rspec'
-fi
-
-# Yarn stuff
-if [ -x "$(command -v yarn)" ]; then
-  path=(`yarn global bin` $path)
-  path=("$HOME/.yarn/bin" "$HOME/.config/yarn/global/node_modules/.bin" $path)
-fi
-
-# Python stuff
-if [[ -x "$(command -v pyenv)" ]]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path)"
-fi
-
-# ASDF (Elixir) stuff
-if [ -d "$HOME/.asdf/asdf.sh" ]; then
-  . $HOME/.asdf/asdf.sh
-  . $HOME/.asdf/completions/asdf.bash
-fi
-
-if [ -d "$HOME/.nvm" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-fi
-
 
 # prompt
 prompt off # clear the nixos prompt
@@ -148,6 +106,10 @@ PROMPT+='$git_branch_name_msg ' # git branch
 # PROMPT+='%f' # end gray color
 # PROMPT+='%(?.%F{230}☀%f.%F{174}☇%f) ' # exit code thingy
 PROMPT+='%(?.☀.%F{174}☇%f) ' # exit code thingy
+
+if [[ -n $IN_NIX_SHELL ]]; then
+  PROMPT+='%F{blue}[${name/-shell-env}]%f '
+fi
 
 # git aliases
 alias gs='git status'
