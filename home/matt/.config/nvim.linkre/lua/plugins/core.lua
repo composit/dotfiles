@@ -14,3 +14,4 @@ require("lsp.servers.gopls")
 require("lsp.servers.golangci-lint")
 require("lsp.servers.ruby-lsp") -- has to be called after 'blink' is loaded
 require("lsp.servers.lua-ls")
+require("lsp.servers.nixd")

@@ -4,6 +4,7 @@ require("conform").setup({
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		javascript = { "prettierd", "prettier" },
+		nix = { "alejandra" },
 	},
 	format_on_save = {
 		lsp_format = "fallback",
