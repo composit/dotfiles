@@ -120,7 +120,9 @@ cdgadd() {
 export cdgadd > /dev/null
 
 # prompt
-prompt off # clear the nixos prompt
+if command -v prompt > /dev/null 2>&1; then
+  prompt off # clear the nixos prompt if on nixos
+fi
 function git_branch_name()
 {
   git_branch_name_msg=''
