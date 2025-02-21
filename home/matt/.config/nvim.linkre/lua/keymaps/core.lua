@@ -15,6 +15,7 @@ vim.keymap.set("n", "<Leader>T", ":TestSuite<CR>", { silent = true, desc = "Run 
 -- Fugitive mappings: Shortcuts for Git operations (No defaults)
 vim.keymap.set("n", "<Leader>gb", ":Git blame<CR>", { silent = true })
 vim.keymap.set("n", "<Leader>gd", ":Gvdiffsplit<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>gm", ":Gvdiffsplit main<CR>", { silent = true })
 
 vim.keymap.set("n", "<Leader>b", ":lua ToggleNumbers()<CR>", { silent = true, desc = "Toggle Numbers" })
 
