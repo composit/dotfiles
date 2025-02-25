@@ -76,6 +76,7 @@ typeset -aU path
 alias gs='git status'
 alias gc='echo "Please use gcm or gct instead of gc"'
 alias gcm='git_commit_ticket'
+alias gda='git_adder'
 alias ga='git add'
 alias gd='git diff'
 alias gb='git branch'
@@ -95,6 +96,30 @@ function git_commit_ticket() {
 
   git commit -m "$1"
 }
+
+function git_adder() {
+  # Get the list of changed files
+  changed_files=($(git status --porcelain | awk '{print $2}'))
+  
+  # Loop over each changed file
+  for file in "${changed_files[@]}"; do
+    # Display the diff for the file
+    git diff $file
+  
+    # Prompt the user to add the file, with "Y" as the default
+    echo "Do you want to add $file? (Y/n)"
+    read -r response
+  
+    # Default to "Y" if the response is empty
+    if [[ -z $response || $response == "y" || $response == "Y" ]]; then
+      git add $file
+      echo "$file added."
+    else
+      echo "$file not added."
+    fi
+  done
+}
+
 
 # cd helpers
 # CDF (doesn't seem to work well with deep directory structures)
