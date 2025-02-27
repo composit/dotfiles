@@ -1,1 +1,1 @@
-vim.cmd('packadd vim-terraform')
+vim.cmd('packadd vim_terraform')

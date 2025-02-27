@@ -1,1 +1,1 @@
-vim.cmd.packadd('vim-nix')
+vim.cmd.packadd('vim_nix')

@@ -1,2 +1,2 @@
-vim.cmd.packadd('vim-rails')
-vim.cmd.packadd('vim-endwise')
+vim.cmd.packadd('vim_rails')
+vim.cmd.packadd('vim_endwise')

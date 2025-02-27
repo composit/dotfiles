@@ -1,1 +1,1 @@
-vim.cmd.packadd('typescript-vim')
+vim.cmd.packadd('typescript_vim')

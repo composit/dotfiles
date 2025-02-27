@@ -1,5 +1,12 @@
+local tmux_session = "notes"
+local tmux_window = "tests"
+
 if vim.fn.exists('*OpenTestAlternative') == 1 then
 	return
+end
+
+local function tmux_send(cmd)
+	vim.fn.system("tmux send-keys -t '" .. tmux_session .. ":" .. tmux_window .. "' \"" .. cmd .. '" C-m')
 end
 
 local function set_test_file()
@@ -30,7 +37,7 @@ function RunTests(filename)
 	if vim.fn.expand("%"):match('%.js%.coffee$') then
 		vim.fn.system("jasmine-headless-webkit --color --no-full-run --runner-out runner.html " .. filename)
 	else
-		vim.fn.system("tmux send-keys -t 'notes:tests' 'bundle exec rake test " .. filename .. "' C-m")
+		tmux_send('bundle exec rake test ' .. filename)
 	end
 end
 
