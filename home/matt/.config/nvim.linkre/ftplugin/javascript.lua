@@ -1,4 +1,3 @@
-require('plugins.coding')
-require('options.javascript')
-require('utils.javascript')
-require('keymaps.javascript')
+require("options.javascript")
+require("utils.javascript")
+require("keymaps.javascript")

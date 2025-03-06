@@ -37,7 +37,7 @@ function RunTests(filename)
 	if vim.fn.expand("%"):match('%.js%.coffee$') then
 		vim.fn.system("jasmine-headless-webkit --color --no-full-run --runner-out runner.html " .. filename)
 	else
-		tmux_send('bundle exec rake test ' .. filename)
+		tmux_send('bundle exec rails test ' .. filename)
 	end
 end
 

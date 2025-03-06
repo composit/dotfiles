@@ -33,8 +33,6 @@ linters-settings:
       - experimental
     disabled-checks:
       # - sloppyReassign
-      # - hugeParam
-      # - unnamedResult
   gofmt:
     simplify: true
   gosec:
@@ -117,26 +115,27 @@ linters:
 # these are the linters recommended by fanatics. Don't disable any of these.
 #  disable-all: true
 #  enable:
-#    - depguard
-#    - errcheck
-#    - errorlint
-#    - exportloopref
-#    - goconst
-#    - gocritic
-#    - gofmt
-#    - goimports
-#    - gosec
-#    - gosimple
-#    - govet
-#    - ineffassign
-#    - misspell
-#    - prealloc
-#    - predeclared
-#    - revive
-#    - staticcheck
-#    - typecheck
-#    - unconvert
-#    - unused
+#     - copyloopvar
+#     - depguard
+#     - errcheck
+#     - errorlint
+#     - goconst
+#     - gocritic
+#     - gofmt
+#     - goimports
+#     - gosec
+#     - gosimple
+#     - govet
+#     - ineffassign
+#     - misspell
+#     - noctx
+#     - prealloc
+#     - predeclared
+#     - revive
+#     - staticcheck
+#     - typecheck
+#     - unconvert
+#     - unused
   enable-all: true
   disable:
     - varnamelen

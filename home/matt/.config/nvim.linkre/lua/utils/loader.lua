@@ -15,8 +15,7 @@ local function install_plugins(plugins)
 			if not fs.fs_stat(plugin_path) then
 				print("Installing " .. plugin_name)
 				local success = vim.fn.system({ "git", "clone", "--depth", "1", plugin, plugin_path })
-				print(plugin_name ..
-					" installed successfully (" .. plugin .. ": " .. plugin_path .. ") " .. success)
+				print(plugin_name .. " installed successfully (" .. plugin .. ": " .. plugin_path .. ") " .. success)
 			end
 		end
 	end
@@ -34,12 +33,15 @@ plugins["start"] = {
 	render_markdown = "https://github.com/MeanderingProgrammer/render-markdown.nvim.git", -- used by codecompanion
 	codecompanion = "https://github.com/olimorris/codecompanion.nvim.git",
 	blink_cmp = "https://github.com/Saghen/blink.cmp.git",
-	blink_compat = "https://github.com/Saghen/blink.compat.git",            -- required by blink, makes it nvm-cmp compatible
+	blink_compat = "https://github.com/Saghen/blink.compat.git", -- required by blink, makes it nvm-cmp compatible
 	blink_cmp_copilot = "https://github.com/giuxtaposition/blink-cmp-copilot.git", -- required to integrate blink and copilot
-	LuaSnip = "https://github.com/L3MON4D3/LuaSnip.git",                    -- required by blink
+	LuaSnip = "https://github.com/L3MON4D3/LuaSnip.git", -- required by blink
 	friendly_snippets = "https://github.com/rafamadriz/friendly-snippets.git", -- required by blink
 	which_key = "https://github.com/folke/which-key.nvim.git",
 	nvim_lspconfig = "https://github.com/neovim/nvim-lspconfig.git",
+	efm_langserver = "https://github.com/mattn/efm-langserver.git",
+	vim_fugitive = "https://github.com/tpope/vim-fugitive.git",
+	conform = "https://github.com/stevearc/conform.nvim.git",
 }
 plugins["opt"] = {
 	alchemist = "https://github.com/slashmili/alchemist.vim.git", -- elixir
@@ -52,9 +54,7 @@ plugins["opt"] = {
 	vim_elixir = "https://github.com/elixir-editors/vim-elixir.git",
 	vim_endwise = "https://github.com/tpope/vim-endwise.git",
 	vim_fireplace = "https://github.com/tpope/vim-fireplace.git",
-	vim_fugitive = "https://github.com/tpope/vim-fugitive.git",
 	vim_rails = "https://github.com/tpope/vim-rails.git",
-	conform = "https://github.com/stevearc/conform.nvim.git",
 	vim_nix = "https://github.com/LnL7/vim-nix.git",
 	-- vim_gist = 'https://github.com/mattn/vim-gist.git',
 	-- webapi_vim = 'https://github.com/mattn/webapi-vim.git', -- required by vim-gist
@@ -76,8 +76,7 @@ function UpdatePlugins()
 
 			print("Updating " .. plugin_name)
 			local success = vim.fn.system({ "git", "-C", plugin_path, "pull" })
-			print(plugin_name ..
-				" updated successfully (" .. plugin .. ": " .. plugin_path .. ") " .. success)
+			print(plugin_name .. " updated successfully (" .. plugin .. ": " .. plugin_path .. ") " .. success)
 		end
 	end
 end

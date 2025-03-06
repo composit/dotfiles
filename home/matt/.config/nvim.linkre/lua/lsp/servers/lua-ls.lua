@@ -3,6 +3,7 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 lspconfig.lua_ls.setup({
 	settings = {
+		fileTypes = {"lua"},
 		Lua = {
 			runtime = { version = "LuaJIT" },
 			diagnostics = { globals = { "vim" } },

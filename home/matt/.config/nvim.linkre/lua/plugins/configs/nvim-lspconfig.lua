@@ -1,4 +1,4 @@
 -- Setup language server.
-local lspconfig = require('lspconfig')
+local lspconfig = require("lspconfig")
 
-vim.lsp.set_log_level("debug")
+-- vim.lsp.set_log_level("debug")

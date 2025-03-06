@@ -1,6 +1,7 @@
 require("lspconfig").nixd.setup({
 	cmd = { "nixd" },
 	settings = {
+		fileTypes = { "nix" },
 		nixd = {
 			nixpkgs = {
 				expr = "import (builtins.getFlake(toString ./.)).inputs.nixpkgs { }",
@@ -10,16 +11,13 @@ require("lspconfig").nixd.setup({
 			},
 			options = {
 				nixos = {
-					expr =
-					"let flake = builtins.getFlake(toString ./.); in flake.nixosConfigurations.nz.options",
+					expr = "let flake = builtins.getFlake(toString ./.); in flake.nixosConfigurations.nz.options",
 				},
 				home_manager = {
-					expr =
-					'let flake = builtins.getFlake(toString ./.); in flake.homeConfigurations."user@host".options',
+					expr = 'let flake = builtins.getFlake(toString ./.); in flake.homeConfigurations."user@host".options',
 				},
 				darwin = {
-					expr =
-					"let flake = builtins.getFlake(toString ./.); in flake.darwinConfigurations.mbp16.options",
+					expr = "let flake = builtins.getFlake(toString ./.); in flake.darwinConfigurations.mbp16.options",
 				},
 			},
 		},

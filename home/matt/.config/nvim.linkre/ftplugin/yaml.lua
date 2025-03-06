@@ -1,2 +1,1 @@
-require('plugins.coding')
-require('options.yaml')
+require("options.yaml")

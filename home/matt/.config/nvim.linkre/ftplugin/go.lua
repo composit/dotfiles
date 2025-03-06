@@ -1,4 +1,3 @@
-require('plugins.coding')
-require('utils.go')
-require('options.go')
-require('keymaps.go')
+require("utils.go")
+require("options.go")
+require("keymaps.go")

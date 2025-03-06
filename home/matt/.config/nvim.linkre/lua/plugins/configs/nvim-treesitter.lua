@@ -20,6 +20,7 @@ require("nvim-treesitter.configs").setup({
 		"markdown",
 		"markdown_inline",
 		"nix",
+		"nu",
 		"printf",
 		"python",
 		"query",

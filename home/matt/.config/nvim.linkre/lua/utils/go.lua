@@ -137,5 +137,6 @@ end
 
 function Open_test_alternate()
 	local new_file = alternate_for_current_file()
+	vim.api.nvim_out_write("Opening " .. new_file .. "\n")
 	vim.cmd(":vsp " .. new_file)
 end

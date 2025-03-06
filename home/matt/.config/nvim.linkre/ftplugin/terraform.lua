@@ -1,2 +1,1 @@
-require('plugins.coding')
-require('plugins.terraform')
+require("plugins.terraform")

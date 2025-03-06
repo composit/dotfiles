@@ -1,3 +1,1 @@
-require('plugins.coding')
-require('options.lua')
-require('utils.lua')
+require("options.lua")

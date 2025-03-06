@@ -50,7 +50,7 @@ bak() {
 
 # auto completions
 fpath=(~/.zsh/completion $fpath)
-if command -v brew %> /dev/null; then
+if command -v brew > /dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH # needs to be before compinit on the mac
 fi
 autoload -Uz compinit && compinit -i
@@ -65,6 +65,12 @@ if command -v fzf-share >/dev/null; then
     source "$(fzf-share)/key-bindings.zsh"
     source "$(fzf-share)/completion.zsh"
 fi
+
+if [ -d "/usr/share/fzf" ]; then
+  source "/usr/share/fzf/key-bindings.zsh"
+  source "/usr/share/fzf/completion.zsh"
+fi
+
 # for mac
 [[ -r ~/.fzf.zsh ]] && . ~/.fzf.zsh
 
@@ -103,6 +109,7 @@ function git_adder() {
   
   # Loop over each changed file
   for file in "${changed_files[@]}"; do
+    echo "file: $file"
     # Display the diff for the file
     git diff $file
   

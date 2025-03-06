@@ -1,0 +1,111 @@
+$env.config.buffer_editor = "nvim"
+$env.PASSWORD_STORE_DIR = ($env.HOME | path join ".sunk/.password-store")
+$env.config.show_banner = false
+
+def e [file] {
+    if ($env | has "config.buffer_editor") {
+        ^$env.config.buffer_editor $file
+    } else if ($env | has "EDITOR") {
+        ^$env.EDITOR $file
+    } else {
+        print "Error: \$EDITOR environment variable is not set."
+    }
+}
+ 
+# Aliases
+alias ll = ls -lah
+ 
+# History settings
+$env.config.history.file_format = 'sqlite'
+$env.config.history.max_size = 1_000_000
+$env.config.history.sync_on_enter = false
+$env.config.history.isolation = true
+ 
+# Vi mode
+$env.config.edit_mode = "vi"
+
+# Git aliases
+alias gs = git status
+alias gc = echo "Please use gcm or gct instead of gc"
+alias gcm = git_commit_ticket
+alias gda = git_adder
+alias ga = git add
+alias gd = git diff
+alias gb = git branch
+def gp [] { git pull; git push }
+
+# Git commit function
+def git_commit_ticket [message: string] {
+  let ticket = (git branch --show-current | find --regex "([A-Z]+-[0-9]+)")
+  if $ticket != '' {
+    echo $"Ticket found: $ticket. Do you want to add it to the commit message? (Y/n) "
+    let choice = (read)
+    if $choice == '' or $choice == 'y' or $choice == 'Y' {
+      git commit -m $"$ticket $message"
+    } else {
+      git commit -m $message
+    }
+  } else {
+    git commit -m $message
+  }
+}
+
+# Git adder function
+def git_adder [] {
+  let changed_files = (git status --porcelain | lines | each { |it| $it | split words | get 1 })
+  for $file in $changed_files {
+    echo $"file: $file"
+    git diff $file
+    echo "Do you want to add $file? (Y/n)"
+    let response = (read)
+    if $response == '' or $response == 'y' or $response == 'Y' {
+      git add $file
+      echo $"$file added."
+    } else {
+      echo $"$file not added."
+    }
+  }
+}
+
+# CD helpers
+def cdf [] { ^fd --type d | fzf | cd $in }
+
+def cdg [] {
+  let dest_dir = (open ~/.cdg_paths | fzf)
+  if $dest_dir != '' {
+    cd $dest_dir
+  }
+}
+
+def cdgadd [] {
+  let current_dir = (pwd)
+  open ~/.cdg_paths | append $current_dir | sort | uniq | save ~/.cdg_paths
+  open ~/.cdg_paths
+}
+# 
+# def create_left_prompt [] {
+#     let path_segment = if (is-admin) {
+#         $"(ansi red_bold)($env.PWD)"
+#     } else {
+#         $"(ansi green_bold)($env.PWD)"
+#     }
+# 
+#     let git_branch = (do -i { git branch --show-current } | str trim)
+#     let git_segment = if $git_branch != "" {
+#         $"(ansi yellow_bold)[(char branch) ($git_branch)] "
+#     } else { 
+#         "" 
+#     }
+# 
+#     $"($path_segment)\n($git_segment)(ansi reset)❯ "
+# }
+# 
+# $env.PROMPT_COMMAND = { create_left_prompt }
+# 
+# # Source additional config files
+# if (path exists ~/.config/nushell/config.local.nu) {
+#   source ~/.config/nushell/config.local.nu
+# }
+# if (path exists ~/.config/nushell/config.midnight.nu) {
+#   source ~/.config/nushell/config.midnight.nu
+# }
