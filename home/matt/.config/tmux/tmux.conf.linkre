@@ -35,9 +35,9 @@ set-hook -g client-focus-out "set window-status-current-style 'fg=colour246,dim'
 # vim navigation while in copy/scrollback mode
 set-option -wg mode-keys vi
 
-# X clipboard integration (similar to tmux-yank)
-bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xsel -i -p && xsel -o -p | xsel -i -b"
-bind-key p run "xsel -o | tmux load-buffer - ; tmux paste-buffer"
+# Wayland integration (similar to tmux-yank)
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "wl-copy && wl-paste -n | wl-copy -p"
+bind-key p run "wl-paste -n | tmux load-buffer - ; tmux paste-buffer"
 
 # open the current .tmuxxer file
 bind-key a source-file .tmuxxer

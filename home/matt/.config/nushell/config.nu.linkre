@@ -2,18 +2,22 @@ $env.config.buffer_editor = "nvim"
 $env.PASSWORD_STORE_DIR = ($env.HOME | path join ".sunk/.password-store")
 $env.config.show_banner = false
 
-def e [file] {
-    if ($env | has "config.buffer_editor") {
+def e [file: string = ""] {
+    if ("buffer_editor" in $env.config) {
         ^$env.config.buffer_editor $file
-    } else if ($env | has "EDITOR") {
+    } else if ("EDITOR" in $env) {
         ^$env.EDITOR $file
     } else {
         print "Error: \$EDITOR environment variable is not set."
     }
 }
+
+def sn [] {
+    exec nu --config ($nu.home-path | path join ".config/nushell/config.nu")
+}
  
 # Aliases
-alias ll = ls -lah
+alias ll = ls -la
  
 # History settings
 $env.config.history.file_format = 'sqlite'
@@ -36,76 +40,69 @@ def gp [] { git pull; git push }
 
 # Git commit function
 def git_commit_ticket [message: string] {
-  let ticket = (git branch --show-current | find --regex "([A-Z]+-[0-9]+)")
-  if $ticket != '' {
-    echo $"Ticket found: $ticket. Do you want to add it to the commit message? (Y/n) "
-    let choice = (read)
-    if $choice == '' or $choice == 'y' or $choice == 'Y' {
-      git commit -m $"$ticket $message"
+    let ticket = (git branch --show-current | find --regex "([A-Z]+-[0-9]+)")
+    if $ticket != '' {
+        echo $"Ticket found: $ticket. Do you want to add it to the commit message? (Y/n) "
+        let choice = (read)
+        if $choice == '' or $choice == 'y' or $choice == 'Y' {
+            git commit -m $"$ticket $message"
+        } else {
+            git commit -m $message
+        }
     } else {
-      git commit -m $message
+        git commit -m $message
     }
-  } else {
-    git commit -m $message
-  }
 }
 
 # Git adder function
 def git_adder [] {
-  let changed_files = (git status --porcelain | lines | each { |it| $it | split words | get 1 })
-  for $file in $changed_files {
-    echo $"file: $file"
-    git diff $file
-    echo "Do you want to add $file? (Y/n)"
-    let response = (read)
-    if $response == '' or $response == 'y' or $response == 'Y' {
-      git add $file
-      echo $"$file added."
-    } else {
-      echo $"$file not added."
+    let changed_files = (git status --porcelain | lines | each { |it| $it | split words | get 1 })
+    for $file in $changed_files {
+        echo $"file: $file"
+        git diff $file
+        echo "Do you want to add $file? (Y/n)"
+        let response = (read)
+        if $response == '' or $response == 'y' or $response == 'Y' {
+            git add $file
+            echo $"$file added."
+        } else {
+            echo $"$file not added."
+        }
     }
-  }
 }
 
 # CD helpers
-def cdf [] { ^fd --type d | fzf | cd $in }
+def --env cdf [] { ^fd --type d | fzf | cd $in }
 
-def cdg [] {
-  let dest_dir = (open ~/.cdg_paths | fzf)
-  if $dest_dir != '' {
-    cd $dest_dir
-  }
-}
+def --env cdg [] { open ~/.cdg_paths | fzf | cd $in }
 
 def cdgadd [] {
-  let current_dir = (pwd)
-  open ~/.cdg_paths | append $current_dir | sort | uniq | save ~/.cdg_paths
-  open ~/.cdg_paths
+    let current_dir = (pwd)
+    open ~/.cdg_paths | append $current_dir | sort | uniq | save ~/.cdg_paths
+    open ~/.cdg_paths
 }
-# 
-# def create_left_prompt [] {
-#     let path_segment = if (is-admin) {
-#         $"(ansi red_bold)($env.PWD)"
-#     } else {
-#         $"(ansi green_bold)($env.PWD)"
-#     }
-# 
-#     let git_branch = (do -i { git branch --show-current } | str trim)
-#     let git_segment = if $git_branch != "" {
-#         $"(ansi yellow_bold)[(char branch) ($git_branch)] "
-#     } else { 
-#         "" 
-#     }
-# 
-#     $"($path_segment)\n($git_segment)(ansi reset)❯ "
-# }
-# 
-# $env.PROMPT_COMMAND = { create_left_prompt }
-# 
-# # Source additional config files
-# if (path exists ~/.config/nushell/config.local.nu) {
-#   source ~/.config/nushell/config.local.nu
-# }
-# if (path exists ~/.config/nushell/config.midnight.nu) {
-#   source ~/.config/nushell/config.midnight.nu
-# }
+
+def create_left_prompt [] {
+    let path_segment = if (is-admin) {
+        $"(ansi red_bold)($env.PWD)"
+    } else {
+        $"(ansi green_bold)($env.PWD)"
+    }
+
+    let is_git = (git rev-parse --is-inside-work-tree | complete | str trim | $in.stdout == "true")
+    let git_segment = if $is_git {
+        echo "it is"
+        let git_branch = (do -i { git branch --show-current } | str trim)
+        if $git_branch != "" {
+            $"(ansi yellow_bold)[($git_branch)] "
+        } else {
+            ""
+        }
+    } else {
+        "" 
+    }
+
+    $"($path_segment) ($git_segment)(ansi reset)"
+}
+
+$env.PROMPT_COMMAND = { create_left_prompt }
