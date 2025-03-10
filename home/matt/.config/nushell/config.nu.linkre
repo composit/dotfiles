@@ -15,6 +15,38 @@ def e [file: string = ""] {
 def sn [] {
     exec nu --config ($nu.home-path | path join ".config/nushell/config.nu")
 }
+
+# tm - create new tmux session, or switch to existing one. Works from within tmux too. (@bag-man)
+# `tm` will allow you to select your tmux session via fzf.
+# `tm irc` will attach to the irc session (if it exists), else it will create it.
+def tm [session: string = ""] {
+  let change = if ("TMUX" in $env) { "switch-client" } else { "attach-session" }
+  
+  if $session != "" {
+    do -i {
+      tmux $change -t $session
+    } otherwise {
+      do -i {
+        tmux new-session -d -s $session
+        tmux $change -t $session
+      }
+    }
+    return
+  }
+  
+  let chosen_session = (tmux list-sessions -F "#{session_name}" | fzf --exit-0)
+  if $chosen_session != "" {
+    tmux $change -t $chosen_session
+  } else {
+    echo "No sessions found."
+  }
+}
+
+# bak - create a backup of a file
+def bak [file: string] {
+  let current_date_time = (date now | format date "%Y%m%d%H%M%S")
+  cp $file $"($file).($current_date_time).bak"
+}
  
 # Aliases
 alias ll = ls -la
@@ -28,24 +60,14 @@ $env.config.history.isolation = true
 # Vi mode
 $env.config.edit_mode = "vi"
 
-# Git aliases
-alias gs = git status
-alias gc = echo "Please use gcm or gct instead of gc"
-alias gcm = git_commit_ticket
-alias gda = git_adder
-alias ga = git add
-alias gd = git diff
-alias gb = git branch
-def gp [] { git pull; git push }
-
 # Git commit function
 def git_commit_ticket [message: string] {
     let ticket = (git branch --show-current | find --regex "([A-Z]+-[0-9]+)")
     if $ticket != '' {
-        echo $"Ticket found: $ticket. Do you want to add it to the commit message? (Y/n) "
+        echo $"Ticket found: ($ticket). Do you want to add it to the commit message? \(Y/n) "
         let choice = (read)
         if $choice == '' or $choice == 'y' or $choice == 'Y' {
-            git commit -m $"$ticket $message"
+            git commit -m $"($ticket) ($message)"
         } else {
             git commit -m $message
         }
@@ -70,6 +92,16 @@ def git_adder [] {
         }
     }
 }
+
+# Git aliases
+alias gs = git status
+alias gc = echo "Please use gcm or gct instead of gc"
+alias gcm = git_commit_ticket
+alias gda = git_adder
+alias ga = git add
+alias gd = git diff
+alias gb = git branch
+def gp [] { git pull; git push }
 
 # CD helpers
 def --env cdf [] { ^fd --type d | fzf | cd $in }
