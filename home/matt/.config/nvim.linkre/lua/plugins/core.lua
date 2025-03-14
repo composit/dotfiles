@@ -13,6 +13,6 @@ require("plugins.configs.conform")
 require("plugins.configs.nvim-lspconfig")
 require("lsp.servers.gopls")
 require("lsp.servers.efm-langserver") -- for golangci-lint (others?)
-require("lsp.servers.ruby-lsp") -- has to be called after 'blink' is loaded
+require("lsp.servers.ruby-lsp")       -- has to be called after 'blink' is loaded
 require("lsp.servers.lua-ls")
 require("lsp.servers.nixd")

@@ -8,10 +8,6 @@ vim.keymap.set("n", "<Leader>cx", ":cclose<CR>", { silent = true, desc = "close 
 vim.keymap.set("v", "<Leader>y", '"+y', { silent = true })
 vim.keymap.set("n", "<Leader>i", ":Inspect<CR>", { silent = true })
 
--- vim-test configuration: Sets the strategy for running tests (No default)
-vim.keymap.set("n", "<Leader>t", ":TestNearest<CR>", { silent = true, desc = "Run current test" })
-vim.keymap.set("n", "<Leader>T", ":TestSuite<CR>", { silent = true, desc = "Run test suite" })
-
 -- Fugitive mappings: Shortcuts for Git operations (No defaults)
 vim.keymap.set("n", "<Leader>gb", ":Git blame<CR>", { silent = true })
 vim.keymap.set("n", "<Leader>gd", ":Gvdiffsplit<CR>", { silent = true })
